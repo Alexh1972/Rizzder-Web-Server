@@ -4,15 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/rizzder_app/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/rizzder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rizzder.iml" afterDir="false" />
+    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Basic HTTP request and DB query">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/entity/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/entity/user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/entity/user_image.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/serializer/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/serializer/jwt_token.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/serializer/user_registration.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/static/js/cookie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/static/js/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/templates/registration/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/templates/registration/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/view/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/view/auth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/view/home.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,12 +40,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
@@ -49,16 +70,30 @@
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "users",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alexd\PycharmProjects\rizzder\rizzder_app" />
+      <recent name="C:\Users\alexd\PycharmProjects\rizzder\rizzder_app\templates\static" />
+      <recent name="C:\Users\alexd\PycharmProjects\rizzder\rizzder_app\templates\registration" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="rizzder" type="Python.DjangoServer" factoryName="Django server">
       <module name="rizzder" />
@@ -102,7 +137,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729771960506</updated>
-      <workItem from="1729771962526" duration="2752000" />
+      <workItem from="1729771962526" duration="12370000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -112,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729772088525</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Basic HTTP request and DB query">
+      <option name="closed" value="true" />
+      <created>1729774966164</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1729774966164</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +163,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Basic HTTP request and DB query" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic HTTP request and DB query" />
   </component>
 </project>

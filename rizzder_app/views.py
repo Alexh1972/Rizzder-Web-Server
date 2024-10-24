@@ -1,6 +1,4 @@
-from django.shortcuts import render, HttpResponse
-from .models import TestEntity
+from .view import *
+import logging
 
-def home(request):
-    items = TestEntity.objects.all()
-    return render(request, "home.html", {"test": items})
+logger = logging.getLogger(__name__)
