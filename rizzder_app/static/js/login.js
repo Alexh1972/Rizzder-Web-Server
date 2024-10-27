@@ -9,7 +9,7 @@ $('body').on('click', '#submit', function () {
 		success: function(json) {
 			if (json['access'] != null) {
 				setCookie("token", json['access'], 1);
-				// TODO redirect to home page
+				window.location = "/home?token=" + json['access'];
 			} else {
 				alert("MESSAGE ERRORS AGAIN");
 				// TODO errors
