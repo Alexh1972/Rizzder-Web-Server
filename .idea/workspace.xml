@@ -4,24 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Authentication for user by JWTAuthentication.">
-      <change afterPath="$PROJECT_DIR$/rizzder_app/migrations/0002_remove_user_name_user_username.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/migrations/0003_user_credential.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/migrations/0004_remove_user_images.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/migrations/0005_alter_user_user_id.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/utils/jwt_token_decoder.py" afterDir="false" />
+    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Authentication, authorization with JWTToken done.">
+      <change afterPath="$PROJECT_DIR$/rizzder_app/static/js/user/edit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/templates/user/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/view/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/01eeaae9-42d4-469a-a7e8-149838e11139.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01eeaae9-42d4-469a-a7e8-149838e11139.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/entity/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/entity/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/entity/user_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/entity/user_image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/static/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/static/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/migrations/0002_remove_user_name_user_username.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/migrations/0003_user_credential.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/migrations/0004_remove_user_images.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/migrations/0005_alter_user_user_id.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/templates/registration/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/templates/registration/signup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/view/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/view/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/view/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/view/auth.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/view/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/view/home.py" afterDir="false" />
     </list>
@@ -36,9 +36,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Python Script" />
         <option value="HTML File" />
         <option value="JavaScript File" />
-        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -134,7 +134,7 @@
       <option name="presentableId" value="Default" />
       <updated>1729771960506</updated>
       <workItem from="1729771962526" duration="17000000" />
-      <workItem from="1730019982362" duration="4839000" />
+      <workItem from="1730019982362" duration="13523000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -168,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729797798041</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Authentication, authorization with JWTToken done.">
+      <option name="closed" value="true" />
+      <created>1730024973148</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730024973148</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +186,7 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Basic HTTP request and DB query" />
     <MESSAGE value="Authentication for user by JWTAuthentication." />
-    <option name="LAST_COMMIT_MESSAGE" value="Authentication for user by JWTAuthentication." />
+    <MESSAGE value="Authentication, authorization with JWTToken done." />
+    <option name="LAST_COMMIT_MESSAGE" value="Authentication, authorization with JWTToken done." />
   </component>
 </project>

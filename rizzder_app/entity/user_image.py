@@ -2,10 +2,6 @@ from django.db import models
 
 
 class UserImage(models.Model):
-    user_image_id = models.BigIntegerField(primary_key=True, default=0)
-    image = models.ImageField(default="")
+    user_image_id = models.AutoField(auto_created=True, primary_key=True, serialize=False)
+    image = models.CharField(default="", max_length=1000)
     active = models.BooleanField(default=False)
-
-    def __init__(self, image, active):
-        self.image = image
-        self.active = active

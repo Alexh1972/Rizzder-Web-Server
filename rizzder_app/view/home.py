@@ -11,10 +11,11 @@ def home(request):
     try:
         jwt_token_decoder = JWTTokenDecoder(request.GET['token'])
         user = jwt_token_decoder.getUserFromToken()
-        logger.info(user)
+
         if user == None:
             return redirect("login")
 
         return render(request, "home.html", {"user": user})
-    except:
+    except Exception as e:
+        print(e)
         return redirect("login")

@@ -15,9 +15,8 @@ def signup(request):
         if User.get(request.POST['username']) is not None:
             return HttpResponse("User is already created!")
         cred = form.save()
-        logger.info(cred.last_login)
-        user = User.objects.create(username=request.POST['username'], birth_date="1999-01-01", credential=cred,
-                                   description_encoded_64="sldjadljlasjlasjlkdaskjldas")
+
+        user = User.objects.create(username=request.POST['username'], birth_date=request.POST['birthday'], credential=cred)
         user.save()
         ### TODO add all user's data and save it
         return redirect('login')
