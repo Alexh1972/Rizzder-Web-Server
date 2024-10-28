@@ -8,17 +8,32 @@
 
 <body>
     <label>Username</label>
-    <p>{{ user.username }}</p>
+    <p>{{ user.username }}, {{ age }}</p>
     <br>
 
     <label>Description</label>
     <textarea id="description"></textarea>
     <br>
 
+    <label>I am a </label>
+    <select id="userGenderSelect"></select>
+    <br>
+    <label>I want to meet a </label>
+    <select id="userGenderPreferenceSelect"></select>
+    <br>
     <label>Photo</label>
     <input id="photoFile" type="file" accept="image/png, image/jpeg image/jpg">
     <button id="editPhtotoSubmit">Submit Photo</button>
     <button id="editUserSubmit">Submit Changes</button>
+    <br>
+    {% for image in images %}
+        <div>
+            <img src="data:image/png;base64,{{ image.image_base_64_encoded }}" id="{{ image.id }}">
+            <br>
+            <button data-id="{{ image.id }}" class="deleteButton">Delete</button>
+            <br><br><br><br>
+        </div>
+    {% endfor %}
 </body>
 
 <script src="{% static 'js/cookie.js' %}"></script>
@@ -26,5 +41,7 @@
 
 <script>
     description = atob("{{ user.description_encoded_64 }}");
+    gender = "{{ user.gender }}";
+    gender_preference = "{{ user.gender_preference }}"
     document.getElementById("description").value = description;
 </script>

@@ -1,11 +1,10 @@
 from django.shortcuts import render, HttpResponse, redirect
 from ..utils import *
-from ..models import User, UserImage
+from ..models import User, UserImage, Gender
 import logging
 import base64
 import json
 import uuid
-import os
 
 logger = logging.getLogger(__name__)
 
@@ -18,7 +17,10 @@ def userEditView(request):
         if user is None:
             return redirect("login")
 
-        return render(request, "user/edit.html", {"user": user})
+        images = user.getImagesList()
+        user_age = user.calculateAge()
+
+        return render(request, "user/edit.html", {"user": user, "images" : images, "age" : user_age})
     except:
         return redirect("login")
 
@@ -36,6 +38,14 @@ def userEdit(request):
         if request.POST['description'] != "":
             userQuery.update(
                 description_encoded_64=base64.b64encode(request.POST['description'].encode("utf-8")).decode("utf-8"))
+
+        if request.POST['gender'] != "":
+            userQuery.update(
+                gender=request.POST['gender'])
+
+        if request.POST['genderPreference'] != "":
+            userQuery.update(
+                gender_preference=request.POST['genderPreference'])
 
         response = {'status': 'success'}
         return HttpResponse(json.dumps(response), content_type="application/json")
@@ -71,6 +81,39 @@ def userEditPhoto(request):
             user.save()
 
         response = {'status': 'success'}
+        return HttpResponse(json.dumps(response), content_type="application/json")
+    except Exception as e:
+        logger.error(e)
+        return redirect("login")
+
+def userDeletePhoto(request):
+    try:
+        jwt_token_decoder = JWTTokenDecoder(request.POST['token'])
+        user = jwt_token_decoder.getUserFromToken()
+
+        if user is None:
+            return redirect("login")
+
+        image_id = request.POST['id']
+        UserImage.objects.filter(user_image_id=image_id).delete()
+
+        response = {'status': 'success'}
+        return HttpResponse(json.dumps(response), content_type="application/json")
+    except Exception as e:
+        logger.error(e)
+        return redirect("login")
+
+def getGenders(request):
+    try:
+        jwt_token_decoder = JWTTokenDecoder(request.POST['token'])
+        user = jwt_token_decoder.getUserFromToken()
+
+        if user is None:
+            return redirect("login")
+
+        genders = [{"key": e.value, "value": e.name} for e in Gender]
+
+        response = {'status': 'success', "genders": genders}
         return HttpResponse(json.dumps(response), content_type="application/json")
     except Exception as e:
         logger.error(e)

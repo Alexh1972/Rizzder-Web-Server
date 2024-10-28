@@ -1,2 +1,2 @@
-from .user import User
+from .user import User, Gender
 from .user_image import UserImage
