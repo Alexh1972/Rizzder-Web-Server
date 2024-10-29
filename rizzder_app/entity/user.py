@@ -2,12 +2,15 @@ from django.db import models
 from .user_image import UserImage
 from django.contrib.auth import get_user_model
 import base64
-from datetime import date
 from enum import IntEnum
+from django.db.models import F, FloatField, ExpressionWrapper, IntegerField
+from ..utils import *
+
 
 class Gender(IntEnum):
     MAN = 1
     WOMAN = 2
+
 
 class User(models.Model):
     user_id = models.AutoField(auto_created=True, primary_key=True, serialize=False)
@@ -18,6 +21,8 @@ class User(models.Model):
     credential = models.ForeignKey(get_user_model(), on_delete=models.DO_NOTHING, default=None)
     gender = models.IntegerField(Gender, default=Gender.MAN)
     gender_preference = models.IntegerField(Gender, default=Gender.MAN)
+    latitude = models.FloatField(default=0)
+    longitude = models.FloatField(default=0)
 
     ### other fields to be added
 
@@ -37,7 +42,16 @@ class User(models.Model):
         return images
 
     def calculateAge(self):
-        today = date.today()
-        return today.year - self.birth_date.year - (
-                    (today.month, today.day) < (self.birth_date.month, self.birth_date.day))
+        return calculateYearsPassed(self.birth_date)
 
+    def getPreferredUsers(self, numberOfResults):
+        return (self.objects
+                .filter(distance=ExpressionWrapper(distance(self.latitude, self.longitude, F('latitude'), F('longitude')),
+                        output_field=FloatField()))
+                .filter(age_difference=ExpressionWrapper(abs(self.calculateAge() - calculateYearsPassed(F('birth_date'))),
+                        output_field=IntegerField()))
+                .filter(age_difference__lte=10)
+                .filter(distance__lte=10)
+                .filter(gender=self.gender_preference)
+                # TODO check if results are not returned twice (table containing user_id_recv -> user_id_ret)
+                .all()[0:numberOfResults])

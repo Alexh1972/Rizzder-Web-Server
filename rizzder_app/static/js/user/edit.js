@@ -1,10 +1,13 @@
 $('#editUserSubmit').on('click', function () {
-   var paramDescription = "";
-   if (description !== document.getElementById("description").value)
-      paramDescription = document.getElementById("description").value;
+	var paramDescription = "";
+	if (description !== document.getElementById("description").value)
+		paramDescription = document.getElementById("description").value;
 
-   if (document.getElementById("userGenderSelect").value == document.getElementById("userGenderPreferenceSelect").value)
-	   alert("GAY!")
+	if (document.getElementById("userGenderSelect").value == document.getElementById("userGenderPreferenceSelect").value) {
+		alert("GAY!")
+		return;
+	}
+
    $.ajax({
 		url: "/api/user/edit/",
 		type: "POST",
@@ -68,7 +71,7 @@ $('.deleteButton').on('click', function () {
 
 $(document).ready(function() {
     $.ajax({
-		url: "/api/user/genders",
+		url: "/api/user/genders/",
 		type: "POST",
 		data: {
 			token : getCookie('token')

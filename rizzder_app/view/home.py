@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 def home(request):
     try:
-        jwt_token_decoder = JWTTokenDecoder(request.GET['token'])
+        jwt_token_decoder = JWTTokenDecoder(request)
         user = jwt_token_decoder.getUserFromToken()
 
         if user == None:

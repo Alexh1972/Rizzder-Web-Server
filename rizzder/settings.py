@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-0xhbo#2^75x=!*l$x2nv7l3bduxfp3lj6e##%h$q1bta*c+9tv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -46,18 +46,35 @@ INSTALLED_APPS = [
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{module} [{levelname}] {asctime} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '[{levelname}] {message}',
+            'style': '{',
+        },
+    },
     'handlers': {
-        'console_handler': {
+        'file': {
+            'class': 'logging.FileHandler',
+            'filename': 'general.log',
+            'formatter': 'verbose',
+        },
+        'console': {
             'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+            'level': 'INFO'
         },
     },
     'loggers': {
-        '': {
-            'level': 'INFO',
-            'handlers': ['console_handler'],
+        'rizzder_app': {
+            'handlers': ['file', 'console'],
+            'level': 'DEBUG',
+            'propagate': True
         },
     },
-
 }
 
 REST_FRAMEWORK = {

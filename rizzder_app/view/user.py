@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 def userEditView(request):
     try:
-        jwt_token_decoder = JWTTokenDecoder(request.GET['token'])
+        jwt_token_decoder = JWTTokenDecoder(request)
         user = jwt_token_decoder.getUserFromToken()
 
         if user is None:
@@ -20,14 +20,14 @@ def userEditView(request):
         images = user.getImagesList()
         user_age = user.calculateAge()
 
-        return render(request, "user/edit.html", {"user": user, "images" : images, "age" : user_age})
+        return render(request, "user/edit.html", {"user": user, "images": images, "age": user_age})
     except:
         return redirect("login")
 
 
 def userEdit(request):
     try:
-        jwt_token_decoder = JWTTokenDecoder(request.POST['token'])
+        jwt_token_decoder = JWTTokenDecoder(request)
         user = jwt_token_decoder.getUserFromToken()
 
         if user is None:
@@ -56,7 +56,7 @@ def userEdit(request):
 
 def userEditPhoto(request):
     try:
-        jwt_token_decoder = JWTTokenDecoder(request.GET['token'])
+        jwt_token_decoder = JWTTokenDecoder(request)
         user = jwt_token_decoder.getUserFromToken()
 
         if user is None:
@@ -86,9 +86,10 @@ def userEditPhoto(request):
         logger.error(e)
         return redirect("login")
 
+
 def userDeletePhoto(request):
     try:
-        jwt_token_decoder = JWTTokenDecoder(request.POST['token'])
+        jwt_token_decoder = JWTTokenDecoder(request)
         user = jwt_token_decoder.getUserFromToken()
 
         if user is None:
@@ -103,9 +104,10 @@ def userDeletePhoto(request):
         logger.error(e)
         return redirect("login")
 
+
 def getGenders(request):
     try:
-        jwt_token_decoder = JWTTokenDecoder(request.POST['token'])
+        jwt_token_decoder = JWTTokenDecoder(request)
         user = jwt_token_decoder.getUserFromToken()
 
         if user is None:
@@ -115,6 +117,47 @@ def getGenders(request):
 
         response = {'status': 'success', "genders": genders}
         return HttpResponse(json.dumps(response), content_type="application/json")
+    except Exception as e:
+        logger.error(e)
+        return redirect("login")
+
+
+def getUserLocation(request):
+    try:
+        jwt_token_decoder = JWTTokenDecoder(request)
+        user = jwt_token_decoder.getUserFromToken()
+
+        if user is None:
+            return redirect("login")
+
+        remote_addr = request.META.get('HTTP_X_FORWARDED_FOR')
+        if remote_addr:
+            address = remote_addr.split(',')[-1].strip()
+        else:
+            address = request.META.get('REMOTE_ADDR')
+
+        location = Location(address)
+        lat, lon = location.getLatitudeAndLongitude()
+
+        userQuery = User.objects.filter(user_id=user.user_id)
+        userQuery.update(latitude=lat, longitude=lon)
+
+        response = {'status': 'success'}
+        return HttpResponse(json.dumps(response), content_type="application/json")
+    except Exception as e:
+        logger.error(e)
+        return redirect("login")
+
+
+def userMeetView(request):
+    try:
+        jwt_token_decoder = JWTTokenDecoder(request)
+        user = jwt_token_decoder.getUserFromToken()
+
+        if user is None:
+            return redirect("login")
+
+        return render(request, "user/meet.html");
     except Exception as e:
         logger.error(e)
         return redirect("login")

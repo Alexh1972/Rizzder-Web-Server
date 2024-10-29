@@ -6,3 +6,4 @@
 /.idea/
 /rizzder_app/migrations/
 /rizzder_app/files/user_images/*
+/general.log
