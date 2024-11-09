@@ -4,19 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Edit and delete photos. Added genders and gender preferences.">
-      <change afterPath="$PROJECT_DIR$/rizzder_app/static/js/user/meet.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/templates/user/meet.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/utils/location.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/utils/time.py" afterDir="false" />
+    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Get user location and calculate distance from other users.">
+      <change afterPath="$PROJECT_DIR$/rizzder_app/entity/user_like.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/scheduler/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/scheduler/scheduler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01eeaae9-42d4-469a-a7e8-149838e11139.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01eeaae9-42d4-469a-a7e8-149838e11139.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/entity/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/entity/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/entity/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/entity/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/static/js/user/edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/static/js/user/edit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/static/js/user/meet.js" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/static/js/user/meet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/utils/jwt_token_decoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/utils/jwt_token_decoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/utils/location.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/utils/location.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/utils/time.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/utils/time.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/view/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/view/home.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/view/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/view/user.py" afterDir="false" />
     </list>
@@ -54,31 +58,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Django Server.rizzder.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "users",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.rizzder.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;users&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\alexd\PycharmProjects\rizzder\rizzder_app" />
@@ -105,7 +109,7 @@
       <option name="launchJavascriptDebuger" value="false" />
       <option name="port" value="8080" />
       <option name="host" value="0.0.0.0" />
-      <option name="additionalOptions" value="" />
+      <option name="additionalOptions" value="--noreload" />
       <option name="browserUrl" value="" />
       <option name="runTestServer" value="false" />
       <option name="runNoReload" value="false" />
@@ -131,7 +135,9 @@
       <updated>1729771960506</updated>
       <workItem from="1729771962526" duration="17000000" />
       <workItem from="1730019982362" duration="15025000" />
-      <workItem from="1730135872339" duration="14384000" />
+      <workItem from="1730135872339" duration="15059000" />
+      <workItem from="1730296263300" duration="3570000" />
+      <workItem from="1731166181185" duration="8850000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -189,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730141753594</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Get user location and calculate distance from other users.">
+      <option name="closed" value="true" />
+      <created>1730221545959</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730221545959</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +216,7 @@
     <MESSAGE value="Authentication, authorization with JWTToken done." />
     <MESSAGE value="API for editing photos and user's info." />
     <MESSAGE value="Edit and delete photos. Added genders and gender preferences." />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit and delete photos. Added genders and gender preferences." />
+    <MESSAGE value="Get user location and calculate distance from other users." />
+    <option name="LAST_COMMIT_MESSAGE" value="Get user location and calculate distance from other users." />
   </component>
 </project>

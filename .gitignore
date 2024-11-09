@@ -2,8 +2,9 @@
 /debug.log
 /error.log
 /info.log
-/.venv/
-/.idea/
-/rizzder_app/migrations/
+/.venv
+/.idea
+/.gitignore
+/rizzder_app/migrations
 /rizzder_app/files/user_images/*
 /general.log

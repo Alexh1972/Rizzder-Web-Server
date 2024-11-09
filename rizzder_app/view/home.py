@@ -1,8 +1,6 @@
 from ..models import *
 from django.shortcuts import render, HttpResponse, redirect
-import logging
 from ..utils import *
-import json
 
 logger = logging.getLogger(__name__)
 

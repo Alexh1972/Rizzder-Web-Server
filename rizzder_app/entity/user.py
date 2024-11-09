@@ -1,11 +1,11 @@
 from django.db import models
+
 from .user_image import UserImage
 from django.contrib.auth import get_user_model
 import base64
 from enum import IntEnum
-from django.db.models import F, FloatField, ExpressionWrapper, IntegerField
+from django.forms.models import model_to_dict
 from ..utils import *
-
 
 class Gender(IntEnum):
     MAN = 1
@@ -45,13 +45,22 @@ class User(models.Model):
         return calculateYearsPassed(self.birth_date)
 
     def getPreferredUsers(self, numberOfResults):
-        return (self.objects
-                .filter(distance=ExpressionWrapper(distance(self.latitude, self.longitude, F('latitude'), F('longitude')),
-                        output_field=FloatField()))
-                .filter(age_difference=ExpressionWrapper(abs(self.calculateAge() - calculateYearsPassed(F('birth_date'))),
-                        output_field=IntegerField()))
-                .filter(age_difference__lte=10)
-                .filter(distance__lte=10)
-                .filter(gender=self.gender_preference)
-                # TODO check if results are not returned twice (table containing user_id_recv -> user_id_ret)
-                .all()[0:numberOfResults])
+        from . import UserLike
+        users = (User.objects
+                 .filter(gender=self.gender_preference)
+                 .exclude(user_id=self.user_id)
+                 # TODO check if results are not returned twice (table containing user_id_recv -> user_id_ret)
+                 .all())
+        users = [user for user in users if abs(self.calculateAge() - calculateYearsPassed(user.birth_date) < 10)]
+        users = [user for user in users if
+                 not UserLike.objects.filter(user_receiver__user_id=user.user_id, user_liker__user_id=self.user_id).exists()]
+        users = users[0:numberOfResults]
+        users = [model_to_dict(user, fields=['user_id', 'username', 'birth_date', 'images', 'description_encoded_64', 'latitude', 'longitude']) for user in users]
+
+        for user in users:
+            user['images'] = User.getImagesList(User.objects.get(user_id=user['user_id']))
+            user['distance'] = distance(self.latitude, self.longitude, user['latitude'], user['longitude'])
+            del user['latitude']
+            del user['longitude']
+            logger.info(user)
+        return users

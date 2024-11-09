@@ -161,3 +161,18 @@ def userMeetView(request):
     except Exception as e:
         logger.error(e)
         return redirect("login")
+
+
+def getPreferredUsers(request):
+    try:
+        jwt_token_decoder = JWTTokenDecoder(request)
+        user = jwt_token_decoder.getUserFromToken()
+
+        if user is None:
+            return redirect("login")
+
+        response = {'status': 'success', 'users': json.dumps(User.getPreferredUsers(user, 5), default=str)}
+        return HttpResponse(json.dumps(response), content_type="application/json")
+    except Exception as e:
+        logger.error(e)
+        return redirect("login")

@@ -1,5 +1,13 @@
 from datetime import date
-def calculateYearsPassed(birthDay):
+import logging
+
+logger = logging.getLogger(__name__)
+def calculateYearsPassed(date):
     today = date.today()
-    return today.year - birthDay.year - (
-            (today.month, today.day) < (birthDay.month, birthDay.day))
+    return today.year - date.year - (
+            (today.month, today.day) < (date.month, date.day))
+
+def calculateDaysPassed(date):
+    today = date.today()
+
+    return (today - date).days

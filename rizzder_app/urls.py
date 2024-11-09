@@ -13,6 +13,7 @@ urlpatterns = [
     path('api/user/edit/', views.userEdit, name='editUser'),
     path('api/user/edit/photo/', views.userEditPhoto, name='editUserPhoto'),
     path('api/user/edit/delete/photo/', views.userDeletePhoto, name='deleteUserPhoto'),
+    path('api/user/getPreferredUsers/', views.getPreferredUsers, name='getPreferredUsers'),
     path('api/user/genders/', views.getGenders, name='getGenders'),
     path('api/user/info/getLocation/', views.getUserLocation, name='getUserLocation'),
     path('login/', views.login, name='login'),
