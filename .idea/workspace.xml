@@ -4,24 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Get user location and calculate distance from other users.">
-      <change afterPath="$PROJECT_DIR$/rizzder_app/entity/user_like.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/scheduler/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/scheduler/scheduler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Get preferred users.">
+      <change afterPath="$PROJECT_DIR$/rizzder_app/entity/chat_room.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/messaging/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/messaging/chat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/rounting.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/static/js/user/chatRoom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rizzder_app/templates/user/chatRoom.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/01eeaae9-42d4-469a-a7e8-149838e11139.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01eeaae9-42d4-469a-a7e8-149838e11139.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder/asgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/entity/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/entity/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/entity/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/entity/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/static/js/user/meet.js" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/static/js/user/meet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/utils/location.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/utils/location.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/utils/time.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/utils/time.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/view/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/view/home.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/view/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/view/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,6 +82,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alexd\PycharmProjects\rizzder\rizzder_app\messaging" />
       <recent name="C:\Users\alexd\PycharmProjects\rizzder\rizzder_app" />
       <recent name="C:\Users\alexd\PycharmProjects\rizzder\rizzder_app\templates\static" />
       <recent name="C:\Users\alexd\PycharmProjects\rizzder\rizzder_app\templates\registration" />
@@ -137,7 +135,7 @@
       <workItem from="1730019982362" duration="15025000" />
       <workItem from="1730135872339" duration="15059000" />
       <workItem from="1730296263300" duration="3570000" />
-      <workItem from="1731166181185" duration="8850000" />
+      <workItem from="1731166181185" duration="21676000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -203,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730221545959</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Get preferred users.">
+      <option name="closed" value="true" />
+      <created>1731180455964</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1731180455964</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +223,7 @@
     <MESSAGE value="API for editing photos and user's info." />
     <MESSAGE value="Edit and delete photos. Added genders and gender preferences." />
     <MESSAGE value="Get user location and calculate distance from other users." />
-    <option name="LAST_COMMIT_MESSAGE" value="Get user location and calculate distance from other users." />
+    <MESSAGE value="Get preferred users." />
+    <option name="LAST_COMMIT_MESSAGE" value="Get preferred users." />
   </component>
 </project>

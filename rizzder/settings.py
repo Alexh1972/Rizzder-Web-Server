@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -27,11 +26,12 @@ SECRET_KEY = 'django-insecure-0xhbo#2^75x=!*l$x2nv7l3bduxfp3lj6e##%h$q1bta*c+9tv
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_apscheduler',
     'rest_framework',
     'rest_framework_simplejwt',
+    'channels',
     'rizzder_app.scheduler.scheduler.JobsConfig',
     'rizzder_app'
 ]
@@ -114,8 +115,16 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'rizzder.wsgi.application'
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
 
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
+
+WSGI_APPLICATION = 'rizzder.wsgi.application'
+ASGI_APPLICATION = 'rizzder.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases

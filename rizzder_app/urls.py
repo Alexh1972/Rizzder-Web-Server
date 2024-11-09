@@ -21,4 +21,5 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('user/meet/', views.userMeetView, name='userMeetView'),
     path('user/edit/', views.userEditView, name='editUserView'),
+    path('user/chatRoom/', views.chatRoomView, name='chatRoom'),
 ]

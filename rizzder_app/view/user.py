@@ -1,10 +1,12 @@
 from django.shortcuts import render, HttpResponse, redirect
 from ..utils import *
 from ..models import User, UserImage, Gender
+from ..messaging import *
 import logging
 import base64
 import json
 import uuid
+
 
 logger = logging.getLogger(__name__)
 
@@ -173,6 +175,28 @@ def getPreferredUsers(request):
 
         response = {'status': 'success', 'users': json.dumps(User.getPreferredUsers(user, 5), default=str)}
         return HttpResponse(json.dumps(response), content_type="application/json")
+    except Exception as e:
+        logger.error(e)
+        return redirect("login")
+
+
+def chatRoomView(request):
+    try:
+        jwt_token_decoder = JWTTokenDecoder(request)
+        user = jwt_token_decoder.getUserFromToken()
+
+        if user is None:
+            return redirect("login")
+
+        receiverUser = User.objects.get(user_id=request.GET['receiver_user_id'])
+        if receiverUser is None:
+            return redirect("login")
+
+
+        return render(request, "user/chatRoom.html",
+                      context={'user': user,
+                               'receiverUser': receiverUser,
+                               'roomName': chatName([user, receiverUser])})
     except Exception as e:
         logger.error(e)
         return redirect("login")
