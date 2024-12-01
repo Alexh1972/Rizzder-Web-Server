@@ -1,12 +1,11 @@
 from django.shortcuts import render, HttpResponse, redirect
 from ..utils import *
-from ..models import User, UserImage, Gender
+from ..models import User, UserImage, Gender, UserLike
 from ..messaging import *
 import logging
 import base64
 import json
 import uuid
-
 
 logger = logging.getLogger(__name__)
 
@@ -180,6 +179,28 @@ def getPreferredUsers(request):
         return redirect("login")
 
 
+def likeUser(request):
+    try:
+        jwt_token_decoder = JWTTokenDecoder(request)
+        user = jwt_token_decoder.getUserFromToken()
+
+        if user is None:
+            return redirect("login")
+
+        receiverID = request.POST['receiver_id']
+        receiver = User.objects.get(user_id=receiverID)
+
+        if receiver is None:
+            return HttpResponse(json.dumps({'status': 'failed', 'message': 'Receiver user not found!'}),
+                                content_type="application/json")
+
+        UserLike.objects.create(user_liker=user, user_receiver=receiver, like=True, date=date.today())
+        return HttpResponse(json.dumps({'status': 'success'}), content_type="application/json")
+    except Exception as e:
+        logger.error(e)
+        return redirect("login")
+
+
 def chatRoomView(request):
     try:
         jwt_token_decoder = JWTTokenDecoder(request)
@@ -191,7 +212,6 @@ def chatRoomView(request):
         receiverUser = User.objects.get(user_id=request.GET['receiver_user_id'])
         if receiverUser is None:
             return redirect("login")
-
 
         return render(request, "user/chatRoom.html",
                       context={'user': user,

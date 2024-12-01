@@ -15,6 +15,7 @@ urlpatterns = [
     path('api/user/edit/delete/photo/', views.userDeletePhoto, name='deleteUserPhoto'),
     path('api/user/getPreferredUsers/', views.getPreferredUsers, name='getPreferredUsers'),
     path('api/user/genders/', views.getGenders, name='getGenders'),
+    path('api/user/meet/like/', views.likeUser, name='likeUser'),
     path('api/user/info/getLocation/', views.getUserLocation, name='getUserLocation'),
     path('login/', views.login, name='login'),
     path('signup/', views.signup, name='signup'),

@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Get preferred users.">
-      <change afterPath="$PROJECT_DIR$/rizzder_app/entity/chat_room.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/messaging/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/messaging/chat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/rounting.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/static/js/user/chatRoom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/templates/user/chatRoom.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01eeaae9-42d4-469a-a7e8-149838e11139.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01eeaae9-42d4-469a-a7e8-149838e11139.xml" afterDir="false" />
+    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Implemented chat room.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder/asgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/entity/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/entity/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/utils/time.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/utils/time.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/view/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/view/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +123,10 @@
       <workItem from="1730019982362" duration="15025000" />
       <workItem from="1730135872339" duration="15059000" />
       <workItem from="1730296263300" duration="3570000" />
-      <workItem from="1731166181185" duration="21676000" />
+      <workItem from="1731166181185" duration="21955000" />
+      <workItem from="1731427966383" duration="363000" />
+      <workItem from="1731518239308" duration="373000" />
+      <workItem from="1733046192173" duration="476000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -209,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731180455964</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Implemented chat room.">
+      <option name="closed" value="true" />
+      <created>1731194173818</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1731194173818</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +223,7 @@
     <MESSAGE value="Edit and delete photos. Added genders and gender preferences." />
     <MESSAGE value="Get user location and calculate distance from other users." />
     <MESSAGE value="Get preferred users." />
-    <option name="LAST_COMMIT_MESSAGE" value="Get preferred users." />
+    <MESSAGE value="Implemented chat room." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented chat room." />
   </component>
 </project>
