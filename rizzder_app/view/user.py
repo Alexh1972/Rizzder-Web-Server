@@ -142,7 +142,6 @@ def getUserLocation(request):
 
         userQuery = User.objects.filter(user_id=user.user_id)
         userQuery.update(latitude=lat, longitude=lon)
-
         response = {'status': 'success'}
         return HttpResponse(json.dumps(response), content_type="application/json")
     except Exception as e:
@@ -172,7 +171,7 @@ def getPreferredUsers(request):
         if user is None:
             return redirect("login")
 
-        response = {'status': 'success', 'users': json.dumps(User.getPreferredUsers(user, 5), default=str)}
+        response = {'status': 'success', 'users': User.getPreferredUsers(user, 5)}
         return HttpResponse(json.dumps(response), content_type="application/json")
     except Exception as e:
         logger.error(e)

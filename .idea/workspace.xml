@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Implemented chat room.">
+    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Implemented liking user API.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/entity/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/entity/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/view/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/view/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,6 +127,8 @@
       <workItem from="1731427966383" duration="363000" />
       <workItem from="1731518239308" duration="373000" />
       <workItem from="1733046192173" duration="476000" />
+      <workItem from="1733047114931" duration="1127000" />
+      <workItem from="1733089766703" duration="3332000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -208,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731194173818</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Implemented liking user API.">
+      <option name="closed" value="true" />
+      <created>1733048365713</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1733048365713</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +234,7 @@
     <MESSAGE value="Get user location and calculate distance from other users." />
     <MESSAGE value="Get preferred users." />
     <MESSAGE value="Implemented chat room." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented chat room." />
+    <MESSAGE value="Implemented liking user API." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented liking user API." />
   </component>
 </project>
