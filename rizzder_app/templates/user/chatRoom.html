@@ -7,8 +7,14 @@
 </head>
 
 <body>
+    {% if ghosted %}
+    <p>Ghosted</p>
+    {% endif %}
     <input id="textMessage">
     <button id="sendMessage"></button>
+    {% for message in messages %}
+        <p>{{ message.value }} {{ message.date }}</p>
+    {% endfor %}
 </body>
 
 <script>

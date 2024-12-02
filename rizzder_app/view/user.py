@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from ..utils import *
-from ..models import User, UserImage, Gender, UserLike
+from ..models import User, UserImage, Gender, UserLike, addUserLike, addUserDislike, getChatRoom, deleteChatRoom
 from ..messaging import *
 import logging
 import base64
@@ -26,6 +26,11 @@ def userEditView(request):
         return redirect("login")
 
 
+# POST api/user/edit/ - body -
+# {'gender' : gender,
+# 'genderPreference': gp,
+# 'description': d
+# ... other fields}
 def userEdit(request):
     try:
         jwt_token_decoder = JWTTokenDecoder(request)
@@ -55,6 +60,7 @@ def userEdit(request):
         return redirect("login")
 
 
+# POST - api/user/edit/photo/ - file body -> image
 def userEditPhoto(request):
     try:
         jwt_token_decoder = JWTTokenDecoder(request)
@@ -88,6 +94,7 @@ def userEditPhoto(request):
         return redirect("login")
 
 
+# POST - api/user/edit/delete/photo/ - {'id' : image_id}
 def userDeletePhoto(request):
     try:
         jwt_token_decoder = JWTTokenDecoder(request)
@@ -106,6 +113,7 @@ def userDeletePhoto(request):
         return redirect("login")
 
 
+# GET - api/user/genders/
 def getGenders(request):
     try:
         jwt_token_decoder = JWTTokenDecoder(request)
@@ -123,6 +131,7 @@ def getGenders(request):
         return redirect("login")
 
 
+# GET - api/user/info/getLocation/
 def getUserLocation(request):
     try:
         jwt_token_decoder = JWTTokenDecoder(request)
@@ -163,6 +172,7 @@ def userMeetView(request):
         return redirect("login")
 
 
+# GET - api/user/getPreferredUsers/
 def getPreferredUsers(request):
     try:
         jwt_token_decoder = JWTTokenDecoder(request)
@@ -178,6 +188,7 @@ def getPreferredUsers(request):
         return redirect("login")
 
 
+# POST api/user/meet/like/ - body - {'receiver_id' : id}
 def likeUser(request):
     try:
         jwt_token_decoder = JWTTokenDecoder(request)
@@ -193,7 +204,55 @@ def likeUser(request):
             return HttpResponse(json.dumps({'status': 'failed', 'message': 'Receiver user not found!'}),
                                 content_type="application/json")
 
-        UserLike.objects.create(user_liker=user, user_receiver=receiver, like=True, date=date.today())
+        matched = addUserLike(user, receiver)
+        return HttpResponse(json.dumps({'status': 'success', 'matched': matched}), content_type="application/json")
+    except Exception as e:
+        logger.error(e)
+        return redirect("login")
+
+
+# POST api/user/meet/dislike/ - body - {'receiver_id' : id}
+def dislikeUser(request):
+    try:
+        jwt_token_decoder = JWTTokenDecoder(request)
+        user = jwt_token_decoder.getUserFromToken()
+
+        if user is None:
+            return redirect("login")
+
+        receiverID = request.POST['receiver_id']
+        receiver = User.objects.get(user_id=receiverID)
+
+        if receiver is None:
+            return HttpResponse(json.dumps({'status': 'failed', 'message': 'Receiver user not found!'}),
+                                content_type="application/json")
+
+        addUserDislike(user, receiver)
+        return HttpResponse(json.dumps({'status': 'success'}), content_type="application/json")
+    except Exception as e:
+        logger.error(e)
+        return redirect("login")
+
+# POST api/user/setGhosted/ - body - {'receiver_id' : id, 'block_receiver': t/f}
+def setGhosted(request):
+    try:
+        jwt_token_decoder = JWTTokenDecoder(request)
+        user = jwt_token_decoder.getUserFromToken()
+
+        if user is None:
+            return redirect("login")
+
+        receiverID = request.POST['receiver_id']
+        receiver = User.objects.get(user_id=receiverID)
+
+        if receiver is None:
+            return HttpResponse(json.dumps({'status': 'failed', 'message': 'Receiver user not found!'}),
+                                content_type="application/json")
+
+        deleteChatRoom(chatName([user, receiver]))
+        receiver.changeScore(-200)
+        if request.POST['block_receiver']:
+            addUserDislike(user, receiver, False)
         return HttpResponse(json.dumps({'status': 'success'}), content_type="application/json")
     except Exception as e:
         logger.error(e)
@@ -212,10 +271,24 @@ def chatRoomView(request):
         if receiverUser is None:
             return redirect("login")
 
+        (chatRoom, messages) = getChatRoom(chatName([user, receiverUser]))
+
+        noMessages = len(messages)
+        ghosted = False
+        if noMessages > 0:
+            lastMessage = messages[noMessages - 1]
+            if lastMessage.user_sender.all()[0].user_id == user.user_id:
+                if currentTimeMillis() - lastMessage.date >= 1000 * 60 * 60 * 24 * 7:
+                    ghosted = True
+
         return render(request, "user/chatRoom.html",
                       context={'user': user,
                                'receiverUser': receiverUser,
-                               'roomName': chatName([user, receiverUser])})
+                               'roomName': chatName([user, receiverUser]),
+                               'chatRoom': chatRoom,
+                               'messages': messages,
+                               'ghosted': ghosted})
     except Exception as e:
         logger.error(e)
         return redirect("login")
+

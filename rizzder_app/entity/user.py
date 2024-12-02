@@ -25,6 +25,7 @@ class User(models.Model):
     gender_preference = models.IntegerField(Gender, default=Gender.MAN)
     latitude = models.FloatField(default=0)
     longitude = models.FloatField(default=0)
+    score = models.FloatField(default=1000)
 
     ### other fields to be added
 
@@ -33,6 +34,9 @@ class User(models.Model):
             return self.objects.filter(username=username)
 
         return None
+
+    def changeScore(self, score):
+        self.score += score
 
     def getImagesList(self):
         images = []
@@ -48,16 +52,22 @@ class User(models.Model):
 
     def getPreferredUsers(self, numberOfResults):
         delta = timedelta(days=365 * 10)
+        maxDistance = 0.9 * 1 # 0.9 -> 100 km
         users = (User.objects
                  .filter(gender=self.gender_preference)
                  .exclude(user_id=self.user_id)
-                 .filter(longitude__lte=self.longitude + 0.9)
-                 .filter(longitude__gte=self.longitude - 0.9)
-                 .filter(latitude__lte=self.latitude + 0.9)
-                 .filter(latitude__gte=self.latitude - 0.9)
+                 # maximum distance
+                 .filter(longitude__lte=self.longitude + maxDistance)
+                 .filter(longitude__gte=self.longitude - maxDistance)
+                 .filter(latitude__lte=self.latitude + maxDistance)
+                 .filter(latitude__gte=self.latitude - maxDistance)
+                 # age difference
                  .filter(birth_date__gte=self.birth_date - delta)
+                 # already liked
                  .exclude(user_liker=self.user_id)
-                 .exclude(user_receiver=self.user_id)
+                 # blocked
+                 .exclude(user_receiver__like=False, user_liker=self.user_id)
+                 .exclude(user_liker__like=False, user_receiver=self.user_id)
                  .all())
 
         users = users[0:numberOfResults]
