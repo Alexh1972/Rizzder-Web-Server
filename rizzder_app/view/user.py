@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from ..utils import *
-from ..models import User, UserImage, Gender, UserLike, addUserLike, addUserDislike, getChatRoom, deleteChatRoom
+from ..models import User, UserImage, Gender, UserLike, addUserLike, getChatRoom, deleteChatRoom, existsChatRoom
 from ..messaging import *
 import logging
 import base64
@@ -188,7 +188,7 @@ def getPreferredUsers(request):
         return redirect("login")
 
 
-# POST api/user/meet/like/ - body - {'receiver_id' : id}
+# POST api/user/meet/like/ - body - {'receiver_id' : id, 'like': t/f (like/reject)}
 def likeUser(request):
     try:
         jwt_token_decoder = JWTTokenDecoder(request)
@@ -204,15 +204,15 @@ def likeUser(request):
             return HttpResponse(json.dumps({'status': 'failed', 'message': 'Receiver user not found!'}),
                                 content_type="application/json")
 
-        matched = addUserLike(user, receiver)
+        matched = addUserLike(user, receiver, request.POST['like'])
         return HttpResponse(json.dumps({'status': 'success', 'matched': matched}), content_type="application/json")
     except Exception as e:
         logger.error(e)
         return redirect("login")
 
 
-# POST api/user/meet/dislike/ - body - {'receiver_id' : id}
-def dislikeUser(request):
+# POST api/user/block/ - body - {'receiver_id' : id}
+def blockUser(request):
     try:
         jwt_token_decoder = JWTTokenDecoder(request)
         user = jwt_token_decoder.getUserFromToken()
@@ -227,11 +227,34 @@ def dislikeUser(request):
             return HttpResponse(json.dumps({'status': 'failed', 'message': 'Receiver user not found!'}),
                                 content_type="application/json")
 
-        addUserDislike(user, receiver)
+        user.blockUser(receiver)
         return HttpResponse(json.dumps({'status': 'success'}), content_type="application/json")
     except Exception as e:
         logger.error(e)
         return redirect("login")
+
+# POST api/user/unblock/ - body - {'receiver_id' : id}
+def unblockUser(request):
+    try:
+        jwt_token_decoder = JWTTokenDecoder(request)
+        user = jwt_token_decoder.getUserFromToken()
+
+        if user is None:
+            return redirect("login")
+
+        receiverID = request.POST['receiver_id']
+        receiver = User.objects.get(user_id=receiverID)
+
+        if receiver is None:
+            return HttpResponse(json.dumps({'status': 'failed', 'message': 'Receiver user not found!'}),
+                                content_type="application/json")
+
+        user.unblockUser(receiver)
+        return HttpResponse(json.dumps({'status': 'success'}), content_type="application/json")
+    except Exception as e:
+        logger.error(e)
+        return redirect("login")
+
 
 # POST api/user/setGhosted/ - body - {'receiver_id' : id, 'block_receiver': t/f}
 def setGhosted(request):
@@ -249,10 +272,11 @@ def setGhosted(request):
             return HttpResponse(json.dumps({'status': 'failed', 'message': 'Receiver user not found!'}),
                                 content_type="application/json")
 
-        deleteChatRoom(chatName([user, receiver]))
-        receiver.changeScore(-200)
-        if request.POST['block_receiver']:
-            addUserDislike(user, receiver, False)
+        if existsChatRoom(chatName([user, receiver])):
+            deleteChatRoom(chatName([user, receiver]))
+            receiver.changeScore(-200)
+            if request.POST['block_receiver']:
+                user.blockUser(receiver)
         return HttpResponse(json.dumps({'status': 'success'}), content_type="application/json")
     except Exception as e:
         logger.error(e)
@@ -291,4 +315,3 @@ def chatRoomView(request):
     except Exception as e:
         logger.error(e)
         return redirect("login")
-

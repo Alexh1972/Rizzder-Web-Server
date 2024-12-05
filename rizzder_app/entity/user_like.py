@@ -24,33 +24,28 @@ class UserLike(models.Model):
         return None
 
 
-def addUserLike(liker, receiver):
-    if userLikeExists(liker=receiver, receiver=liker):
-        deleteUserLike(receiver, liker)
-        liker.changeScore(50)
-        receiver.changeScore(50)
-        return True
-    UserLike.objects.create(user_liker=liker,
+def addUserLike(liker, receiver, like=False):
+    if like:
+        if userLikeExists(liker=receiver, receiver=liker):
+            deleteUserLike(receiver, liker)
+            liker.changeScore(50)
+            receiver.changeScore(50)
+            return True
+
+    if not UserLike.objects.filter(user_liker=liker,
                             user_receiver=receiver,
-                            like=True,
-                            date=date.today())
+                            like=like).exists():
+        UserLike.objects.create(user_liker=liker,
+                                user_receiver=receiver,
+                                like=like,
+                                date=date.today())
     return False
 
 
-def addUserDislike(disliker, receiver, subtractScore=True):
-    if not userLikeExists(liker=disliker, receiver=receiver, like=False):
-        if subtractScore:
-            disliker.changeScore(-100)
-        UserLike.objects.create(user_liker=disliker,
-                                user_receiver=receiver,
-                                like=False,
-                                date=date.today())
-
-
 def userLikeExists(liker, receiver, like=True):
-    return UserLike.objects.get(user_liker__user_id=liker.user_id,
-                                user_receiver__user_id=receiver.user_id,
-                                like=like)
+    return UserLike.objects.filter(user_liker__user_id=liker.user_id,
+                                   user_receiver__user_id=receiver.user_id,
+                                   like=like).exists()
 
 
 def deleteUserLike(liker, receiver):

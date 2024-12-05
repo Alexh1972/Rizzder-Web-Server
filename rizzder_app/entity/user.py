@@ -9,6 +9,7 @@ from enum import IntEnum
 from django.forms.models import model_to_dict
 from ..utils import *
 
+
 class Gender(IntEnum):
     MAN = 1
     WOMAN = 2
@@ -26,6 +27,7 @@ class User(models.Model):
     latitude = models.FloatField(default=0)
     longitude = models.FloatField(default=0)
     score = models.FloatField(default=1000)
+    blocked_users = models.ManyToManyField("self", blank=True, symmetrical=False)
 
     ### other fields to be added
 
@@ -37,6 +39,7 @@ class User(models.Model):
 
     def changeScore(self, score):
         self.score += score
+        self.save()
 
     def getImagesList(self):
         images = []
@@ -52,9 +55,9 @@ class User(models.Model):
 
     def getPreferredUsers(self, numberOfResults):
         delta = timedelta(days=365 * 10)
-        maxDistance = 0.9 * 1 # 0.9 -> 100 km
+        maxDistance = 0.9 * 1  # 0.9 -> 100 km
         users = (User.objects
-                 .filter(gender=self.gender_preference)
+                 # .filter(gender=self.gender_preference)
                  .exclude(user_id=self.user_id)
                  # maximum distance
                  .filter(longitude__lte=self.longitude + maxDistance)
@@ -64,14 +67,15 @@ class User(models.Model):
                  # age difference
                  .filter(birth_date__gte=self.birth_date - delta)
                  # already liked
-                 .exclude(user_liker=self.user_id)
+                 .exclude(user_receiver__user_liker_id=self.user_id)
                  # blocked
-                 .exclude(user_receiver__like=False, user_liker=self.user_id)
-                 .exclude(user_liker__like=False, user_receiver=self.user_id)
+                 .exclude(user_id__in=self.blocked_users.all())
+                 .exclude(blocked_users__user_id=self.user_id)
                  .all())
 
         users = users[0:numberOfResults]
-        users = [model_to_dict(user, fields=['user_id', 'username', 'birth_date', 'images', 'description_encoded_64', 'latitude', 'longitude']) for user in users]
+        users = [model_to_dict(user, fields=['user_id', 'username', 'birth_date', 'images', 'description_encoded_64',
+                                             'latitude', 'longitude']) for user in users]
 
         for user in users:
             user['images'] = User.getImagesList(User.objects.get(user_id=user['user_id']))
@@ -82,3 +86,17 @@ class User(models.Model):
             del user['birth_date']
             logger.info(user)
         return users
+
+    def blockUser(self, receiver, changeScore=False):
+        # receiver.blocked_users.add(self)
+        self.blocked_users.add(receiver)
+        if changeScore:
+            self.changeScore(-100)
+
+    def unblockUser(self, receiver):
+        # receiver.blocked_users.remove(self)
+        self.blocked_users.remove(receiver)
+
+    def blockedUser(self, user):
+        return (self.blocked_users.filter(user_id=user.user_id).exists() or
+                user.blocked_users.filter(user_id=self.user_id).exists())

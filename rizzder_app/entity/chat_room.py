@@ -20,9 +20,21 @@ class ChatRoom(models.Model):
 
 
 def getChatRoom(name):
-    chatRoom = ChatRoom.objects.get(name=name)
+    chatRoom = ChatRoom.objects.filter(name=name)
+
+    if not chatRoom.exists():
+        return None, []
+
+    chatRoom = chatRoom.get()
     messages = chatRoom.messages.all()
-    return (chatRoom, messages)
+    return chatRoom, messages
+
+
+def existsChatRoom(name):
+    chatRoom = ChatRoom.objects.filter(name=name)
+
+    return chatRoom.exists()
+
 
 def deleteChatRoom(name):
     chatRoom = ChatRoom.objects.get(name=name)

@@ -14,6 +14,14 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         from ..models import ChatRoom, User
         self.roomGroupName = self.scope['url_route']['kwargs']['room_name']
+        users = usersFromChatName(self.roomGroupName)
+        if len(users) == 2:
+            firstUser = User.objects.get(user_id=users[0])
+            secondUser = User.objects.get(user_id=users[1])
+
+            if firstUser.blockedUser(secondUser):
+                await self.close()
+
         await self.channel_layer.group_add(
             self.roomGroupName,
             self.channel_name
@@ -22,7 +30,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
         if not ChatRoom.objects.filter(name=self.roomGroupName).exists():
             chatRoom = ChatRoom.objects.create(name=self.roomGroupName)
-            for user_id in usersFromChatName(self.roomGroupName):
+            for user_id in users:
                 chatRoom.users.add(User.objects.get(user_id=user_id))
 
     async def disconnect(self, close_code):
