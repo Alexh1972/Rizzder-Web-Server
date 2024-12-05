@@ -25,16 +25,18 @@ class UserLike(models.Model):
 
 
 def addUserLike(liker, receiver, like=False):
+    if liker.blockedUser(receiver):
+        return None
     if like:
         if userLikeExists(liker=receiver, receiver=liker):
+            from .user_match import matchUser
             deleteUserLike(receiver, liker)
-            liker.changeScore(50)
-            receiver.changeScore(50)
+            matchUser(liker, receiver)
             return True
 
     if not UserLike.objects.filter(user_liker=liker,
-                            user_receiver=receiver,
-                            like=like).exists():
+                                   user_receiver=receiver,
+                                   like=like).exists():
         UserLike.objects.create(user_liker=liker,
                                 user_receiver=receiver,
                                 like=like,

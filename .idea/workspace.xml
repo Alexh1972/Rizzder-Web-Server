@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Implemented changing the user's score, liking / disliking (blocking) users, detecting ghosting.">
+    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Updated rejecting, blocking users and filtering users.">
+      <change afterPath="$PROJECT_DIR$/rizzder_app/entity/user_match.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/01eeaae9-42d4-469a-a7e8-149838e11139.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01eeaae9-42d4-469a-a7e8-149838e11139.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/entity/chat_room.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/entity/chat_room.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/entity/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/entity/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/entity/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/entity/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/entity/user_like.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/entity/user_like.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/messaging/chat.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/messaging/chat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rizzder_app/view/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/view/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +135,7 @@
       <workItem from="1733047114931" duration="1127000" />
       <workItem from="1733089766703" duration="3794000" />
       <workItem from="1733151626478" duration="10864000" />
-      <workItem from="1733406181201" duration="5828000" />
+      <workItem from="1733406181201" duration="9132000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -241,7 +241,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733166175885</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Updated rejecting, blocking users and filtering users.">
+      <option name="closed" value="true" />
+      <created>1733412046690</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1733412046690</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +268,7 @@
     <MESSAGE value="Implemented liking user API." />
     <MESSAGE value="Updated filtering users from database." />
     <MESSAGE value="Implemented changing the user's score, liking / disliking (blocking) users, detecting ghosting." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented changing the user's score, liking / disliking (blocking) users, detecting ghosting." />
+    <MESSAGE value="Updated rejecting, blocking users and filtering users." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated rejecting, blocking users and filtering users." />
   </component>
 </project>

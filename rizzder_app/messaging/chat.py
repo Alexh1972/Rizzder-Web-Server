@@ -19,7 +19,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             firstUser = User.objects.get(user_id=users[0])
             secondUser = User.objects.get(user_id=users[1])
 
-            if firstUser.blockedUser(secondUser):
+            if not firstUser.canChat(secondUser):
                 await self.close()
 
         await self.channel_layer.group_add(
@@ -47,11 +47,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
         time = text_data_json["time"]
 
         chatRoom = ChatRoom.objects.get(name=self.roomGroupName)
-        chatMessage = ChatMessage.objects.create(date=time, value=message)
-        chatMessage.save()
-        chatMessage.user_sender.add(User.objects.get(user_id=userId))
+        if chatRoom.users.count() is not 0:
+            chatMessage = ChatMessage.objects.create(date=time, value=message)
+            chatMessage.save()
+            chatMessage.user_sender.add(User.objects.get(user_id=userId))
 
-        chatRoom.messages.add(chatMessage)
+            chatRoom.messages.add(chatMessage)
 
         await self.channel_layer.group_send(
             self.roomGroupName, {
@@ -70,6 +71,23 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
 
 delimiter = '$'
+
+
+def disconnectUser(name, user):
+    from ..entity import getChatRoom
+    chatRoom, messages = getChatRoom(name)
+
+    if chatRoom is not None:
+        chatRoom.users.remove(user)
+
+
+def connectUser(name, user):
+    from ..entity import getChatRoom
+    chatRoom, messages = getChatRoom(name)
+
+    if chatRoom is not None:
+        chatRoom.users.add(user)
+
 
 def chatName(users):
     from ..models import User

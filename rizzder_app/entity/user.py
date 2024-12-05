@@ -71,6 +71,9 @@ class User(models.Model):
                  # blocked
                  .exclude(user_id__in=self.blocked_users.all())
                  .exclude(blocked_users__user_id=self.user_id)
+                 # already matched
+                 .exclude(user_first__user_second_id=self.user_id)
+                 .exclude(user_second__user_first_id=self.user_id)
                  .all())
 
         users = users[0:numberOfResults]
@@ -89,7 +92,10 @@ class User(models.Model):
 
     def blockUser(self, receiver, changeScore=False):
         # receiver.blocked_users.add(self)
+        from ..messaging import disconnectUser, chatName
         self.blocked_users.add(receiver)
+        disconnectUser(chatName([self, receiver]), self)
+        disconnectUser(chatName([self, receiver]), receiver)
         if changeScore:
             self.changeScore(-100)
 
@@ -97,6 +103,18 @@ class User(models.Model):
         # receiver.blocked_users.remove(self)
         self.blocked_users.remove(receiver)
 
+        if not self.blockedUser(receiver):
+            from ..messaging import connectUser, chatName
+            connectUser(chatName([self, receiver]), self)
+            connectUser(chatName([self, receiver]), receiver)
+
     def blockedUser(self, user):
         return (self.blocked_users.filter(user_id=user.user_id).exists() or
                 user.blocked_users.filter(user_id=self.user_id).exists())
+
+    def canChat(self, user):
+        from .user_match import getMatch
+        if not self.blockedUser(user) and getMatch(self, user) is not None:
+            return True
+
+        return False

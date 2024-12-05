@@ -39,5 +39,7 @@ def existsChatRoom(name):
 def deleteChatRoom(name):
     chatRoom = ChatRoom.objects.get(name=name)
     for message in chatRoom.messages.all():
+        for user_sender in message.user_sender.all():
+            user_sender.delete()
         message.delete()
     chatRoom.delete()

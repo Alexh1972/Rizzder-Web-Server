@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from ..utils import *
-from ..models import User, UserImage, Gender, UserLike, addUserLike, getChatRoom, deleteChatRoom, existsChatRoom
+from ..models import User, UserImage, Gender, addUserLike, getChatRoom, existsChatRoom, unmatchUser, getMatch
 from ..messaging import *
 import logging
 import base64
@@ -205,6 +205,9 @@ def likeUser(request):
                                 content_type="application/json")
 
         matched = addUserLike(user, receiver, request.POST['like'])
+
+        if matched is None:
+            return HttpResponse(json.dumps({'error': "Couldn't like user"}), content_type="application/json")
         return HttpResponse(json.dumps({'status': 'success', 'matched': matched}), content_type="application/json")
     except Exception as e:
         logger.error(e)
@@ -272,11 +275,9 @@ def setGhosted(request):
             return HttpResponse(json.dumps({'status': 'failed', 'message': 'Receiver user not found!'}),
                                 content_type="application/json")
 
-        if existsChatRoom(chatName([user, receiver])):
-            deleteChatRoom(chatName([user, receiver]))
+        if getMatch(user, receiver):
+            unmatchUser(user, receiver, request.POST['block_receiver'])
             receiver.changeScore(-200)
-            if request.POST['block_receiver']:
-                user.blockUser(receiver)
         return HttpResponse(json.dumps({'status': 'success'}), content_type="application/json")
     except Exception as e:
         logger.error(e)
