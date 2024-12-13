@@ -90,3 +90,20 @@ body {
 .action-buttons .super-like {
   background: #3b8beb;
 }
+
+.login-container {
+  background: linear-gradient(135deg, #ff5851, #ff7e5f);
+  padding: 20px;
+  max-width: 400px;
+}
+
+.card-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+}
+
+.mt-3 {
+  color: white;
+  text-align: center;
+}
