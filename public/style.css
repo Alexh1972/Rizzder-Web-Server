@@ -1,0 +1,92 @@
+body {
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+.site-header {
+  background: linear-gradient(135deg, #ff5851, #ff7e5f);
+  color: white;
+  padding: 4px 0;
+}
+
+.site-header .navbar {
+  background: none;
+}
+
+.site-header .navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: white;
+  margin-right: 15px;
+  font-weight: 500;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.profile-card img {
+  width: 100%;
+  max-width: 480px;
+  max-height: 700px;
+  border-radius: 20px;
+}
+
+.profile-card h3 {
+  margin-top: 15px;
+  font-size: 24px;
+}
+
+.profile-card p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.action-buttons button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.action-buttons .like {
+  background: #4caf50;
+}
+
+.action-buttons .dislike {
+  background: #ff5851;
+}
+
+.action-buttons .super-like {
+  background: #3b8beb;
+}

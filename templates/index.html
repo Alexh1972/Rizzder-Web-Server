@@ -1,0 +1,64 @@
+{% extends "_base.html" %}
+{% block title %}Home Page{% endblock %}
+
+{% block nav_bar %}
+<a class="nav-item nav-link active" href="/">Gallery</a>
+<a class="nav-item nav-link" href="/about">About me</a>
+{% if session["authenticated"] %}
+<a class="nav-item nav-link" href="/upload">Upload</a>
+<a class="nav-item nav-link" href="/logout">Logout</a>
+{% else %}
+<a class="nav-item nav-link" href="/login">Login</a>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div>
+    {% for theme, paths in wallpapers.items() %}
+    <div class="theme">
+        <div class="theme-header">
+            <h3 onclick="toggleImages('{{ loop.index }}')" class="theme-title">{{ theme }}</h3>
+            {% if session["authenticated"] %}
+            <form method="post" action="{{ url_for('delete_all_images') }}" class="delete-all-form">
+                <input type="hidden" name="theme" value="{{ theme }}">
+                <button type="submit" class="btn btn-danger btn-sm delete-all-button">
+                    <i class="fas fa-trash-alt"></i> Delete All
+                </button>
+            </form>
+            {% endif %}
+        </div>
+        <div class="image-container" id="theme-{{ loop.index }}">
+            {% for path in paths %}
+            <div class="image-wrapper">
+                <div class="image-relative">
+                    <a href="public/wallpapers/{{ theme }}/{{ path }}">
+                        <img src="public/wallpapers/{{ theme }}/{{ path.split('.')[0] }}.thumb.png" alt="{{ theme }} image" class="image">
+                    </a>
+                    {% if session["authenticated"] %}
+                    <form method="post" action="{{ url_for('delete_image') }}" class="delete-form">
+                        <input type="hidden" name="theme" value="{{ theme }}">
+                        <input type="hidden" name="image_path" value="{{ path }}">
+                        <button type="submit" class="btn btn-danger btn-sm delete-button">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    function toggleImages(themeIndex) {
+        const imageContainer = document.getElementById('theme-' + themeIndex);
+        if (imageContainer.classList.contains('expanded')) {
+            imageContainer.classList.remove('expanded');
+        } else {
+            imageContainer.classList.add('expanded');
+        }
+    }
+</script>
+{% endblock %}

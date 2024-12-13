@@ -1,0 +1,54 @@
+{% extends "_base.html" %}
+{% block title %}About Me{% endblock %}
+
+{% block nav_bar %}
+<a class="nav-item nav-link" href="/">Gallery</a>
+<a class="nav-item nav-link active" href="/about">About me</a>
+{% if session["authenticated"] %}
+<a class="nav-item nav-link" href="/upload">Upload</a>
+<a class="nav-item nav-link" href="/logout">Logout</a>
+{% else %}
+<a class="nav-item nav-link" href="/login">Login</a>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<h1 class="main-title">About Me</h1>
+
+<p>
+    When asked how it all started, I always tell that it began that day when we went to the Botanical Gardens. We -
+    meaning yours truly and two of my friends. Whose idea was it to visit the abandoned station? Who persuaded the
+    others to go?
+    I always tell them that I don’t remember. I always lie. It is a safe lie, for there’s no way to ascertain the truth.
+    Both Vitali and Eugine are dead now.
+</p>
+<p>
+    The massive airlock doors shrugged and opened with a grinding sound, opening a road to hell for us and a road into
+    the Metro for the demons. But, in fact, it all started that day when Mother said we should take a walk in the
+    Botanical
+    Gardens… and go there by the Metro! I remember how we took a short escalator to the surface, how we exited a
+    spacious glass pavilion and saw a street buried in green. I remember the small clouds moving across the limitless
+    sky, and
+    soft, cool wind on my face. Mother bought me an ice cream… That was the last time I tasted it. That day, humanity
+    was
+    executed.
+</p>
+<p>
+    The righteous and the sinful were called to be rendered according to their deeds. And we hid from God’s sight in the
+    Metro. And we were saved from His wrath. And He apparently decided that flushing us out wasn’t worth the trouble.
+    Then He went about his business or, perhaps, died. While we stayed on this used up and discarded Earth and continued
+    just
+    going with it… Going nowhere.
+</p>
+<p>
+    I remember so many random, unnecessary things… Yet I don’t remember the most important one: my Mother’s face. She
+    died very soon after the war started… How I wish I could recall her face! The way she looked at me. The way she
+    whispered
+    that I have nothing to fear. I’d sell my soul just to recall that. I’d do that any day, any time. And I did.
+</p>
+<p>
+</p>
+<p>
+    - Artyom Alekseyevich Chyornyj
+</p>
+{% endblock %}

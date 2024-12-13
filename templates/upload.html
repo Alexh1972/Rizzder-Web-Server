@@ -1,0 +1,54 @@
+{% extends "_base.html" %}
+
+{% block title %}Upload{% endblock %}
+
+{% block nav_bar %}
+<a class="nav-item nav-link" href="/">Gallery</a>
+<a class="nav-item nav-link" href="/about">About me</a>
+{% if session["authenticated"] %}
+<a class="nav-item nav-link active" href="/upload">Upload</a>
+<a class="nav-item nav-link" href="/logout">Logout</a>
+{% else %}
+<a class="nav-item nav-link" href="/login">Login</a>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<h1 class="main-title">Upload an Image</h1>
+
+<form method="post" enctype="multipart/form-data" action="{{ url_for('upload') }}">
+  <div class="form-group">
+    <label for="image" class="form-label">Select a file</label>
+    <input type="file" name="image" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label for="category" class="form-label">Theme</label>
+    <select class="form-select" name="category" id="category">
+      <option value="">Select a theme...</option>
+      {% for theme_name in predefined_themes %}
+      <option value="{{ theme_name }}">{{ theme_name }}</option>
+      {% endfor %}
+      <option value="custom">Custom</option>
+    </select>
+    <div id="customThemeInput" style="display: none;">
+      <input type="text" class="form-control mt-2" name="custom_theme" placeholder="Enter custom theme">
+    </div>
+  </div>
+  <label for="name" class="form-label">New File Name (optional)</label>
+  <input type="text" class="form-control" name="name" id="name">
+  <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+
+<script>
+  document.getElementById("category").addEventListener("change", function () {
+    var customThemeInput = document.getElementById("customThemeInput");
+    if (this.value === "custom") {
+      customThemeInput.style.display = "block";
+    } else {
+      customThemeInput.style.display = "none";
+    }
+  });
+</script>
+
+
+{% endblock %}
