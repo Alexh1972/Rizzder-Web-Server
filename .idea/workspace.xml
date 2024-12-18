@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Updated rejecting, blocking users and filtering users.">
-      <change afterPath="$PROJECT_DIR$/rizzder_app/entity/user_match.py" afterDir="false" />
+    <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/01eeaae9-42d4-469a-a7e8-149838e11139.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01eeaae9-42d4-469a-a7e8-149838e11139.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/rizzder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rizzder.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/entity/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/entity/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/entity/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/entity/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/entity/user_like.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/entity/user_like.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/messaging/chat.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/messaging/chat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/view/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/view/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rizzder_app/utils/jwt_token_decoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/utils/jwt_token_decoder.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,9 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -39,6 +37,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;teodoraplopeanu&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/teodoraplopeanu/Rizzder-Dating-App&quot;,
+    &quot;accountId&quot;: &quot;2e827c72-7212-4b8e-88a7-a01031a266b2&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -50,14 +60,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "DefaultHtmlFileTemplate": "HTML File",
     "Django Server.rizzder.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "users",
     "node.js.detected.package.eslint": "true",
@@ -73,14 +82,6 @@
     ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\alexd\PycharmProjects\rizzder\rizzder_app\messaging" />
-      <recent name="C:\Users\alexd\PycharmProjects\rizzder\rizzder_app" />
-      <recent name="C:\Users\alexd\PycharmProjects\rizzder\rizzder_app\templates\static" />
-      <recent name="C:\Users\alexd\PycharmProjects\rizzder\rizzder_app\templates\registration" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="rizzder" type="Python.DjangoServer" factoryName="Django server">
       <module name="rizzder" />
@@ -92,15 +93,15 @@
         <env name="DJANGO_SETTINGS_MODULE" value="rizzder.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.12 (rizzder)" />
+      <option name="SDK_NAME" value="Python 3.13" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
       <option name="port" value="8080" />
-      <option name="host" value="0.0.0.0" />
-      <option name="additionalOptions" value="--noreload" />
+      <option name="host" value="localhost" />
+      <option name="additionalOptions" value="" />
       <option name="browserUrl" value="" />
       <option name="runTestServer" value="false" />
       <option name="runNoReload" value="false" />
@@ -112,7 +113,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.180" />
+        <option value="bundled-python-sdk-85c76a3b01b3-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.180" />
       </set>
     </attachedChunks>
   </component>
@@ -124,18 +126,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729771960506</updated>
-      <workItem from="1729771962526" duration="17000000" />
-      <workItem from="1730019982362" duration="15025000" />
-      <workItem from="1730135872339" duration="15059000" />
-      <workItem from="1730296263300" duration="3570000" />
-      <workItem from="1731166181185" duration="21955000" />
-      <workItem from="1731427966383" duration="363000" />
-      <workItem from="1731518239308" duration="373000" />
-      <workItem from="1733046192173" duration="476000" />
-      <workItem from="1733047114931" duration="1127000" />
-      <workItem from="1733089766703" duration="3794000" />
-      <workItem from="1733151626478" duration="10864000" />
-      <workItem from="1733406181201" duration="9132000" />
+      <workItem from="1729771962526" duration="2752000" />
+      <workItem from="1734514795430" duration="36000" />
+      <workItem from="1734514840763" duration="1872000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -145,111 +138,7 @@
       <option name="project" value="LOCAL" />
       <updated>1729772088525</updated>
     </task>
-    <task id="LOCAL-00002" summary="Basic HTTP request and DB query">
-      <option name="closed" value="true" />
-      <created>1729774966164</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1729774966164</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Authentication for user by JWTAuthentication.">
-      <option name="closed" value="true" />
-      <created>1729797779959</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1729797779959</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Authentication for user by JWTAuthentication.">
-      <option name="closed" value="true" />
-      <created>1729797798041</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1729797798041</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Authentication, authorization with JWTToken done.">
-      <option name="closed" value="true" />
-      <created>1730024973148</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1730024973148</updated>
-    </task>
-    <task id="LOCAL-00006" summary="API for editing photos and user's info.">
-      <option name="closed" value="true" />
-      <created>1730033803311</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1730033803311</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Edit and delete photos. Added genders and gender preferences.">
-      <option name="closed" value="true" />
-      <created>1730141753594</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1730141753594</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Get user location and calculate distance from other users.">
-      <option name="closed" value="true" />
-      <created>1730221545959</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1730221545959</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Get preferred users.">
-      <option name="closed" value="true" />
-      <created>1731180455964</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1731180455964</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Implemented chat room.">
-      <option name="closed" value="true" />
-      <created>1731194173818</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1731194173818</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Implemented liking user API.">
-      <option name="closed" value="true" />
-      <created>1733048365713</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1733048365713</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Updated filtering users from database.">
-      <option name="closed" value="true" />
-      <created>1733093923260</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1733093923260</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Implemented changing the user's score, liking / disliking (blocking) users, detecting ghosting.">
-      <option name="closed" value="true" />
-      <created>1733166175885</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1733166175885</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Updated rejecting, blocking users and filtering users.">
-      <option name="closed" value="true" />
-      <created>1733412046690</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1733412046690</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,18 +146,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <MESSAGE value="Basic HTTP request and DB query" />
-    <MESSAGE value="Authentication for user by JWTAuthentication." />
-    <MESSAGE value="Authentication, authorization with JWTToken done." />
-    <MESSAGE value="API for editing photos and user's info." />
-    <MESSAGE value="Edit and delete photos. Added genders and gender preferences." />
-    <MESSAGE value="Get user location and calculate distance from other users." />
-    <MESSAGE value="Get preferred users." />
-    <MESSAGE value="Implemented chat room." />
-    <MESSAGE value="Implemented liking user API." />
-    <MESSAGE value="Updated filtering users from database." />
-    <MESSAGE value="Implemented changing the user's score, liking / disliking (blocking) users, detecting ghosting." />
-    <MESSAGE value="Updated rejecting, blocking users and filtering users." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated rejecting, blocking users and filtering users." />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
   </component>
 </project>

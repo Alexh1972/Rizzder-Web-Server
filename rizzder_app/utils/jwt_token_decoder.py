@@ -1,6 +1,7 @@
 import jwt
 import logging
 from django.contrib.auth.models import User as authUser
+from django.conf import settings
 
 logger = logging.getLogger(__name__)
 
@@ -15,7 +16,7 @@ class JWTTokenDecoder():
 
     def getUserFromToken(self):
         from ..models import User
-        decodedPayload = jwt.decode(self.token, None, None)
+        decodedPayload = jwt.decode(self.token, settings.SECRET_KEY, algorithms=['HS256'])
         user_id = decodedPayload.get("user_id")
         auth_user = authUser.objects.get(id=user_id)
 
