@@ -1,5 +1,5 @@
 import ast
-from PIL import Image
+# from PIL import Image
 from flask import Flask, request, render_template, redirect, session
 from werkzeug.utils import secure_filename
 import os

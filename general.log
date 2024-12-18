@@ -1,0 +1,100 @@
+scheduler [INFO] 2024-12-18 11:30:08,139 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:30:08,139 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 11:30:09,301 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:30:09,301 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 11:30:18,156 Deleting UserLikes older than 2024-12-11 11:30:18.156468
+user_like [INFO] 2024-12-18 11:30:19,306 Deleting UserLikes older than 2024-12-11 11:30:19.306420
+scheduler [INFO] 2024-12-18 11:30:57,895 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:30:57,896 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 11:30:59,001 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:30:59,001 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 11:31:07,913 Deleting UserLikes older than 2024-12-11 11:31:07.913458
+user_like [INFO] 2024-12-18 11:31:09,019 Deleting UserLikes older than 2024-12-11 11:31:09.019450
+scheduler [INFO] 2024-12-18 11:32:10,589 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:32:10,589 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 11:32:11,818 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:32:11,819 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 11:32:20,606 Deleting UserLikes older than 2024-12-11 11:32:20.606683
+user_like [INFO] 2024-12-18 11:32:21,836 Deleting UserLikes older than 2024-12-11 11:32:21.836907
+scheduler [INFO] 2024-12-18 11:40:51,046 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:40:51,047 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 11:40:53,748 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:40:53,748 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 11:41:01,061 Deleting UserLikes older than 2024-12-11 11:41:01.061328
+user_like [INFO] 2024-12-18 11:41:03,755 Deleting UserLikes older than 2024-12-11 11:41:03.755091
+scheduler [INFO] 2024-12-18 11:41:24,653 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:41:24,653 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 11:41:27,059 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:41:27,060 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 11:41:34,673 Deleting UserLikes older than 2024-12-11 11:41:34.673067
+user_like [INFO] 2024-12-18 11:41:37,071 Deleting UserLikes older than 2024-12-11 11:41:37.071864
+scheduler [INFO] 2024-12-18 11:43:11,072 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:43:11,073 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 11:43:12,508 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:43:12,508 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 11:43:21,081 Deleting UserLikes older than 2024-12-11 11:43:21.081588
+scheduler [INFO] 2024-12-18 11:43:21,663 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:43:21,663 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 11:43:22,527 Deleting UserLikes older than 2024-12-11 11:43:22.527285
+scheduler [INFO] 2024-12-18 11:43:30,886 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:43:30,887 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 11:43:32,204 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:43:32,205 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 11:43:40,899 Deleting UserLikes older than 2024-12-11 11:43:40.898988
+scheduler [INFO] 2024-12-18 11:43:41,249 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:43:41,249 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 11:43:42,211 Deleting UserLikes older than 2024-12-11 11:43:42.211453
+scheduler [INFO] 2024-12-18 11:43:48,416 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:43:48,417 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 11:43:49,749 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:43:49,749 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 11:43:58,432 Deleting UserLikes older than 2024-12-11 11:43:58.431993
+user_like [INFO] 2024-12-18 11:43:59,764 Deleting UserLikes older than 2024-12-11 11:43:59.764825
+scheduler [INFO] 2024-12-18 11:53:37,033 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:53:37,033 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 11:53:38,685 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:53:38,686 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 11:53:47,040 Deleting UserLikes older than 2024-12-11 11:53:47.040720
+user_like [INFO] 2024-12-18 11:53:48,700 Deleting UserLikes older than 2024-12-11 11:53:48.700120
+scheduler [INFO] 2024-12-18 11:55:26,165 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:55:26,165 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 11:55:27,671 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:55:27,671 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 11:55:36,183 Deleting UserLikes older than 2024-12-11 11:55:36.183766
+user_like [INFO] 2024-12-18 11:55:37,677 Deleting UserLikes older than 2024-12-11 11:55:37.677221
+scheduler [INFO] 2024-12-18 11:55:57,132 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:55:57,132 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 11:55:58,673 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:55:58,674 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 11:56:07,148 Deleting UserLikes older than 2024-12-11 11:56:07.147857
+user_like [INFO] 2024-12-18 11:56:08,686 Deleting UserLikes older than 2024-12-11 11:56:08.686180
+scheduler [INFO] 2024-12-18 11:56:26,062 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:56:26,062 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 11:56:27,495 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:56:27,495 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 11:56:36,069 Deleting UserLikes older than 2024-12-11 11:56:36.069354
+user_like [INFO] 2024-12-18 11:56:37,510 Deleting UserLikes older than 2024-12-11 11:56:37.510479
+scheduler [INFO] 2024-12-18 11:56:47,306 Starting scheduled jobs
+user_like [INFO] 2024-12-18 11:56:47,306 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 12:01:50,737 Starting scheduled jobs
+user_like [INFO] 2024-12-18 12:01:50,737 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 12:01:53,759 Starting scheduled jobs
+user_like [INFO] 2024-12-18 12:01:53,760 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 12:02:00,757 Deleting UserLikes older than 2024-12-11 12:02:00.757219
+user_like [INFO] 2024-12-18 12:02:03,770 Deleting UserLikes older than 2024-12-11 12:02:03.770898
+user [ERROR] 2024-12-18 12:03:14,883 [Errno 2] No such file or directory: 'rizzder_app/files/user_images/tmp-1d3c6664-3640-4b44-8fbc-98956cdb3912'
+scheduler [INFO] 2024-12-18 12:08:18,280 Starting scheduled jobs
+user_like [INFO] 2024-12-18 12:08:18,281 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 12:08:20,072 Starting scheduled jobs
+user_like [INFO] 2024-12-18 12:08:20,073 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 12:08:28,297 Deleting UserLikes older than 2024-12-11 12:08:28.296859
+user_like [INFO] 2024-12-18 12:08:30,081 Deleting UserLikes older than 2024-12-11 12:08:30.081166
+scheduler [INFO] 2024-12-18 12:15:36,431 Starting scheduled jobs
+user_like [INFO] 2024-12-18 12:15:36,432 Starting job - name : Clean Old Likes
+scheduler [INFO] 2024-12-18 12:15:37,773 Starting scheduled jobs
+user_like [INFO] 2024-12-18 12:15:37,774 Starting job - name : Clean Old Likes
+user_like [INFO] 2024-12-18 12:15:46,436 Deleting UserLikes older than 2024-12-11 12:15:46.436326
+user_like [INFO] 2024-12-18 12:15:47,786 Deleting UserLikes older than 2024-12-11 12:15:47.786516
+user [ERROR] 2024-12-18 12:17:00,957 Signature has expired
+user [ERROR] 2024-12-18 12:17:39,101 Signature has expired
+user [ERROR] 2024-12-18 12:17:53,901 Signature has expired
