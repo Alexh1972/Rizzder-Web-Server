@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e310782-cb48-42c0-b3f9-663c5f9217f1" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/ItemList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/services/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rizzder_app/view/login.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Logo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/messaging/chat.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/messaging/chat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rizzder_app/view/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/rizzder_app/view/home.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
