@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import TestEntity
+from .models import *
 
-admin.site.register(TestEntity)
+admin.site.register(User)
+admin.site.register(UserImage)

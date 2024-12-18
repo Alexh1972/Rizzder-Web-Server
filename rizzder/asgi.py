@@ -13,4 +13,21 @@ from django.core.asgi import get_asgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rizzder.settings')
 
-application = get_asgi_application()
+from channels.routing import ProtocolTypeRouter, URLRouter
+from rizzder_app import websocket_urlpatterns
+from channels.auth import AuthMiddlewareStack
+import os
+from django.core.asgi import get_asgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoChat.settings')
+
+application = ProtocolTypeRouter(
+    {
+        "http": get_asgi_application(),
+        "websocket": AuthMiddlewareStack(
+            URLRouter(
+                websocket_urlpatterns
+            )
+        )
+    }
+)
