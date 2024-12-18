@@ -47,7 +47,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
         time = text_data_json["time"]
 
         chatRoom = ChatRoom.objects.get(name=self.roomGroupName)
-        if chatRoom.users.count() is not 0:
+        if chatRoom.users.count() != 0:
             chatMessage = ChatMessage.objects.create(date=time, value=message)
             chatMessage.save()
             chatMessage.user_sender.add(User.objects.get(user_id=userId))

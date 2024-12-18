@@ -1,6 +1,7 @@
-from ..models import *
+from ..models import User
 from django.shortcuts import render, HttpResponse, redirect
-from ..utils import *
+from ..utils import JWTTokenDecoder
+import logging
 
 logger = logging.getLogger(__name__)
 
