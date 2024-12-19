@@ -1,10 +1,11 @@
 body {
-  background-color: #f9f9f9;
   font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #fbc2eb 100%);
+  overflow: hidden;
 }
 
 .site-header {
-  background: linear-gradient(135deg, #ff5851, #ff7e5f);
+  background: linear-gradient(135deg, #e43c3c, #e44c4a, #e45454);
   color: white;
   padding: 4px 0;
 }
@@ -16,6 +17,10 @@ body {
 .site-header .navbar-brand {
   font-size: 24px;
   font-weight: bold;
+  color: white;
+}
+
+.nav-item {
   color: white;
 }
 
@@ -60,39 +65,8 @@ body {
   margin-bottom: 15px;
 }
 
-.action-buttons {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
-.action-buttons button {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: none;
-  font-size: 20px;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.action-buttons .like {
-  background: #4caf50;
-}
-
-.action-buttons .dislike {
-  background: #ff5851;
-}
-
-.action-buttons .super-like {
-  background: #3b8beb;
-}
-
 .login-container {
-  background: linear-gradient(135deg, #ff5851, #ff7e5f);
+  background: linear-gradient(135deg, #e86161, #ea6161);
   padding: 20px;
   max-width: 400px;
 }
@@ -106,4 +80,29 @@ body {
 .mt-3 {
   color: white;
   text-align: center;
+}
+
+.form-label {
+  color: white;
+}
+
+#submit {
+    background-color: #af3434;
+    border-color: #af3434;
+    color: white;
+}
+
+#submit:hover {
+    background-color: #922b2b;
+    border-color: #922b2b;
+}
+
+.link {
+    color: #af3434;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #922b2b;
+    text-decoration: underline;
 }
