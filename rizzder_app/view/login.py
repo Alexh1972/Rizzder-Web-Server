@@ -9,12 +9,16 @@ logger = logging.getLogger(__name__)
 
 def login_view(request):
     """ Handle login with username and password (session-based). """
+    print("login_view")
+
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
 
         # Authenticate user
         user = authenticate(request, username=username, password=password)
+
+        print(password)
 
         if user is not None:
             # User is authenticated, log them in
