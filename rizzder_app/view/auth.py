@@ -24,7 +24,7 @@ def signup(request):
 
 
 def login(request):
-    return render(request, 'registration/login.html')
+    return render(request, 'login.html')
 
 
 def loginRedirect(request):
