@@ -8,7 +8,7 @@ import time
 class ChatMessage(models.Model):
     chat_message_id = models.AutoField(auto_created=True, primary_key=True, serialize=False)
     user_sender = models.ManyToManyField(User)
-    date = models.BigIntegerField(default=currentTimeMillis())
+    date = models.BigIntegerField(default=0)
     value = models.CharField(default="", max_length=100000)
 
 
