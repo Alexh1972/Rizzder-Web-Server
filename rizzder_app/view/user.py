@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from ..utils import *
-from ..models import User, UserImage, Gender, addUserLike, getChatRoom, existsChatRoom, unmatchUser, getMatch
+from ..models import User, UserImage, Gender, addUserLike, getChatRoom, getChatRooms, getMatchesForUser, unmatchUser, getMatch
 from ..messaging import *
 import logging
 import base64
@@ -236,6 +236,7 @@ def blockUser(request):
         logger.error(e)
         return redirect("login")
 
+
 # POST api/user/unblock/ - body - {'receiver_id' : id}
 def unblockUser(request):
     try:
@@ -316,3 +317,33 @@ def chatRoomView(request):
     except Exception as e:
         logger.error(e)
         return redirect("login")
+
+
+def getChatRoomsView(request):
+    try:
+        jwt_token_decoder = JWTTokenDecoder(request)
+        user = jwt_token_decoder.getUserFromToken()
+
+        if user is None:
+            return redirect("login")
+        logger.info(getChatRooms(user))
+        return render(request, "user/chatRooms.html",
+                      context={'user': user,
+                               'chatRooms': getChatRooms(user)})
+    except Exception as e:
+        logger.error(e)
+        return redirect("login")
+
+def getMatches(request):
+    try:
+        jwt_token_decoder = JWTTokenDecoder(request)
+        user = jwt_token_decoder.getUserFromToken()
+
+        if user is None:
+            return redirect("login")
+        logger.info(getMatchesForUser(user))
+        return HttpResponse(json.dumps({'status': 'success', 'users' : getMatchesForUser(user)}), content_type="application/json")
+    except Exception as e:
+        logger.error(e)
+        return redirect("login")
+

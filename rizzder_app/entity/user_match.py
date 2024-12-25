@@ -1,6 +1,8 @@
 import logging
 
 from django.db import models
+from django.forms import model_to_dict
+
 from .user import User
 from ..utils import *
 
@@ -48,3 +50,33 @@ def unmatchUser(user, receiver, block=False):
         match.delete()
         if block:
             user.blockUser(receiver)
+
+def getMatchesForUser(user):
+    matches = UserMatch.objects.filter(user_first_id=user.user_id)
+
+    users = []
+    for match in matches.filter():
+        match = model_to_dict(match)
+        user_first = User.objects.get(user_id=match['user_first'])
+        user_second = User.objects.get(user_id=match['user_second'])
+        if user.user_id == user_first.user_id:
+            user = user_second
+        else:
+            user = user_first
+
+        users.append(user.serializeUser())
+
+    matches = UserMatch.objects.filter(user_second_id=user.user_id)
+
+    for match in matches.filter():
+        match = model_to_dict(match)
+        user_first = User.objects.get(user_id=match['user_first'])
+        user_second = User.objects.get(user_id=match['user_second'])
+        if user.user_id == user_first.user_id:
+            user = user_second
+        else:
+            user = user_first
+
+        users.append(user.serializeUser())
+
+    return users
