@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -20,7 +21,10 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-md">
             <div class="container">
-                <a class="navbar-brand" href="/">Rizzder</a>
+                <a class="navbar-brand" href="/">
+                    <img src="{% static '/public/images/RizzderLogo.png' %}" alt="Logo" style="height: 40px; margin-right: 10px;">
+                    Rizzder
+                </a>
                 <div id="navbarToggle">
                     <ul class="navbar-nav ms-auto d-flex flex-row">
                         <li class="nav-item">

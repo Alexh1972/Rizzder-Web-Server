@@ -1,4 +1,26 @@
+{% extends "_base.html" %}
+
+{#{% block content %}#}
+{#    <p>TEST</p>#}
+{#    {{ user.username }}#}
+{#{% endblock %}#}
+
 {% block content %}
-    <p>TEST</p>
-    {{ user.username }}
+     <!-- Home Content -->
+    <div class="container mt-5">
+        <div class="text-center">
+            <h1 style="font-size: 60px; color: #cc3636;"><b>Welcome to Rizzder!</b></h1>
+            <br><br><br>
+            <p class="lead" style="font-size: 30px; color: #cc3636;"><b>
+                Your next great connection starts here. Join thousands of users finding meaningful relationships, exciting conversations, and unforgettable moments.
+            </b></p>
+            <br><br>
+            <p style="font-size: 25px; color: #cc3636;"><b>
+                Create your profile, swipe to discover, and let sparks fly. Love is just a click away!
+            </b></p>
+            <br>
+                <a href="/signup" style="background-color: #cc3636; color: white; border: none; padding: 10px 20px; font-size: 18px; border-radius: 5px; text-decoration: none; display: inline-block;">Get Started</a>
+
+        </div>
+    </div>
 {% endblock %}
