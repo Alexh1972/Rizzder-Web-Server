@@ -99,6 +99,17 @@ class User(models.Model):
         if changeScore:
             self.changeScore(-100)
 
+    def serializeUser(self):
+        user = model_to_dict(self, fields=['user_id', 'username', 'birth_date', 'images', 'description_encoded_64',
+                                    'latitude', 'longitude'])
+        user['images'] = User.getImagesList(User.objects.get(user_id=user['user_id']))
+        user['distance'] = distance(self.latitude, self.longitude, user['latitude'], user['longitude'])
+        user['age'] = calculateYearsPassed(user['birth_date'])
+        del user['latitude']
+        del user['longitude']
+        del user['birth_date']
+        return user
+
     def unblockUser(self, receiver):
         # receiver.blocked_users.remove(self)
         self.blocked_users.remove(receiver)

@@ -18,6 +18,7 @@ urlpatterns = [
     path('api/user/meet/like/', view.likeUser, name='likeUser'),
     path('api/user/block/', view.blockUser, name='blockUser'),
     path('api/user/unblock/', view.unblockUser, name='unblockUser'),
+    path('api/user/getMatches/', view.getMatches, name='getMatches'),
     path('api/user/info/getLocation/', view.getUserLocation, name='getUserLocation'),
     path('api/user/setGhosted/', view.setGhosted, name='setGhosted'),
     path('login/', view.login, name='login'),
@@ -27,4 +28,5 @@ urlpatterns = [
     path('user/meet/', view.userMeetView, name='userMeetView'),
     path('user/edit/', view.userEditView, name='editUserView'),
     path('user/chatRoom/', view.chatRoomView, name='chatRoom'),
+    path('user/getChatRooms/', view.getChatRoomsView, name='chatRooms'),
 ]

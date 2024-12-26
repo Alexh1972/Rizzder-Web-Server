@@ -25,7 +25,7 @@ class UserLike(models.Model):
 
 
 def addUserLike(liker, receiver, like=False):
-    if liker.blockedUser(receiver):
+    if liker.blockedUser(receiver) or liker.user_id == receiver.user_id:
         return None
     if like:
         if userLikeExists(liker=receiver, receiver=liker):
