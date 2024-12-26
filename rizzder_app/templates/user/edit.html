@@ -1,4 +1,7 @@
+{% extends "_base.html" %}
+
 {% load static %}
+
 <head>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -7,33 +10,89 @@
 </head>
 
 <body>
-    <label>Username</label>
-    <p>{{ user.username }}, {{ age }}</p>
-    <br>
+    <main>
+        {% block title %}
+        Account Settings
+        {% endblock %}
 
-    <label>Description</label>
-    <textarea id="description"></textarea>
-    <br>
+        {% block content %}
+        <div class="container mt-5">
+            <div class="row">
+                <!-- Left Column: Profile Photo -->
+                <div class="col-md-4 text-center">
+                    <br><br>
+                    <label for="profilePhoto" class="form-label" style="text-align: left; color: #e43c3c">Profile Photo</label>
+                    <img src="{% static 'images/default-profile.png' %}" alt="Profile Photo" class="img-thumbnail mb-3" id="profilePhoto">
+                    <input id="photoFile" type="file" accept="image/png, image/jpeg, image/jpg" class="form-control mb-2">
+                    <button id="editPhotoSubmit" class="btn btn-primary button" style="background-color: #af3434; border-color: #af3434">Submit Photo</button>
+                </div>
 
-    <label>I am a </label>
-    <select id="userGenderSelect"></select>
-    <br>
-    <label>I want to meet a </label>
-    <select id="userGenderPreferenceSelect"></select>
-    <br>
-    <label>Photo</label>
-    <input id="photoFile" type="file" accept="image/png, image/jpeg image/jpg">
-    <button id="editPhtotoSubmit">Submit Photo</button>
-    <button id="editUserSubmit">Submit Changes</button>
-    <br>
-    {% for image in images %}
-        <div>
-            <img src="data:image/png;base64,{{ image.image_base_64_encoded }}" id="{{ image.id }}">
-            <br>
-            <button data-id="{{ image.id }}" class="deleteButton">Delete</button>
-            <br><br><br><br>
+                <!-- Right Column: User Data -->
+                <div class="col-md-8">
+                    <form id="userSettingsForm">
+                        <!-- Username -->
+                        <div class="box">
+                            <h1 style="color: #af3434"> <b>
+                                {{ user.username }}
+                            </b></h1>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="username" class="form-label" style="text-align: left; color: #e43c3c">Age</label>
+                                <p>{{ age }}</p>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="mb-3">
+                            <label for="description" class="form-label" style="text-align: left; color: #e43c3c">Description</label>
+                            <textarea id="description" class="form-control" rows="3"></textarea>
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="mb-3">
+                            <label for="userGenderSelect" class="form-label" style="text-align: left; color: #e43c3c">I am a</label>
+                            <select id="userGenderSelect" class="form-select">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="non-binary">Non-binary</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <!-- Gender Preference -->
+                        <div class="mb-3">
+                            <label for="userGenderPreferenceSelect" class="form-label" style="text-align: left; color: #e43c3c">I want to meet a</label>
+                            <select id="userGenderPreferenceSelect" class="form-select">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="non-binary">Non-binary</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <!-- Submit Changes -->
+                        <button id="editUserSubmit" type="submit" class="btn btn-success">Submit Changes</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Display User Images -->
+            <div class="row mt-5">
+                <label for="uploadedPhotos" class="form-label" style="text-align: left; color: #e43c3c">Uploaded photos</label>
+                {% for image in images %}
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img src="data:image/png;base64,{{ image.image_base_64_encoded }}" class="card-img-top" id="{{ image.id }}" alt="Uploaded Image">
+                        <div class="card-body text-center">
+                            <button data-id="{{ image.id }}" class="btn btn-danger deleteButton">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-    {% endfor %}
+        {% endblock %}
+    </main>
 </body>
 
 <script src="{% static 'js/cookie.js' %}"></script>

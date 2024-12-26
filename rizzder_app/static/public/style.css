@@ -1,6 +1,8 @@
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #fbc2eb 100%);
+    /* Makes the gradient fixed while scrolling */
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #fbc2eb 100%) no-repeat fixed;
+    background-size: cover;
   overflow: auto;
 }
 
@@ -94,7 +96,7 @@ body {
     font-weight: 600;
     margin-bottom: 0.5rem;
     display: block;
-    text-align: center;
+    text-align: left;
 }
 
 .form-control {
@@ -114,6 +116,17 @@ body {
     justify-content: center;  /* Centers input horizontally */
     align-items: center;      /* Centers input vertically */
     height: 100vh;
+}
+
+.edit-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #c19694;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    text-align: left;
 }
 
 .signup-container {
@@ -161,7 +174,7 @@ input[type="password"]:focus {
 .signup-btn {
   width: 100%;
   padding: 12px;
-  background-color: #007bff;
+  background-color: #af3434;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -173,6 +186,21 @@ input[type="password"]:focus {
 /* Signup button hover effect */
 .signup-btn:hover {
   background-color: #af3434;
+}
+
+.getstarted-btn {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.getstarted-btn:hover {
+    background-color: #e04e2e;
 }
 
 /*input {*/
