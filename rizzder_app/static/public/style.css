@@ -1,9 +1,11 @@
 * {
     font-family: 'Roboto', sans-serif;
-    overflow: hidden;
+    overflow: auto;
 }
 
 body {
+  font-family: Arial, sans-serif;
+    /* Makes the gradient fixed while scrolling */
     background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #fbc2eb 100%) no-repeat fixed;
     background-size: cover;
   overflow: auto;
@@ -128,6 +130,7 @@ body {
     background: #c19694;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
     text-align: left;
 }
 
@@ -231,4 +234,29 @@ input[type="password"]:focus {
 .link:hover {
     color: #922b2b;
     text-decoration: underline;
+}
+
+.location-heading {
+    margin-bottom: 10px;
+}
+
+.location-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.location-container {
+    width: 70%;
+    aspect-ratio: 16 / 9;
+    border: 2px solid #ff0000;
+    overflow: auto;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
 }
