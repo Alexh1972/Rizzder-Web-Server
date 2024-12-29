@@ -1,3 +1,6 @@
+from calendar import month
+from datetime import datetime
+
 from django.shortcuts import render, HttpResponse, redirect
 from ..utils import *
 from ..models import User, UserImage, Gender, addUserLike, getChatRoom, getChatRooms, getMatchesForUser, unmatchUser, getMatch
@@ -307,10 +310,44 @@ def chatRoomView(request):
                 if currentTimeMillis() - lastMessage.date >= 1000 * 60 * 60 * 24 * 7:
                     ghosted = True
 
-        return render(request, "user/chatRoom.html",
+        timeArray = []
+        for message in messages:
+            hour = (message.date / (1000 * 60 * 60) + 2) % 24
+            minute = message.date / (1000 * 60) % 60
+
+            formatedTime = ""
+
+            if hour < 10:
+                formatedTime += "0" + str(int(hour)) + ":"
+            else:
+                formatedTime += str(int(hour)) + ":"
+
+            if minute < 10:
+                formatedTime += "0" + str(int(minute))
+            else:
+                formatedTime += str(int(minute))
+
+            timeArray.append(formatedTime)
+
+        dateArray = []
+        for message in messages:
+            # Convert the timestamp to a datetime object
+            dt_object = datetime.fromtimestamp(message.date / 1000)
+
+            # Format the datetime object as 'day.month.year'
+            formatted_date = dt_object.strftime('%d.%m.%Y')
+
+            dateArray.append(formatted_date)
+
+        for i in range(len(messages) - 1, 0, -1):
+            if dateArray[i] == dateArray[i - 1]:
+                dateArray[i] = ""
+
+        return render(request, "user/chatRooms.html",
                       context={'user': user,
                                'receiverUser': receiverUser,
                                'roomName': chatName([user, receiverUser]),
+                               'array': zip(messages, timeArray, dateArray),
                                'chatRoom': chatRoom,
                                'messages': messages,
                                'ghosted': ghosted})

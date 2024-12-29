@@ -1,6 +1,9 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+
 body {
-  font-family: Arial, sans-serif;
-    /* Makes the gradient fixed while scrolling */
     background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #fbc2eb 100%) no-repeat fixed;
     background-size: cover;
   overflow: auto;
@@ -125,7 +128,6 @@ body {
     background: #c19694;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
     text-align: left;
 }
 
