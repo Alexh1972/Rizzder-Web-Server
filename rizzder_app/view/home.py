@@ -18,3 +18,4 @@ def home(request):
     except Exception as e:
         print(e)
         return redirect("login")
+
