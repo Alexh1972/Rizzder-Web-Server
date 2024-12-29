@@ -1,0 +1,293 @@
+{% extends "_base.html" %}
+
+{% block title %}Rizzder - Chat{% endblock %}
+
+{% block extra_head %}
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- For the font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+        }
+
+        .avatar {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .avatar img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .chat-header-right img{
+            width: 40px;
+            height: 40px;
+            margin: 5px 13px;
+            opacity: 0.4;
+        }
+
+        .header {
+            background-color: #ededed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .message-container {
+            flex: 12;
+        }
+
+        .chat-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .message-header-content {
+            margin-left: 15px;
+        }
+
+        .message-header-content h4 {
+            margin-top: 10px;
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+
+        .message-header-content p{
+            font-size: 13px;
+            color: gray;
+            line-height: 20px;
+        }
+
+        .message-content {
+            height: calc(100vh - 236px);
+            padding: 20px 80px;
+            overflow-y: scroll;
+        }
+
+        .chat-message {
+            font-size: 14px;
+            padding: 6px 10px;
+            width: fit-content;
+            border-radius: 8px;
+            background-color: white;
+            margin-bottom: 6px;
+        }
+
+        .chat-sent {
+            margin-left: auto;
+        }
+
+        .chat-timestamp {
+            margin-left: 10px;
+            font-size: 10px;
+            color: gray;
+        }
+
+        .chat-date {
+            padding: 6px 10px;
+            border-radius: 8px;
+            background-color: white;
+            margin: 10px auto;
+            text-align: center;
+            font-size: 14px;
+            color: gray;
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .message-footer {
+            display: flex;
+            align-items: center;
+            padding: 5px 10px;
+            background-color: #ffcece;
+        }
+
+        .message-footer img{
+            flex: 1;
+            width: 22px;
+            height: 22px;
+            opacity: 0.4;
+        }
+
+        .message-footer button{
+            flex: 1.2;
+            margin: 0;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+        }
+
+        .message-footer input{
+            flex: 20;
+            margin: 5px 10px;
+            padding: 12px 15px;
+            outline: none;
+            border: none;
+            border-radius: 20px;
+            font-size: 15px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="message-container">
+        <div class="header">
+            <div class="chat-title">
+                <div class="avatar">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMwO2MiraV8QCaxxrb9JlPDUJAXKOOKLWHxA&s" alt="">
+                </div>
+                <div class="message-header-content">
+                    <h4>{{ receiverUser.username }}</h4>
+                    <p>online</p>
+                </div>
+            </div>
+            <div class="chat-header-right">
+                {% if ghosted %}
+                    <img src="https://www.svgrepo.com/show/431685/ghost.svg" alt="You have been ghosted!">
+                {% endif %}
+            </div>
+        </div>
+        <div class="message-content">
+            {% for message, time, date in array %}
+                {% if date %}
+                    <p class="chat-date">{{ date }}</p>
+                {% endif %}
+                {% if message.user_sender.all.0.user_id == user.user_id %}
+                    <p class="chat-message chat-sent">{{ message.value }}<span class="chat-timestamp">{{ time }}</span></p>
+                {% else %}
+                    <p class="chat-message">{{ message.value }}<span class="chat-timestamp">{{ time }}</span></p>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="message-footer">
+            <input type="text" id="textMessage" placeholder="Type a message">
+            <button id="sendMessage"><img src="https://www.svgrepo.com/show/533310/send-alt-1.svg" alt=""></button>
+        </div>
+    </div>
+
+    <script>
+        const userId = "{{ user.user_id }}";
+        const receiverUserId = "{{ receiverUser.user_id }}";
+        const roomName = "{{ roomName }}";
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Scroll to the last message on page load
+            const messageContent = document.querySelector('.message-content');
+            if (messageContent) {
+                messageContent.scrollTop = messageContent.scrollHeight;
+            }
+
+            // Automatically focus the input field on page load
+            const messageInput = document.getElementById('textMessage');
+            if (messageInput) {
+                messageInput.focus();
+            }
+
+            // Add click event to the send button
+            const sendButton = document.getElementById('sendMessage');
+            sendButton.addEventListener('click', function () {
+                const message = messageInput.value.trim(); // Trim whitespace
+
+                if (message) {
+                    // Simulate sending the message (e.g., log to console for now)
+                    console.log("Message sent:", message); // Replace with actual sending logic
+
+                    // Reload the page to simulate message fetching
+                    setTimeout(() => {
+                        messageInput.value = "";
+                    }, 0); // Slight delay for UX
+                }
+            });
+
+            // Enable pressing "Enter" to send messages
+            messageInput.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    sendButton.click(); // Trigger send button click
+                    e.preventDefault(); // Prevent default Enter behavior
+                }
+            });
+        });
+        document.addEventListener("click", function () {
+            // Automatically focus the input field on page load
+            const messageInput = document.getElementById('textMessage');
+            if (messageInput) {
+                messageInput.focus();
+            }
+        });
+    </script>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const messageContent = document.querySelector('.message-content');
+    let isAtBottom = true;
+
+    // Check if the user is at the bottom of the chat
+    function checkIfAtBottom() {
+        // If the user is at the bottom of the chat (or very close)
+        isAtBottom = messageContent.scrollHeight - messageContent.scrollTop === messageContent.clientHeight;
+    }
+
+    // Function to fetch new messages
+    function fetchMessages() {
+        // First, check if we're at the bottom
+        checkIfAtBottom();
+
+        // Make a request to the same page
+        fetch(window.location.href) // Request the current page
+            .then(response => response.text())  // Get the response as text (HTML)
+            .then(html => {
+                // Create a temporary container to hold the fetched content
+                const tempContainer = document.createElement('div');
+                tempContainer.innerHTML = html;
+
+                // Extract the new messages from the response
+                const newMessages = tempContainer.querySelector('.message-content');
+
+                // Only update the message container with new messages
+                if (newMessages) {
+                    // Update the message content
+                    messageContent.innerHTML = newMessages.innerHTML;
+
+                    // If we were at the bottom before, scroll to the bottom after update
+                    if (isAtBottom) {
+                        messageContent.scrollTop = messageContent.scrollHeight;
+                    }
+                }
+            })
+            .catch(error => console.error('Error fetching new messages:', error));
+    }
+
+    // Poll for new messages every 5 seconds
+    setInterval(fetchMessages, 500);
+
+    // Initial fetch to populate messages
+    fetchMessages();
+});
+</script>
+
+
+{% endblock %}
+

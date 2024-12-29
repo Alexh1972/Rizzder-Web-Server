@@ -343,7 +343,7 @@ def chatRoomView(request):
             if dateArray[i] == dateArray[i - 1]:
                 dateArray[i] = ""
 
-        return render(request, "user/chatRooms.html",
+        return render(request, "user/chatRoom.html",
                       context={'user': user,
                                'receiverUser': receiverUser,
                                'roomName': chatName([user, receiverUser]),
@@ -361,12 +361,42 @@ def getChatRoomsView(request):
         jwt_token_decoder = JWTTokenDecoder(request)
         user = jwt_token_decoder.getUserFromToken()
 
+        last_time_array = []
+        for chatRoom in getChatRooms(user):
+            last_message = chatRoom['last_message']
+
+            if last_message is None:
+                last_time_array.append("")
+                continue
+
+            hour = (last_message.date / (1000 * 60 * 60) + 2) % 24
+            minute = last_message.date / (1000 * 60) % 60
+
+            dt_object = datetime.fromtimestamp(last_message.date / 1000)
+            formated_date = dt_object.strftime('%d.%m.%Y')
+
+            if formated_date != datetime.now().strftime('%d.%m.%Y'):
+                last_time_array.append(formated_date)
+            else:
+                formated_time = ""
+                if hour < 10:
+                    formated_time += "0" + str(int(hour)) + ":"
+                else:
+                    formated_time += str(int(hour)) + ":"
+
+                if minute < 10:
+                    formated_time += "0" + str(int(minute))
+                else:
+                    formated_time += str(int(minute))
+
+                last_time_array.append(formated_time)
+
         if user is None:
             return redirect("login")
         logger.info(getChatRooms(user))
         return render(request, "user/chatRooms.html",
                       context={'user': user,
-                               'chatRooms': getChatRooms(user)})
+                               'array': zip(getChatRooms(user), last_time_array),})
     except Exception as e:
         logger.error(e)
         return redirect("login")
