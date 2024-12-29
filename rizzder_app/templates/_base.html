@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="icon" type="image/png" href="../static/public/images/logo.png">
     <!-- For the icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -33,8 +33,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" id="editProfile" href="{{ url }}/user/edit/">
                                 <i class="fas fa-user" title="Profile"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="aboutUs" href="/about/">
+                                <i class="fas fa-info-circle" title="About Us"></i>
                             </a>
                         </li>
                     </ul>
@@ -48,12 +53,11 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Token forwarding -->
+     <!-- Token forwarding -->
     <script>
         // Extract the 'token' from the URL
         const urlParams = new URLSearchParams(window.location.search);
         const token = urlParams.get('token');
-
         // Update all chat links with the token
         if (token) {
             document.querySelectorAll('.chat-link').forEach(link => {
@@ -63,6 +67,10 @@
             });
         }
     </script>
+
+
+
+
 </body>
 
 </html>
@@ -70,7 +78,6 @@
 
 {% load static %}
 <link rel="stylesheet" href="{% static 'public/style.css' %}?v={{ STATIC_VERSION }}">
-<link rel="icon" href="{% static '/public/images/logo.png' %}">
 
 <!-- Needed by the login page: -->
 <script src="{% static 'js/cookie.js' %}"></script>
