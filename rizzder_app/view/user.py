@@ -1,3 +1,6 @@
+from calendar import month
+from datetime import datetime
+
 from django.shortcuts import render, HttpResponse, redirect
 from ..utils import *
 from ..models import User, UserImage, Gender, addUserLike, getChatRoom, getChatRooms, getMatchesForUser, unmatchUser, getMatch
@@ -307,10 +310,44 @@ def chatRoomView(request):
                 if currentTimeMillis() - lastMessage.date >= 1000 * 60 * 60 * 24 * 7:
                     ghosted = True
 
+        timeArray = []
+        for message in messages:
+            hour = (message.date / (1000 * 60 * 60) + 2) % 24
+            minute = message.date / (1000 * 60) % 60
+
+            formatedTime = ""
+
+            if hour < 10:
+                formatedTime += "0" + str(int(hour)) + ":"
+            else:
+                formatedTime += str(int(hour)) + ":"
+
+            if minute < 10:
+                formatedTime += "0" + str(int(minute))
+            else:
+                formatedTime += str(int(minute))
+
+            timeArray.append(formatedTime)
+
+        dateArray = []
+        for message in messages:
+            # Convert the timestamp to a datetime object
+            dt_object = datetime.fromtimestamp(message.date / 1000)
+
+            # Format the datetime object as 'day.month.year'
+            formatted_date = dt_object.strftime('%d.%m.%Y')
+
+            dateArray.append(formatted_date)
+
+        for i in range(len(messages) - 1, 0, -1):
+            if dateArray[i] == dateArray[i - 1]:
+                dateArray[i] = ""
+
         return render(request, "user/chatRoom.html",
                       context={'user': user,
                                'receiverUser': receiverUser,
                                'roomName': chatName([user, receiverUser]),
+                               'array': zip(messages, timeArray, dateArray),
                                'chatRoom': chatRoom,
                                'messages': messages,
                                'ghosted': ghosted})
@@ -324,12 +361,42 @@ def getChatRoomsView(request):
         jwt_token_decoder = JWTTokenDecoder(request)
         user = jwt_token_decoder.getUserFromToken()
 
+        last_time_array = []
+        for chatRoom in getChatRooms(user):
+            last_message = chatRoom['last_message']
+
+            if last_message is None:
+                last_time_array.append("")
+                continue
+
+            hour = (last_message.date / (1000 * 60 * 60) + 2) % 24
+            minute = last_message.date / (1000 * 60) % 60
+
+            dt_object = datetime.fromtimestamp(last_message.date / 1000)
+            formated_date = dt_object.strftime('%d.%m.%Y')
+
+            if formated_date != datetime.now().strftime('%d.%m.%Y'):
+                last_time_array.append(formated_date)
+            else:
+                formated_time = ""
+                if hour < 10:
+                    formated_time += "0" + str(int(hour)) + ":"
+                else:
+                    formated_time += str(int(hour)) + ":"
+
+                if minute < 10:
+                    formated_time += "0" + str(int(minute))
+                else:
+                    formated_time += str(int(minute))
+
+                last_time_array.append(formated_time)
+
         if user is None:
             return redirect("login")
         logger.info(getChatRooms(user))
         return render(request, "user/chatRooms.html",
                       context={'user': user,
-                               'chatRooms': getChatRooms(user)})
+                               'array': zip(getChatRooms(user), last_time_array),})
     except Exception as e:
         logger.error(e)
         return redirect("login")

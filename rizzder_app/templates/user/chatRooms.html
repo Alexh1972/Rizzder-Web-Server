@@ -1,0 +1,148 @@
+{% extends "_base.html" %}
+
+{% block title %}Rizzder - Chat{% endblock %}
+
+{% block extra_head %}
+    <style>
+        .chat-avatar {
+            position: relative;
+            min-width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .chat-avatar img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .sidebar-chats {
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        .sidebar-chat {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px 12px;
+            width: 100%;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: none;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b9b3b9;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+        .sidebar-chat:hover {
+            background-color: #ffebeb;
+        }
+        .sidebar-chat::before {
+            content: '';
+            position: absolute;
+            width: 80%;
+            bottom: 0;
+            left: 80px;
+            border-bottom: 1px solid #999;
+            opacity: 0.2;
+        }
+
+        .sidebar-chat h4 {
+            margin-top: 10px;
+            margin-bottom: -20px;
+            padding-top: 10px;
+            font-weight: 400;
+        }
+
+        .sidebar-chat p{
+            font-size: 13px;
+            color: gray;
+        }
+
+        .chat-info {
+            margin-left: 15px;
+            flex: 10;
+        }
+
+        .chat-info p{
+            font-size: 13px;
+            line-height: 20px;
+            color: gray;
+        }
+
+        .time {
+            flex: 10;
+            text-align: right;
+        }
+
+        .time p{
+            white-space: nowrap;
+            font-size: 13px;
+            color: gray;
+        }
+
+        .chat-link {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="sidebar-chats">
+        {% for chat, time in array %}
+            {% if chat.user %}
+                <a class="sidebar-chat chat-link" href="{{ url }}/user/chatRoom/?receiver_user_id={{ chat.user.user_id }}">
+                    <div class="chat-avatar">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMwO2MiraV8QCaxxrb9JlPDUJAXKOOKLWHxA&s" alt="">
+                    </div>
+                <div class="chat-info">
+                    <h4>{{ user.username }}</h4>
+                    <p>
+                        {% if chat.last_message.user_sender.all.0.user_id == user.user_id %}
+                            <p>You: {{ chat.last_message.value }}</p>
+                        {% else %}
+                            <p>{{ chat.last_message.user_sender.all.0.username }}: {{ chat.last_message.value }}</p>
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="time">
+                    <p>{{ time }}</p>
+                </div>
+            </a>
+            {% endif %}
+        {% endfor %}
+
+
+    </div>
+
+    <script>
+        // Extract the 'token' from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        // Update all chat links with the token
+        if (token) {
+            document.querySelectorAll('.chat-link').forEach(link => {
+                const currentUrl = new URL(link.href);
+                currentUrl.searchParams.set('token', token); // Add 'token' to the URL
+                link.href = currentUrl.toString(); // Update the href attribute
+            });
+        }
+    </script>
+{% endblock %}
