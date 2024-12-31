@@ -1,26 +1,63 @@
 {% extends "_base.html" %}
 
-{#{% block content %}#}
-{#    <p>TEST</p>#}
-{#    {{ user.username }}#}
-{#{% endblock %}#}
-
 {% block content %}
-     <!-- Home Content -->
-    <div class="container mt-5">
-        <div class="text-center">
-            <h1 style="font-size: 60px; color: #cc3636;"><b>Welcome to Rizzder!</b></h1>
-            <br><br><br>
-            <p class="lead" style="font-size: 30px; color: #cc3636;"><b>
-                Your next great connection starts here. Join thousands of users finding meaningful relationships, exciting conversations, and unforgettable moments.
-            </b></p>
-            <br><br>
-            <p style="font-size: 25px; color: #cc3636;"><b>
-                Create your profile, swipe to discover, and let sparks fly. Love is just a click away!
-            </b></p>
-            <br>
-                <a href="/signup" style="background-color: #cc3636; color: white; border: none; padding: 10px 20px; font-size: 18px; border-radius: 5px; text-decoration: none; display: inline-block;">Get Started</a>
+<!-- Home Content -->
+<div class="container mt-5">
+    <!-- Hero Section -->
+    <div class="text-center">
+        <h1 style="font-size: 60px; color: #cc3636;"><b>Welcome to Rizzder!</b></h1>
+        <br><br><br>
+        <p class="lead" style="font-size: 30px; color: #cc3636;"><b>
+            Your next great connection starts here. Join thousands of users finding meaningful relationships, exciting conversations, and unforgettable moments.
+        </b></p>
+        <br><br>
+        <p style="font-size: 25px; color: #cc3636;"><b>
+            Create your profile, swipe to discover, and let sparks fly. Love is just a click away!
+        </b></p>
+        <br>
+        <a href="/signup" style="background-color: #cc3636; color: white; border: none; padding: 10px 20px; font-size: 18px; border-radius: 5px; text-decoration: none; display: inline-block;">Get Started</a>
+    </div>
 
+    <!-- Features Section -->
+    <div class="mt-5 text-center">
+        <h2 style="font-size: 40px; color: #cc3636;"><b>Why Choose Rizzder?</b></h2>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <h3 style="color: #cc3636;">🌟 Smart Matchmaking</h3>
+                <p>Let AI find your perfect match based on your interests and preferences.</p>
+            </div>
+            <div class="col-md-4">
+                <h3 style="color: #cc3636;">🔒 Safety First</h3>
+                <p>Your privacy and security are our top priorities.</p>
+            </div>
+            <div class="col-md-4">
+                <h3 style="color: #cc3636;">🎯 Tailored for You</h3>
+                <p>Filters and features designed to match your lifestyle.</p>
+            </div>
         </div>
     </div>
+
+    <!-- Testimonials Section -->
+    <div class="mt-5 text-center">
+        <h2 style="font-size: 40px; color: #cc3636;"><b>Success Stories</b></h2>
+        <br>
+        <p><i>"Rizzder helped me find the love of my life!"</i> – Sarah & John</p>
+        <p><i>"This app makes dating easy and fun!"</i> – Alex, 29</p>
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="mt-5 text-center">
+        <h2 style="font-size: 40px; color: #cc3636;"><b>Your Happily Ever After Awaits!</b></h2>
+        <br>
+        <a href="/signup" style="background-color: #cc3636; color: white; border: none; padding: 10px 20px; font-size: 18px; border-radius: 5px; text-decoration: none; display: inline-block;">Join Now</a>
+        <br><br>
+        <a href="/login" style="background-color: white; color: #cc3636; border: 2px solid #cc3636; padding: 10px 20px; font-size: 18px; border-radius: 5px; text-decoration: none; display: inline-block;">Log In</a>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="mt-5 text-center">
+        <p style="font-size: 14px; color: #888;">Privacy Policy | Terms of Service | Contact Us</p>
+    </div>
+</div>
 {% endblock %}
