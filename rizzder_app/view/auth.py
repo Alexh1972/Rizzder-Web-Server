@@ -8,6 +8,8 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+def about(request):
+    return render(request, "about.html", {})
 
 def signup(request):
     form = UserCreationForm(request.POST)
@@ -38,3 +40,4 @@ class user_registration(APIView):
             user = serializer.save()
             return Response({'user': user.username, 'data': 'Registration successful'})
         return Response(serializer.errors)
+
