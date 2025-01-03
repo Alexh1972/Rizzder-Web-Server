@@ -1,78 +1,82 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/png" href="../static/public/images/logo.png">
+        <!-- For the icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="../static/public/images/logo.png">
-    <!-- For the icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+        {% block extra_head %}{% endblock %}
 
-    {% block extra_head %}{% endblock %}
+        <title>{% block title %}{% endblock %}</title>
+    </head>
 
-    <title>{% block title %}{% endblock %}</title>
-</head>
-
-<body>
-    <header class="site-header">
-        <nav class="navbar navbar-expand-md">
-            <div class="container">
-                <a class="navbar-brand" href="/">
-                    <img src="{% static '/public/images/logoR.png' %}" alt="Logo" style="height: 40px; margin-right: 10px; border-radius: 50%;">
-                    Rizzder
-                </a>
-                <div id="navbarToggle">
-                    <ul class="navbar-nav ms-auto d-flex flex-row">
-                        <li class="nav-item">
-                            <a class="nav-link chat-link" href="{{ url }}/user/getChatRooms">
-                                <i class="fas fa-comments" title="Matches"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link chat-link" id="editProfile" href="{{ url }}/user/edit/">
-                                <i class="fas fa-user" title="Profile"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="aboutUs" href="/about/">
-                                <i class="fas fa-info-circle" title="About Us"></i>
-                            </a>
-                        </li>
-                    </ul>
+    <body>
+        <header class="site-header">
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <a class="navbar-brand  add-token" href="/">
+                        <img src="{% static '/public/images/logoR.png' %}" alt="Logo" style="height: 40px; margin-right: 10px; border-radius: 50%;">
+                        Rizzder
+                    </a>
+                    <div id="navbarToggle">
+                        <ul class="navbar-nav ms-auto d-flex flex-row">
+                            <li class="nav-item">
+                                <a class="nav-link add-token" href="{{ url }}/user/meet">
+                                    <i class="fas fa-users" title="Meet"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link add-token" href="{{ url }}/user/getChatRooms">
+                                    <i class="fas fa-comments" title="Matches"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link add-token" id="editProfile" href="{{ url }}/user/edit/">
+                                    <i class="fas fa-user" title="Profile"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="aboutUs" href="/about/">
+                                    <i class="fas fa-info-circle" title="About Us"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="logout" href="/login">
+                                    <i class="fas fa-sign-out-alt" title="Logout"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </header>
 
-    {% block content %}{% endblock %}
+        {% block content %}{% endblock %}
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
-     <!-- Token forwarding -->
-    <script>
-        // Extract the 'token' from the URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const token = urlParams.get('token');
-        // Update all chat links with the token
-        if (token) {
-            document.querySelectorAll('.chat-link').forEach(link => {
-                const currentUrl = new URL(link.href);
-                currentUrl.searchParams.set('token', token); // Add 'token' to the URL
-                link.href = currentUrl.toString(); // Update the href attribute
-            });
-        }
-    </script>
-
-
-
-
-</body>
-
+         <!-- Token forwarding -->
+        <script>
+            // Extract the 'token' from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get('token');
+            // Update all chat links with the token
+            if (token) {
+                document.querySelectorAll('.add-token').forEach(link => {
+                    const currentUrl = new URL(link.href);
+                    currentUrl.searchParams.set('token', token); // Add 'token' to the URL
+                    link.href = currentUrl.toString(); // Update the href attribute
+                });
+            }
+        </script>
+    </body>
 </html>
 
 
@@ -86,3 +90,8 @@
 <!-- Needed by the chatRooms page: -->
 <script src="{% static 'js/cookie.js' %}"></script>
 <script src="{% static 'js/user/chatRoom.js' %}"></script>
+
+<!-- Needed by the Meet page: -->
+<script src="{% static 'js/meet.js' %}"></script>
+<script src="{% static 'js/cookie.js' %}"></script>
+<script src="{% static 'js/user/meet.js' %}"></script>
