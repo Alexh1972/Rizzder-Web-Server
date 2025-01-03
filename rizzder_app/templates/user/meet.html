@@ -102,14 +102,6 @@
                 if (users[index]) {
                     const user = users[index];
                     outputDiv.innerHTML = `
-                        <div>
-                            <span><strong>User ID:</strong> ${user.user_id}</span><br>
-                            <span><strong>Username:</strong> ${user.username}</span><br>
-                            <span><strong>Description:</strong> ${user.description_encoded_64 || 'N/A'}</span><br>
-                            <span><strong>Images:</strong> ${user.images.length > 0 ? user.images.join(', ') : 'No images'}</span><br>
-                            <span><strong>Distance:</strong> ${user.distance}</span><br>
-                            <span><strong>Age:</strong> ${user.age}</span>
-                        </div>
                         <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTk1V8SjSdFKZ1hLnNSBDVdxYcWCMq3ZcYZ9HhSueKvOo55O1XHitrPDeM3N9eprhdC3sr2bJJLJaqnQ8qT8kOe3Q" alt="avatar">
                         <div class="profile-info">
                             <h2>${user.username}, ${user.age}</h2>
@@ -125,10 +117,10 @@
                 fetch(`${window.location.origin}/api/user/meet/like/?token=${encodeURIComponent(token)}`, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/x-www-form-urlencoded', // Changed Content-Type
                     },
-                    body: JSON.stringify({
-                        like: true,
+                    body: new URLSearchParams({ // Use URLSearchParams to encode body
+                        like: "True",
                         receiver_id: userId
                     }),
                 })
@@ -155,10 +147,10 @@
                 fetch(`${window.location.origin}/api/user/meet/like/?token=${encodeURIComponent(token)}`, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/x-www-form-urlencoded', // Changed Content-Type
                     },
-                    body: JSON.stringify({
-                        like: true,
+                    body: new URLSearchParams({ // Use URLSearchParams to encode body
+                        like: "False",
                         receiver_id: userId
                     }),
                 })
@@ -193,7 +185,12 @@
                     .then(data => {
                         if (data.users) {
                             users = data.users;
-                            displayUser(currentIndex); // Display the first user
+
+                            if (users.length === 0) {
+                                window.location.href = `${window.location.origin}/home/?token=${encodeURIComponent(token)}`;
+                            } else {
+                                displayUser(currentIndex); // Display the first user
+                            }
                         } else {
                             const outputDiv = document.getElementById('output');
                             if (outputDiv) {
@@ -223,16 +220,22 @@
                 if (users[currentIndex]) {
                     likeUser(users[currentIndex].user_id);
                 }
-                currentIndex += 1;
+
+                setTimeout(() => {
+                    currentIndex += 1;
                 displayUser(currentIndex); // Display the next user when clicking
+                }, 100);
             });
 
             setupButton('alternateNextUserButton', function() {
                 if (users[currentIndex]) {
                     dislikeUser(users[currentIndex].user_id);
                 }
-                currentIndex += 1;
+
+                setTimeout(() => {
+                    currentIndex += 1;
                 displayUser(currentIndex); // Display the next user when clicking
+                }, 100);
             });
         });
     </script>

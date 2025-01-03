@@ -20,25 +20,35 @@
         <header class="site-header">
             <nav class="navbar navbar-expand-md">
                 <div class="container">
-                    <a class="navbar-brand" href="/">
+                    <a class="navbar-brand  add-token" href="/">
                         <img src="{% static '/public/images/logoR.png' %}" alt="Logo" style="height: 40px; margin-right: 10px; border-radius: 50%;">
                         Rizzder
                     </a>
                     <div id="navbarToggle">
                         <ul class="navbar-nav ms-auto d-flex flex-row">
                             <li class="nav-item">
-                                <a class="nav-link chat-link" href="{{ url }}/user/getChatRooms">
+                                <a class="nav-link add-token" href="{{ url }}/user/meet">
+                                    <i class="fas fa-users" title="Meet"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link add-token" href="{{ url }}/user/getChatRooms">
                                     <i class="fas fa-comments" title="Matches"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link chat-link" id="editProfile" href="{{ url }}/user/edit/">
+                                <a class="nav-link add-token" id="editProfile" href="{{ url }}/user/edit/">
                                     <i class="fas fa-user" title="Profile"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="aboutUs" href="/about/">
                                     <i class="fas fa-info-circle" title="About Us"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="logout" href="/login">
+                                    <i class="fas fa-sign-out-alt" title="Logout"></i>
                                 </a>
                             </li>
                         </ul>
@@ -59,7 +69,7 @@
             const token = urlParams.get('token');
             // Update all chat links with the token
             if (token) {
-                document.querySelectorAll('.chat-link').forEach(link => {
+                document.querySelectorAll('.add-token').forEach(link => {
                     const currentUrl = new URL(link.href);
                     currentUrl.searchParams.set('token', token); // Add 'token' to the URL
                     link.href = currentUrl.toString(); // Update the href attribute
