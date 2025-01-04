@@ -1,4 +1,6 @@
 $('body').on('click', '#submit', function () {
+	console.log("submit");
+
 	$.ajax({
 		url: "/api/token/",
 		type: "POST",

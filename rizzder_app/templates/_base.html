@@ -11,6 +11,32 @@
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+        <!-- Cookie functions -->
+        <script>
+            function setCookie(name,value,days) {
+                var expires = "";
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days*24*60*60*1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+            }
+            function getCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for(var i=0;i < ca.length;i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+                }
+                return null;
+            }
+            function eraseCookie(name) {
+                document.cookie = name+'=; Max-Age=-99999999;';
+            }
+        </script>
+
         {% block extra_head %}{% endblock %}
 
         <title>{% block title %}{% endblock %}</title>
@@ -47,7 +73,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="logout" href="/login">
+                                <a class="nav-link logout" id="logout" href="/login">
                                     <i class="fas fa-sign-out-alt" title="Logout"></i>
                                 </a>
                             </li>
@@ -62,11 +88,12 @@
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
-         <!-- Token forwarding -->
+        </body>
+
+        <!-- Token forwarding -->
         <script>
             // Extract the 'token' from the URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const token = urlParams.get('token');
+            const token = getCookie("token");
             // Update all chat links with the token
             if (token) {
                 document.querySelectorAll('.add-token').forEach(link => {
@@ -76,7 +103,13 @@
                 });
             }
         </script>
-    </body>
+
+        <!-- Log out -->
+        <script>
+            document.getElementById('logout').addEventListener('click', () => {
+                eraseCookie('token');
+            });
+        </script>
 </html>
 
 
@@ -84,14 +117,11 @@
 <link rel="stylesheet" href="{% static 'public/style.css' %}?v={{ STATIC_VERSION }}">
 
 <!-- Needed by the login page: -->
-<script src="{% static 'js/cookie.js' %}"></script>
 <script src="{% static 'js/login.js' %}"></script>
 
 <!-- Needed by the chatRooms page: -->
-<script src="{% static 'js/cookie.js' %}"></script>
 <script src="{% static 'js/user/chatRoom.js' %}"></script>
 
 <!-- Needed by the Meet page: -->
 <script src="{% static 'js/meet.js' %}"></script>
-<script src="{% static 'js/cookie.js' %}"></script>
 <script src="{% static 'js/user/meet.js' %}"></script>

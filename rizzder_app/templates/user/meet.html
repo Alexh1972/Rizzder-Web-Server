@@ -90,9 +90,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Extract the 'token' parameter from the URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const token = urlParams.get('token');
+            // Extract the 'token' parameter from the cookie
+            const token = getCookie('token');
 
             let currentIndex = 0;
             let users = [];

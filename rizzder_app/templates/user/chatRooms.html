@@ -132,9 +132,8 @@
     </div>
 
     <script>
-        // Extract the 'token' from the URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const token = urlParams.get('token');
+        // Extract the 'token' from the cookie
+        const token = getCookie("token");
 
         // Update all chat links with the token
         if (token) {

@@ -15,6 +15,8 @@ def login_view(request):
         username = request.POST['username']
         password = request.POST['password']
 
+        logger.info(f"User {username} is attempting to log in.")
+
         # Authenticate user
         user = authenticate(request, username=username, password=password)
 
