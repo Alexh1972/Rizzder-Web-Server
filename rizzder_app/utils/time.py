@@ -1,8 +1,4 @@
-from datetime import date
-import logging
 import time
-
-logger = logging.getLogger(__name__)
 
 
 def calculateYearsPassed(date):

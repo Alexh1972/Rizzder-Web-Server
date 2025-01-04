@@ -3,6 +3,7 @@ import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 import logging
 
+
 logger = logging.getLogger(__name__)
 
 
@@ -41,6 +42,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
     async def receive(self, text_data=None, bytes_data=None):
         from ..models import ChatMessage, ChatRoom, User
+        from rizzder_app.utils import currentTimeMillis
         text_data_json = json.loads(text_data)
         message = text_data_json["message"]
         userId = text_data_json["userId"]
@@ -48,10 +50,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
         chatRoom = ChatRoom.objects.get(name=self.roomGroupName)
         if chatRoom.users.count() != 0:
+            user = User.objects.get(user_id=userId)
             chatMessage = ChatMessage.objects.create(date=time, value=message)
             chatMessage.save()
-            chatMessage.user_sender.add(User.objects.get(user_id=userId))
-
+            chatMessage.user_sender.add(user)
+            user.last_online = currentTimeMillis()
+            user.save()
             chatRoom.messages.add(chatMessage)
 
         await self.channel_layer.group_send(

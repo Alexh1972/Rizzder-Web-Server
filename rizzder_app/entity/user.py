@@ -28,6 +28,7 @@ class User(models.Model):
     longitude = models.FloatField(default=0)
     score = models.FloatField(default=1000)
     blocked_users = models.ManyToManyField("self", blank=True, symmetrical=False)
+    last_online = models.BigIntegerField(default=0)
 
     ### other fields to be added
 

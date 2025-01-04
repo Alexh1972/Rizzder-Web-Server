@@ -16,8 +16,13 @@ class JWTTokenDecoder():
 
     def getUserFromToken(self):
         from ..models import User
+        from rizzder_app.utils import currentTimeMillis
         decodedPayload = jwt.decode(self.token, settings.SECRET_KEY, algorithms=['HS256'])
         user_id = decodedPayload.get("user_id")
         auth_user = authUser.objects.get(id=user_id)
+        user = User.objects.get(username=auth_user.username)
 
-        return User.objects.get(username=auth_user.username)
+        if user is not None:
+            user.last_online = currentTimeMillis()
+            user.save()
+        return user
