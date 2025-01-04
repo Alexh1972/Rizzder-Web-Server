@@ -343,11 +343,36 @@ def chatRoomView(request):
             if dateArray[i] == dateArray[i - 1]:
                 dateArray[i] = ""
 
+        dt_object = datetime.fromtimestamp(user.last_online / 1000)
+        formated_date = dt_object.strftime('%d.%m.%Y')
+
+        last_online = ""
+        if currentTimeMillis() - user.last_online < 1000:
+            last_online = "Online"
+        elif formated_date != datetime.now().strftime('%d.%m.%Y'):
+            last_online = "Last seen on " + formated_date
+        else:
+            hour = (user.last_online / (1000 * 60 * 60) + 2) % 24
+            minute = user.last_online / (1000 * 60) % 60
+            last_online = "Last seen today at "
+
+            if hour < 10:
+                last_online += "0" + str(int(hour)) + ":"
+            else:
+                last_online += str(int(hour)) + ":"
+
+            if minute < 10:
+                last_online += "0" + str(int(minute))
+            else:
+                last_online += str(int(minute))
+
+
         return render(request, "user/chatRoom.html",
                       context={'user': user,
                                'receiverUser': receiverUser,
                                'roomName': chatName([user, receiverUser]),
                                'array': zip(messages, timeArray, dateArray),
+                               'last_online': last_online,
                                'chatRoom': chatRoom,
                                'messages': messages,
                                'ghosted': ghosted})
