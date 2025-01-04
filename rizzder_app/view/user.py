@@ -348,7 +348,7 @@ def chatRoomView(request):
 
         last_online = ""
         if currentTimeMillis() - user.last_online < 1000:
-            last_online = "Online"
+            last_online = currentTimeMillis() - user.last_online
         elif formated_date != datetime.now().strftime('%d.%m.%Y'):
             last_online = "Last seen on " + formated_date
         else:

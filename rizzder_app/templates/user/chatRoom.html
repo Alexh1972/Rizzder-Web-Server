@@ -240,55 +240,5 @@
         });
     </script>
 
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const messageContent = document.querySelector('.message-content');
-    let isAtBottom = true;
-
-    // Check if the user is at the bottom of the chat
-    function checkIfAtBottom() {
-        // If the user is at the bottom of the chat (or very close)
-        isAtBottom = messageContent.scrollHeight - messageContent.scrollTop === messageContent.clientHeight;
-    }
-
-    // Function to fetch new messages
-    function fetchMessages() {
-        // First, check if we're at the bottom
-        checkIfAtBottom();
-
-        // Make a request to the same page
-        fetch(window.location.href) // Request the current page
-            .then(response => response.text())  // Get the response as text (HTML)
-            .then(html => {
-                // Create a temporary container to hold the fetched content
-                const tempContainer = document.createElement('div');
-                tempContainer.innerHTML = html;
-
-                // Extract the new messages from the response
-                const newMessages = tempContainer.querySelector('.message-content');
-
-                // Only update the message container with new messages
-                if (newMessages) {
-                    // Update the message content
-                    messageContent.innerHTML = newMessages.innerHTML;
-
-                    // If we were at the bottom before, scroll to the bottom after update
-                    if (isAtBottom) {
-                        messageContent.scrollTop = messageContent.scrollHeight;
-                    }
-                }
-            })
-            .catch(error => console.error('Error fetching new messages:', error));
-    }
-
-    // Poll for new messages every 5 seconds
-    setInterval(fetchMessages, 500);
-
-    // Initial fetch to populate messages
-    fetchMessages();
-});
-</script>
-
-
 {% endblock %}
 
