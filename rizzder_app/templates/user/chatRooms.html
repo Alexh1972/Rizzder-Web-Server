@@ -96,7 +96,7 @@
             color: gray;
         }
 
-        .chat-link {
+        .add-token {
             text-decoration: none;
             color: black;
         }
@@ -107,7 +107,7 @@
     <div class="sidebar-chats">
         {% for chat, time in array %}
             {% if chat.user %}
-                <a class="sidebar-chat chat-link" href="{{ url }}/user/chatRoom/?receiver_user_id={{ chat.user.user_id }}">
+                <a class="sidebar-chat add-token" href="{{ url }}/user/chatRoom/?receiver_user_id={{ chat.user.user_id }}">
                     <div class="chat-avatar">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMwO2MiraV8QCaxxrb9JlPDUJAXKOOKLWHxA&s" alt="">
                     </div>
@@ -130,18 +130,4 @@
 
 
     </div>
-
-    <script>
-        // Extract the 'token' from the cookie
-        const token = getCookie("token");
-
-        // Update all chat links with the token
-        if (token) {
-            document.querySelectorAll('.chat-link').forEach(link => {
-                const currentUrl = new URL(link.href);
-                currentUrl.searchParams.set('token', token); // Add 'token' to the URL
-                link.href = currentUrl.toString(); // Update the href attribute
-            });
-        }
-    </script>
 {% endblock %}
