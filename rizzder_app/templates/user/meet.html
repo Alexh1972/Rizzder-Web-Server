@@ -1,5 +1,8 @@
 {% extends "_base.html" %}
 
+{% load static %}
+<script src="{% static 'js/user/meet.js' %}"></script>
+
 {% block title %}Rizzder - Meet{% endblock %}
 
 {% block extra_head %}
@@ -107,8 +110,9 @@
                             <p>${user.description_encoded_64 || 'N/A'}</p>
                         </div>
                     `;
-                } else {
-                    location.reload(); // Refresh the page if no more users to display
+                }
+                if (index === users.length - 2) {
+                    getUsers();
                 }
             }
 
@@ -172,7 +176,7 @@
                 });
             }
 
-            if (token) {
+            function getUsers() {
                 // Make the GET request
                 fetch(`${window.location.origin}/api/user/getPreferredUsers/?token=${encodeURIComponent(token)}`)
                     .then(response => {
@@ -183,10 +187,10 @@
                     })
                     .then(data => {
                         if (data.users) {
-                            users = data.users;
+                            users = users.concat(data.users);
 
                             if (users.length === 0) {
-                                window.location.href = `${window.location.origin}/home/?token=${encodeURIComponent(token)}`;
+                                window.location.href = `${window.location.origin}`;
                             } else {
                                 displayUser(currentIndex); // Display the first user
                             }
@@ -203,12 +207,9 @@
                             outputDiv.innerHTML = `<p>Error: ${error.message}</p>`;
                         }
                     });
-            } else {
-                const outputDiv = document.getElementById('output');
-                if (outputDiv) {
-                    outputDiv.innerHTML = '<p>Error: No token provided in URL.</p>';
-                }
             }
+
+            getUsers();
 
             function setupButton(buttonId, callback) {
                 document.getElementById(buttonId).addEventListener('click', callback);

@@ -18,7 +18,7 @@ $('body').on('click', '#submit', function () {
 			}
 		},
 		error: function(err) {
-			alert("MESSAGE ERRORS")
+			alert("Please enter a valid username and password");
 		},
 
 	});

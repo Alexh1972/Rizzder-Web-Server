@@ -347,13 +347,13 @@ def chatRoomView(request):
         formated_date = dt_object.strftime('%d.%m.%Y')
 
         last_online = ""
-        if currentTimeMillis() - user.last_online < 1000:
+        if currentTimeMillis() - receiverUser.last_online < 1000:
             last_online = currentTimeMillis() - user.last_online
         elif formated_date != datetime.now().strftime('%d.%m.%Y'):
             last_online = "Last seen on " + formated_date
         else:
-            hour = (user.last_online / (1000 * 60 * 60) + 2) % 24
-            minute = user.last_online / (1000 * 60) % 60
+            hour = (receiverUser.last_online / (1000 * 60 * 60) + 2) % 24
+            minute = receiverUser.last_online / (1000 * 60) % 60
             last_online = "Last seen today at "
 
             if hour < 10:
