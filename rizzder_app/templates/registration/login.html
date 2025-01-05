@@ -49,6 +49,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Enable pressing "Enter" to send messages
+        document.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                document.getElementById('submit').click(); // Trigger send button click
+                e.preventDefault(); // Prevent default Enter behavior
+            }
+        });
+    </script>
 {% endblock %}
 
 

@@ -112,7 +112,11 @@
             {% if chat.user %}
                 <a class="sidebar-chat add-token" href="{{ url }}/user/chatRoom/?receiver_user_id={{ chat.user.user_id }}">
                     <div class="chat-avatar">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMwO2MiraV8QCaxxrb9JlPDUJAXKOOKLWHxA&s" alt="">
+                        {% if chat.user.getImagesList.0 %}
+                            <img src="data:image/png;base64,{{ chat.user.getImagesList.0.image_base_64_encoded }}" alt="Pfp">
+                        {% else %}
+                            <img src="https://www.shutterstock.com/image-vector/avatar-gender-neutral-silhouette-vector-600nw-2470054311.jpg" alt="No image provided">
+                        {% endif %}
                     </div>
                 <div class="chat-info">
                     <h4>{{ chat.user.username }}</h4>

@@ -18,9 +18,9 @@
             <!-- Profile Section -->
             <div class="col-lg-4 text-center">
                 <h3 class="mb-4" style="color: #e43c3c;">Update Profile</h3>
-                <img src="{% static 'public/images/great_tit.jpg' %}" alt="avatar Profile Photo" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 150px; height: 150px; object-fit: cover;">
+                <img src="data:image/png;base64,{{ user.getImagesList.0.image_base_64_encoded }}" alt="avatar Profile Photo" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 150px; height: 150px; object-fit: cover;">
                 <input id="photoFile" type="file" accept="image/png, image/jpeg" class="form-control mb-3">
-                <button id="editPhotoSubmit" class="btn btn-danger w-100" style="background-color: #cc3636;">Update Photo</button>
+                <button id="editPhotoSubmit" class="btn btn-danger w-100" style="background-color: #cc3636;">Add Photo</button>
             </div>
 
             <!-- Form Section -->

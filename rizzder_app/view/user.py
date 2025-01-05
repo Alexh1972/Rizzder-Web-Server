@@ -72,8 +72,8 @@ def userEditPhoto(request):
         if user is None:
             return redirect("login")
 
-        if user.images.all().count() >= 5:
-            response = {'error': "Can't add more than 5 photos."}
+        if user.images.all().count() >= 4:
+            response = {'error': "Can't add more than 4 photos."}
             return HttpResponse(json.dumps(response), content_type="application/json")
 
         if 'file' not in request.FILES:

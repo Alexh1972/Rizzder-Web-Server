@@ -1,37 +1,37 @@
-$('#editUserSubmit').on('click', function () {
-	var paramDescription = "";
-	if (description !== document.getElementById("description").value)
-		paramDescription = document.getElementById("description").value;
+$('#editUserSubmit').on('click', function (event) {
+    event.preventDefault(); // Prevents the default form submission behavior.
 
-	if (document.getElementById("userGenderSelect").value == document.getElementById("userGenderPreferenceSelect").value) {
-		alert("GAY!")
-		return;
-	}
+    var paramDescription = "";
+    if (description !== document.getElementById("description").value)
+        paramDescription = document.getElementById("description").value;
+		console.log(paramDescription);
 
-   $.ajax({
-		url: "/api/user/edit/",
-		type: "POST",
-		data: {
-			description : paramDescription,
-			gender : document.getElementById("userGenderSelect").value,
-			genderPreference : document.getElementById("userGenderPreferenceSelect").value,
-			token : getCookie('token')
-		},
-		success: function(json) {
-			window.location.reload();
-		},
-		error: function(err) {
-			alert("MESSAGE ERRORS")
-		},
-
-	});
+    $.ajax({
+        url: "/api/user/edit/",
+        type: "POST",
+        data: {
+            description: paramDescription,
+            gender: document.getElementById("userGenderSelect").value,
+            genderPreference: document.getElementById("userGenderPreferenceSelect").value,
+            token: getCookie('token')
+        },
+        success: function (json) {
+            window.location.reload();
+        },
+        error: function (err) {
+            alert("MESSAGE ERRORS");
+        }
+    });
 });
 
 var noPhotosAdded = 0;
 
-$('#editPhtotoSubmit').on('click', function () {
+$('#editPhotoSubmit').on('click', function () {
    var formData = new FormData();
    formData.append('file', $('#photoFile')[0].files[0]);
+
+   console.log(formData);
+
    $.ajax({
 		url: "/api/user/edit/photo/?token=" + getCookie('token'),
 		type: "POST",
