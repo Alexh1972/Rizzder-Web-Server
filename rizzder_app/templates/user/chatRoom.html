@@ -33,7 +33,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
         }
 
         .chat-header-right img{
@@ -156,11 +156,11 @@
         <div class="header">
             <div class="chat-title">
                 <div class="avatar">
-                    {% if receiverUser.getImagesList.0 %}
-                        <img src="data:image/png;base64,{{ receiverUser.getImagesList.0.image_base_64_encoded }}" alt="Pfp">
-                    {% else %}
-                        <img src="https://www.shutterstock.com/image-vector/avatar-gender-neutral-silhouette-vector-600nw-2470054311.jpg" alt="No image provided">
-                    {% endif %}
+                {% if receiverUser.getImagesList.0 %}
+                    <img src="data:image/png;base64,{{ receiverUser.getImagesList.0.image_base_64_encoded }}" alt="Pfp" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 40px; height: 40px; object-fit: cover;">
+                {% else %}
+                    <img src="https://www.shutterstock.com/image-vector/avatar-gender-neutral-silhouette-vector-600nw-2470054311.jpg" alt="No image provided" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 40px; height: 40px; object-fit: cover;">
+                {% endif %}
                 </div>
                 <div class="message-header-content">
                     <h4>{{ receiverUser.username }}</h4>

@@ -103,11 +103,31 @@
                 const outputDiv = document.getElementById('output');
                 if (users[index]) {
                     const user = users[index];
+
+                    description = atob(user.description_encoded_64)
+                    if (user.images.len > 0) {
+                        outputDiv.innerHTML = `
+                            <img src="data:image/png;base64,${user.images[0].image_base_64_encoded}" alt="No image provided" id="profilePhoto"">
+                            <div class="profile-info">
+                                <h2>${user.username}, ${user.age}</h2>
+                                <p>${description || 'N/A'}</p>
+                            </div>
+                        `;
+                    } else {
+                        outputDiv.innerHTML = `
+                            <img src='https://www.shutterstock.com/image' alt="No image provided" id="profilePhoto"">
+                            <div class="profile-info">
+                                <h2>${user.username}, ${user.age}</h2>
+                                <p>${description || 'N/A'}</p>
+                            </div>
+                        `;
+                    }
+
                     outputDiv.innerHTML = `
-                        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTk1V8SjSdFKZ1hLnNSBDVdxYcWCMq3ZcYZ9HhSueKvOo55O1XHitrPDeM3N9eprhdC3sr2bJJLJaqnQ8qT8kOe3Q" alt="avatar">
+                        <img src="data:image/png;base64,${user.images[0].image_base_64_encoded}" alt="No image provided" id="profilePhoto"">
                         <div class="profile-info">
                             <h2>${user.username}, ${user.age}</h2>
-                            <p>${user.description_encoded_64 || 'N/A'}</p>
+                            <p>${description || 'N/A'}</p>
                         </div>
                     `;
                 }

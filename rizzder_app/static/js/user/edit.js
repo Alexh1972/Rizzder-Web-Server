@@ -16,7 +16,9 @@ $('#editUserSubmit').on('click', function (event) {
             token: getCookie('token')
         },
         success: function (json) {
-            window.location.reload();
+            // window.location.reload();
+			console.log(this.data)
+			console.log(json)
         },
         error: function (err) {
             alert("MESSAGE ERRORS");

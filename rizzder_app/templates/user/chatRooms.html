@@ -7,22 +7,21 @@
 
 {% block extra_head %}
     <style>
-        .chat-avatar {
+        .avatar {
             position: relative;
-            min-width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             overflow: hidden;
-            flex: 1;
         }
 
-        .chat-avatar img{
+        .avatar img{
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
         }
 
         .sidebar-chats {
@@ -113,9 +112,9 @@
                 <a class="sidebar-chat add-token" href="{{ url }}/user/chatRoom/?receiver_user_id={{ chat.user.user_id }}">
                     <div class="chat-avatar">
                         {% if chat.user.getImagesList.0 %}
-                            <img src="data:image/png;base64,{{ chat.user.getImagesList.0.image_base_64_encoded }}" alt="Pfp">
+                            <img src="data:image/png;base64,{{ chat.user.getImagesList.0.image_base_64_encoded }}" alt="Pfp" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 40px; height: 40px; object-fit: cover;">
                         {% else %}
-                            <img src="https://www.shutterstock.com/image-vector/avatar-gender-neutral-silhouette-vector-600nw-2470054311.jpg" alt="No image provided">
+                            <img src="https://www.shutterstock.com/image-vector/avatar-gender-neutral-silhouette-vector-600nw-2470054311.jpg" alt="No image provided" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 40px; height: 40px; object-fit: cover;">
                         {% endif %}
                     </div>
                 <div class="chat-info">
