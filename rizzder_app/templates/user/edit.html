@@ -18,8 +18,8 @@
             <!-- Profile Section -->
             <div class="col-lg-4 text-center">
                 <h3 class="mb-4" style="color: #e43c3c;">Update Profile</h3>
-                {% if user.getImagesList.0 %}
-                    <img src="data:image/png;base64,{{ user.getImagesList.0.image_base_64_encoded }}" alt="Pfp" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 150px; height: 150px; object-fit: cover;">
+                {% if user.getProfileImage %}
+                    <img src="data:image/png;base64,{{ user.getProfileImage.image_base_64_encoded }}" alt="Pfp" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 150px; height: 150px; object-fit: cover;">
                 {% else %}
                     <img src="https://www.shutterstock.com/image-vector/avatar-gender-neutral-silhouette-vector-600nw-2470054311.jpg" alt="No image provided" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 150px; height: 150px; object-fit: cover;">
                 {% endif %}
@@ -49,25 +49,17 @@
                         <textarea id="description" class="form-control" rows="4" placeholder="Tell us something about yourself..."></textarea>
                     </div>
 
-                    <p>{{ user.gender }}</p>
-
                     <!-- Gender -->
                     <div class="mb-4">
                         <label for="userGenderSelect" class="form-label" style="color: #e43c3c;">I am</label>
                         <select id="userGenderSelect" class="form-select">
-                            <option value="1" {% if user.gender == 1 %}selected{% endif %}>Male</option>
-                            <option value="2" {% if user.gender == 2 %}selected{% endif %}>Female</option>
                         </select>
                     </div>
-
-                    <p>{{ user.gender_preference }}</p>
 
                     <!-- Gender Preference -->
                     <div class="mb-4">
                         <label for="userGenderPreferenceSelect" class="form-label" style="color: #e43c3c;">I want to meet</label>
                         <select id="userGenderPreferenceSelect" class="form-select">
-                            <option value="MAN" {% if user.gender == 1 %}selected{% endif %}>Male</option>
-                            <option value="WOMAN" {% if user.gender == 2 %}selected{% endif %}>Female</option>
                         </select>
                     </div>
 
@@ -81,20 +73,70 @@
         <div class="row mt-5">
             <h3 style="color: #af3434;">Uploaded Photos</h3>
             {% for image in images %}
-            <div class="col-md-3 mb-4">
-                <div class="card shadow-sm">
-                    <img src="data:image/png;base64,{{ image.image_base_64_encoded }}" class="card-img-top" alt="Uploaded Photo" style="object-fit: cover; height: 200px;">
-                    <div class="card-body text-center">
-                        <button data-id="{{ image.id }}" class="btn btn-danger deleteButton w-100">Delete</button>
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm position-relative">
+                        <!-- New Button for Making the Photo First -->
+                        <button data-id="{{ image.id }}" class="btn btn-primary makeFirstButton position-absolute"
+                                style="top: 10px; right: 10px; z-index: 10; padding: 5px 10px; font-size: 0.8rem;">
+                            Set Pfp
+                        </button>
+                        <img src="data:image/png;base64,{{ image.image_base_64_encoded }}" class="card-img-top" alt="Uploaded Photo" style="object-fit: cover; height: 200px;">
+                        <div class="card-body text-center">
+                            <button data-id="{{ image.id }}" class="btn btn-danger deleteButton w-100">Delete</button>
+                        </div>
                     </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
     </div>
 
     <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.makeFirstButton').forEach(button => {
+            button.addEventListener('click', async (event) => {
+                const imageId = event.target.getAttribute('data-id');
+
+                try {
+                    const token = getCookie('token'); // Ensure this function is defined
+                    const response = await fetch(`${window.location.origin}/api/user/edit/photo/changeProfileImage/?token=${encodeURIComponent(token)}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams({ image_id: imageId }).toString(),
+                    });
+
+                    // Debugging output
+                    console.log(`Request URL: ${window.location.origin}/api/user/edit/photo/changeProfileImage/?token=${encodeURIComponent(token)}`);
+                    console.log(`Request Payload: image_id=${imageId}`);
+                    console.log(`Response Status: ${response.status}`);
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+
+                    const contentType = response.headers.get('Content-Type') || '';
+                    const result = contentType.includes('application/json') ? await response.json() : await response.text();
+
+                    if (result.status === 'success') {
+                        location.reload(); // Or dynamically update the UI
+                    } else {
+                        alert(result.error || 'Failed to update profile image');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An unexpected error occurred. Please try again.');
+                }
+            });
+        });
+    });
+</script>
+
+
+    <script>
         // Prefill description and selections dynamically
         document.getElementById("description").value = atob("{{ user.description_encoded_64 }}");
+        gender = "{{ user.gender }}"
+        gender_preference = "{{ user.gender_preference }}"
     </script>
 {% endblock %}

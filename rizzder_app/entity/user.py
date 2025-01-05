@@ -29,6 +29,7 @@ class User(models.Model):
     score = models.FloatField(default=1000)
     blocked_users = models.ManyToManyField("self", blank=True, symmetrical=False)
     last_online = models.BigIntegerField(default=0)
+    profile_image_id = models.BigIntegerField(default=0)
 
     ### other fields to be added
 
@@ -50,6 +51,23 @@ class User(models.Model):
                 images.append({"image_base_64_encoded": image_data, "id": userImage.user_image_id})
 
         return images
+
+    def getProfileImage(self):
+        for userImage in self.images.all():
+            if userImage.user_image_id == self.profile_image_id:
+                with open(userImage.image, "rb") as image_file:
+                    image_data = base64.b64encode(image_file.read()).decode('utf-8')
+                    return {"image_base_64_encoded": image_data, "id": userImage.user_image_id}
+
+        return None
+
+    def imageExists(self, image_id):
+        return self.images.filter(user_image_id=image_id).exists()
+
+    def getFirstImageId(self):
+        for userImage in self.images.all():
+            return userImage.user_image_id
+        return 0
 
     def calculateAge(self):
         return calculateYearsPassed(self.birth_date)
@@ -102,7 +120,7 @@ class User(models.Model):
 
     def serializeUser(self):
         user = model_to_dict(self, fields=['user_id', 'username', 'birth_date', 'images', 'description_encoded_64',
-                                    'latitude', 'longitude'])
+                                           'latitude', 'longitude'])
         user['images'] = User.getImagesList(User.objects.get(user_id=user['user_id']))
         user['distance'] = distance(self.latitude, self.longitude, user['latitude'], user['longitude'])
         user['age'] = calculateYearsPassed(user['birth_date'])

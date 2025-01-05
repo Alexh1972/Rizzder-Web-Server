@@ -105,9 +105,9 @@
                     const user = users[index];
 
                     description = atob(user.description_encoded_64)
-                    if (user.images.len > 0) {
+                    if (user.getProfileImage) {
                         outputDiv.innerHTML = `
-                            <img src="data:image/png;base64,${user.images[0].image_base_64_encoded}" alt="No image provided" id="profilePhoto"">
+                            <img src="data:image/png;base64,${user.getProfileImage.image_base_64_encoded}" alt="No image provided" id="profilePhoto"">
                             <div class="profile-info">
                                 <h2>${user.username}, ${user.age}</h2>
                                 <p>${description || 'N/A'}</p>

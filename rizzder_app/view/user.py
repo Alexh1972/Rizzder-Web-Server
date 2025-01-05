@@ -3,7 +3,8 @@ from datetime import datetime
 
 from django.shortcuts import render, HttpResponse, redirect
 from ..utils import *
-from ..models import User, UserImage, Gender, addUserLike, getChatRoom, getChatRooms, getMatchesForUser, unmatchUser, getMatch
+from ..models import User, UserImage, Gender, addUserLike, getChatRoom, getChatRooms, getMatchesForUser, unmatchUser, \
+    getMatch
 from ..messaging import *
 import logging
 import base64
@@ -72,7 +73,9 @@ def userEditPhoto(request):
         if user is None:
             return redirect("login")
 
-        if user.images.all().count() >= 4:
+        noPhotos = user.images.all().count()
+
+        if noPhotos >= 4:
             response = {'error': "Can't add more than 4 photos."}
             return HttpResponse(json.dumps(response), content_type="application/json")
 
@@ -90,6 +93,10 @@ def userEditPhoto(request):
             user.images.add(userImage)
             user.save()
 
+            if noPhotos == 0:
+                user.profile_image_id = user.getFirstImageId()
+                user.save()
+
         response = {'status': 'success'}
         return HttpResponse(json.dumps(response), content_type="application/json")
     except Exception as e:
@@ -106,9 +113,17 @@ def userDeletePhoto(request):
         if user is None:
             return redirect("login")
 
-        image_id = request.POST['id']
+        image_id = int(request.POST['id'])
         UserImage.objects.filter(user_image_id=image_id).delete()
 
+        noPhotos = user.images.all().count()
+        if noPhotos == 0:
+            user.profile_image_id = 0
+            user.save()
+        else:
+            if user.profile_image_id == image_id:
+                user.profile_image_id = user.getFirstImageId()
+                user.save()
         response = {'status': 'success'}
         return HttpResponse(json.dumps(response), content_type="application/json")
     except Exception as e:
@@ -434,8 +449,31 @@ def getMatches(request):
         if user is None:
             return redirect("login")
         logger.info(getMatchesForUser(user))
-        return HttpResponse(json.dumps({'status': 'success', 'users' : getMatchesForUser(user)}), content_type="application/json")
+        return HttpResponse(json.dumps({'status': 'success', 'users': getMatchesForUser(user)}),
+                            content_type="application/json")
     except Exception as e:
         logger.error(e)
         return redirect("login")
 
+
+# POST - api/user/edit/photo/changeProfileImage - {'image_id' : id}
+def changeProfileImage(request):
+    try:
+        jwt_token_decoder = JWTTokenDecoder(request)
+        user = jwt_token_decoder.getUserFromToken()
+
+        if user is None:
+            return redirect("login")
+
+        image_id = request.POST['image_id']
+        if user.imageExists(image_id):
+            user.profile_image_id = image_id
+            user.save()
+            return HttpResponse(json.dumps({'status': 'success'}),
+                                content_type="application/json")
+        else:
+            return HttpResponse(json.dumps({'status': 'error', 'error': 'Image does not exist!'}),
+                                content_type="application/json")
+    except Exception as e:
+        logger.error(e)
+        return redirect("login")
