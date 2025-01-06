@@ -105,9 +105,18 @@
                     const user = users[index];
 
                     description = atob(user.description_encoded_64)
-                    if (user.getProfileImage) {
+
+                    profileImage = null
+                    for (i = 0; i < user.images.length; i ++) {
+                        if (user.images[i].id == user.profile_image_id) {
+                            profileImage = user.images[i]
+                            break
+                        }
+                    }
+
+                    if (profileImage) {
                         outputDiv.innerHTML = `
-                            <img src="data:image/png;base64,${user.getProfileImage.image_base_64_encoded}" alt="No image provided" id="profilePhoto"">
+                            <img src="data:image/png;base64,${ profileImage.image_base_64_encoded }" alt="No image provided" id="profilePhoto"">
                             <div class="profile-info">
                                 <h2>${user.username}, ${user.age}</h2>
                                 <p>${description || 'N/A'}</p>
@@ -115,34 +124,28 @@
                         `;
                     } else {
                         outputDiv.innerHTML = `
-                            <img src='https://www.shutterstock.com/image' alt="No image provided" id="profilePhoto"">
+                            <img src='https://www.shutterstock.com/image-vector/avatar-gender-neutral-silhouette-vector-600nw-2470054311.jpg' alt="No image provided" id="profilePhoto"">
                             <div class="profile-info">
                                 <h2>${user.username}, ${user.age}</h2>
                                 <p>${description || 'N/A'}</p>
                             </div>
                         `;
                     }
-
-                    outputDiv.innerHTML = `
-                        <img src="data:image/png;base64,${user.images[0].image_base_64_encoded}" alt="No image provided" id="profilePhoto"">
-                        <div class="profile-info">
-                            <h2>${user.username}, ${user.age}</h2>
-                            <p>${description || 'N/A'}</p>
-                        </div>
-                    `;
-                }
-                if (index === users.length - 2) {
-                    getUsers();
+                } else {
+                    outputDiv.innerHTML = '<p>No more users to display.</p>';
+                    // Optionally, hide buttons or redirect
+                    document.querySelector('.buttons').style.display = 'none';
                 }
             }
 
             function likeUser(userId) {
+                console.log('Sending like request for user:', userId);
                 fetch(`${window.location.origin}/api/user/meet/like/?token=${encodeURIComponent(token)}`, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded', // Changed Content-Type
+                        'Content-Type': 'application/x-www-form-urlencoded',
                     },
-                    body: new URLSearchParams({ // Use URLSearchParams to encode body
+                    body: new URLSearchParams({
                         like: "True",
                         receiver_id: userId
                     }),
@@ -151,18 +154,13 @@
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
-                    const contentType = response.headers.get('Content-Type') || '';
-                    if (contentType.includes('application/json')) {
-                        return response.json();
-                    } else {
-                        return response.text(); // Handle non-JSON responses
-                    }
+                    return response.json();
                 })
                 .then(data => {
-                    console.log('Like response:', data);
+                    console.log('Like request successful:', data);
                 })
                 .catch(error => {
-                    console.error('Error liking user:', error);
+                    console.error('Error in likeUser:', error);
                 });
             }
 
@@ -229,8 +227,6 @@
                     });
             }
 
-            getUsers();
-
             function setupButton(buttonId, callback) {
                 document.getElementById(buttonId).addEventListener('click', callback);
             }
@@ -241,10 +237,12 @@
                     likeUser(users[currentIndex].user_id);
                 }
 
-                setTimeout(() => {
-                    currentIndex += 1;
-                displayUser(currentIndex); // Display the next user when clicking
-                }, 100);
+                currentIndex += 1;
+                if (currentIndex < users.length) {
+                    displayUser(currentIndex);
+                } else {
+                    displayUser(currentIndex); // Handles the "no more users" scenario
+                }
             });
 
             setupButton('alternateNextUserButton', function() {
@@ -252,11 +250,17 @@
                     dislikeUser(users[currentIndex].user_id);
                 }
 
-                setTimeout(() => {
-                    currentIndex += 1;
-                displayUser(currentIndex); // Display the next user when clicking
-                }, 100);
+                currentIndex += 1;
+                if (currentIndex < users.length) {
+                    displayUser(currentIndex);
+                } else {
+                    displayUser(currentIndex); // Handles the "no more users" scenario
+                }
             });
+
+            if (currentIndex >= users.length - 2) {
+                getUsers();
+            }
         });
     </script>
 {% endblock %}

@@ -224,6 +224,8 @@ def likeUser(request):
 
         matched = addUserLike(user, receiver, request.POST['like'])
 
+        logger.info(matched)
+
         if matched is None:
             return HttpResponse(json.dumps({'error': "Couldn't like user"}), content_type="application/json")
         return HttpResponse(json.dumps({'status': 'success', 'matched': matched}), content_type="application/json")

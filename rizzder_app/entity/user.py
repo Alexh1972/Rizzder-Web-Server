@@ -97,7 +97,7 @@ class User(models.Model):
 
         users = users[0:numberOfResults]
         users = [model_to_dict(user, fields=['user_id', 'username', 'birth_date', 'images', 'description_encoded_64',
-                                             'latitude', 'longitude']) for user in users]
+                                             'latitude', 'longitude', 'profile_image_id']) for user in users]
 
         for user in users:
             user['images'] = User.getImagesList(User.objects.get(user_id=user['user_id']))
