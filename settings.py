@@ -32,6 +32,8 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
+ENVIRONMENT = 'production'
+
 PORT = os.getenv("PORT", "8000")
 # Application definition
 
