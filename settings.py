@@ -32,6 +32,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
+PORT = os.getenv("PORT", "8000")
 # Application definition
 
 INSTALLED_APPS = [
