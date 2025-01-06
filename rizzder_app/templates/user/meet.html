@@ -157,7 +157,12 @@
                     return response.json();
                 })
                 .then(data => {
-                    console.log('Like request successful:', data);
+                    console.log('Like response:', data);
+
+                    if (data.matched === true) {
+                        alert('You have a match!');
+                        console.log('Matched with user:', userId);
+                    }
                 })
                 .catch(error => {
                     console.error('Error in likeUser:', error);
