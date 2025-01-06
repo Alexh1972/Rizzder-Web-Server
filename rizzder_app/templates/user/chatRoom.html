@@ -35,6 +35,45 @@
             height: 100%;
             object-fit: cover;
         }
+        .chat-header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between elements */
+        }
+
+        .action-button {
+            padding: 5px 10px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #f0f0f0; /* Light background */
+            color: #333; /* Text color */
+            transition: background-color 0.3s ease;
+        }
+
+        .action-button:hover {
+            background-color: #e0e0e0; /* Slightly darker on hover */
+        }
+
+        .unmatch-button {
+            background-color: #f8d7da; /* Light red background */
+            color: #721c24; /* Dark red text */
+        }
+
+        .unmatch-button:hover {
+            background-color: #f5c6cb; /* Darker red on hover */
+        }
+
+        .block-button {
+            background-color: #cce5ff; /* Light blue background */
+            color: #004085; /* Dark blue text */
+        }
+
+        .block-button:hover {
+            background-color: #b8daff; /* Darker blue on hover */
+        }
+
 
         .chat-header-right img{
             width: 40px;
@@ -171,7 +210,10 @@
                 {% if ghosted %}
                     <img src="https://www.svgrepo.com/show/431685/ghost.svg" alt="You have been ghosted!">
                 {% endif %}
+                <button class="action-button unmatch-button">Unmatch</button>
+                <button class="action-button block-button">Block</button>
             </div>
+
         </div>
         <div class="message-content">
             {% for message, time, date in array %}
@@ -243,6 +285,72 @@
             }
         });
     </script>
+
+    <!-- Block user -->
+    <script>
+        document.querySelector('.action-button.block-button').addEventListener('click', () => {
+            const token = getCookie('token'); // Replace with the actual token if needed
+
+            fetch(`${window.location.origin}/api/user/block/?token=${token}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    receiver_id: userId
+                }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Block response:', data);
+                alert('User blocked successfully!');
+                {window.location.href = `{{ url }}/user/getChatRooms/?token=${token}`;}
+            })
+            .catch(error => {
+                console.error('Error in BlockUser:', error);
+                alert('Failed to block the user.');
+            });
+        });
+    </script>
+
+    <!-- Unmatch user -->
+    <script>
+        document.querySelector('.action-button.unmatch-button').addEventListener('click', () => {
+            const token = getCookie('token'); // Replace with the actual token if needed
+
+            fetch(`${window.location.origin}/api/user/setGhosted/?token=${token}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    receiver_id: userId,
+                    block_receiver: false
+                }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Unmatch response:', data);
+                alert('User Unmatched successfully!');
+                {window.location.href = `{{ url }}/user/getChatRooms/?token=${token}`;}
+            })
+            .catch(error => {
+                console.error('Error in UnmatchUser:', error);
+                alert('Failed to unmatch the user.');
+            });
+        });
+    </script>
+
 
 {% endblock %}
 

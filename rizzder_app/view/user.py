@@ -298,7 +298,7 @@ def setGhosted(request):
 
         if getMatch(user, receiver):
             unmatchUser(user, receiver, request.POST['block_receiver'])
-            receiver.changeScore(-200)
+            user.changeScore(-200)
         return HttpResponse(json.dumps({'status': 'success'}), content_type="application/json")
     except Exception as e:
         logger.error(e)
