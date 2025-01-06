@@ -27,14 +27,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0xhbo#2^75x=!*l$x2nv7l3bduxfp3lj6e##%h$q1bta*c+9tv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
-ENVIRONMENT = 'production'
+ENVIRONMENT = 'development'
+DEBUG = True
 
-PORT = os.getenv("PORT", "8000")
 # Application definition
 
 INSTALLED_APPS = [
@@ -186,9 +185,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR , "static"),
-]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
