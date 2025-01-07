@@ -1,0 +1,154 @@
+{% extends "_base.html" %}
+
+{% load static %}
+<script src="{% static 'js/user/chatRoom.js' %}"></script>
+
+{% block title %}Rizzder - Chat{% endblock %}
+
+{% block extra_head %}
+    <style>
+        .avatar {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .avatar img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar-chats {
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        .sidebar-chat {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px 12px;
+            width: 100%;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: none;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b9b3b9;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+        .sidebar-chat:hover {
+            background-color: #ffebeb;
+        }
+        .sidebar-chat::before {
+            content: '';
+            position: absolute;
+            width: 80%;
+            bottom: 0;
+            left: 80px;
+            border-bottom: 1px solid #999;
+            opacity: 0.2;
+        }
+
+        .chat-info h4 {
+            margin-top: 10px;
+            margin-bottom: -20px;
+            padding-top: 10px;
+            font-weight: 400;
+        }
+
+        .sidebar-chat p{
+            font-size: 13px;
+            color: gray;
+        }
+
+        .chat-info {
+            margin-left: 15px;
+            flex: 10;
+        }
+
+        .chat-info p{
+            font-size: 13px;
+            line-height: 20px;
+            color: gray;
+        }
+
+        .time {
+            flex: 10;
+            text-align: right;
+        }
+
+        .time p{
+            white-space: nowrap;
+            font-size: 13px;
+            color: gray;
+        }
+
+        .add-token {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="sidebar-chats">
+        {% for match in matches %}
+            <a class="sidebar-chat add-token" href="{{ url }}/user/chatRoom/?receiver_user_id={{ match.user_id }}">
+                <div class="chat-avatar">
+                        {% if chat.user.getProfileImage %}
+                            <img src="data:image/png;base64,{{ chat.user.getProfileImage.image_base_64_encoded }}" alt="Pfp" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 40px; height: 40px; object-fit: cover;">
+                        {% else %}
+                            <img src="https://www.shutterstock.com/image-vector/avatar-gender-neutral-silhouette-vector-600nw-2470054311.jpg" alt="No image provided" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 40px; height: 40px; object-fit: cover;">
+                        {% endif %}
+                    </div>
+                <div class="chat-info">
+                    <h4>{{ match.username }}</h4>
+                    <p><p>Be the one to break the ice!</p></p>
+                </div>
+            </a>
+        {% endfor %}
+        {% for chat, time in array %}
+            {% if chat.user %}
+                <a class="sidebar-chat add-token" href="{{ url }}/user/chatRoom/?receiver_user_id={{ chat.user.user_id }}">
+                    <div class="chat-avatar">
+                        {% if chat.user.getProfileImage %}
+                            <img src="data:image/png;base64,{{ chat.user.getProfileImage.image_base_64_encoded }}" alt="Pfp" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 40px; height: 40px; object-fit: cover;">
+                        {% else %}
+                            <img src="https://www.shutterstock.com/image-vector/avatar-gender-neutral-silhouette-vector-600nw-2470054311.jpg" alt="No image provided" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 40px; height: 40px; object-fit: cover;">
+                        {% endif %}
+                    </div>
+                <div class="chat-info">
+                    <h4>{{ chat.user.username }}</h4>
+                    <p>
+                        {% if chat.last_message.user_sender.all.0.user_id == user.user_id %}
+                            <p>You: {{ chat.last_message.value }}</p>
+                        {% else %}
+                            <p>{{ chat.last_message.user_sender.all.0.username }}: {{ chat.last_message.value }}</p>
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="time">
+                    <p>{{ time }}</p>
+                </div>
+            </a>
+            {% endif %}
+        {% endfor %}
+
+
+    </div>
+{% endblock %}

@@ -1,0 +1,533 @@
+scheduler [INFO] 2025-01-07 12:46:54,875 Starting scheduled jobs
+user_like [INFO] 2025-01-07 12:46:54,875 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 12:46:56,290 Starting scheduled jobs
+user_like [INFO] 2025-01-07 12:46:56,291 Starting job - name : Clean Old Likes
+user_like [INFO] 2025-01-07 12:47:04,891 Deleting UserLikes older than 2024-12-31 12:47:04.891102
+user_like [INFO] 2025-01-07 12:47:06,300 Deleting UserLikes older than 2024-12-31 12:47:06.300284
+scheduler [INFO] 2025-01-07 12:47:28,699 Starting scheduled jobs
+user_like [INFO] 2025-01-07 12:47:28,699 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 12:47:30,019 Starting scheduled jobs
+user_like [INFO] 2025-01-07 12:47:30,019 Starting job - name : Clean Old Likes
+user_like [INFO] 2025-01-07 12:47:38,709 Deleting UserLikes older than 2024-12-31 12:47:38.708994
+user_like [INFO] 2025-01-07 12:47:40,031 Deleting UserLikes older than 2024-12-31 12:47:40.030970
+scheduler [INFO] 2025-01-07 12:49:28,154 Starting scheduled jobs
+user_like [INFO] 2025-01-07 12:49:28,154 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 12:49:29,546 Starting scheduled jobs
+user_like [INFO] 2025-01-07 12:49:29,547 Starting job - name : Clean Old Likes
+user_like [INFO] 2025-01-07 12:49:38,168 Deleting UserLikes older than 2024-12-31 12:49:38.168614
+user_like [INFO] 2025-01-07 12:49:39,559 Deleting UserLikes older than 2024-12-31 12:49:39.559614
+scheduler [INFO] 2025-01-07 12:50:53,043 Starting scheduled jobs
+user_like [INFO] 2025-01-07 12:50:53,044 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 12:50:54,632 Starting scheduled jobs
+user_like [INFO] 2025-01-07 12:50:54,633 Starting job - name : Clean Old Likes
+user_like [INFO] 2025-01-07 12:51:03,052 Deleting UserLikes older than 2024-12-31 12:51:03.052915
+user_like [INFO] 2025-01-07 12:51:04,641 Deleting UserLikes older than 2024-12-31 12:51:04.641887
+user [ERROR] 2025-01-07 12:51:07,097 'token'
+user [ERROR] 2025-01-07 12:51:07,359 Not enough segments
+user [ERROR] 2025-01-07 12:55:15,836 Not enough segments
+user [INFO] 2025-01-07 12:55:21,492 []
+user [INFO] 2025-01-07 12:55:25,713 []
+user [INFO] 2025-01-07 12:56:06,836 {'user_id': 3, 'username': 'Alexhh', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 12:56:06,838 {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 12:56:08,606 {'user_id': 3, 'username': 'Alexhh', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 12:56:08,607 {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 12:56:09,692 {'user_id': 3, 'username': 'Alexhh', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 12:56:09,694 {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 12:56:10,808 {'user_id': 3, 'username': 'Alexhh', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 12:56:10,809 {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 12:56:11,434 False
+user [INFO] 2025-01-07 12:56:14,028 []
+user [INFO] 2025-01-07 12:56:15,207 {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 12:56:16,986 {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 12:56:18,164 {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [ERROR] 2025-01-07 12:56:19,853 Not enough segments
+user [INFO] 2025-01-07 12:56:24,235 {'user_id': 3, 'username': 'Alexhh', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 12:56:24,236 {'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 12:56:25,260 False
+user [INFO] 2025-01-07 12:56:26,569 {'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+scheduler [INFO] 2025-01-07 12:58:11,684 Starting scheduled jobs
+user_like [INFO] 2025-01-07 12:58:11,684 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 12:58:12,093 {'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 12:58:13,518 False
+user [ERROR] 2025-01-07 12:58:15,096 Not enough segments
+user [INFO] 2025-01-07 12:58:18,767 {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 12:58:20,304 True
+user_like [INFO] 2025-01-07 12:58:21,702 Deleting UserLikes older than 2024-12-31 12:58:21.702826
+user [INFO] 2025-01-07 12:58:23,228 []
+user [INFO] 2025-01-07 12:58:24,139 []
+user [INFO] 2025-01-07 12:58:25,160 []
+user [INFO] 2025-01-07 12:58:25,854 []
+user [INFO] 2025-01-07 12:58:26,451 []
+scheduler [INFO] 2025-01-07 13:08:55,438 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:08:55,438 Starting job - name : Clean Old Likes
+user_like [INFO] 2025-01-07 13:09:05,454 Deleting UserLikes older than 2024-12-31 13:09:05.454582
+scheduler [INFO] 2025-01-07 13:09:15,052 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:09:15,053 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:09:16,620 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:09:16,620 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:09:20,467 []
+user [INFO] 2025-01-07 13:09:21,386 []
+user_like [INFO] 2025-01-07 13:09:25,074 Deleting UserLikes older than 2024-12-31 13:09:25.074336
+user_like [INFO] 2025-01-07 13:09:26,627 Deleting UserLikes older than 2024-12-31 13:09:26.627622
+scheduler [INFO] 2025-01-07 13:09:59,827 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:09:59,827 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:10:01,741 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:10:01,741 Starting job - name : Clean Old Likes
+user_like [INFO] 2025-01-07 13:10:09,846 Deleting UserLikes older than 2024-12-31 13:10:09.846632
+user_like [INFO] 2025-01-07 13:10:11,755 Deleting UserLikes older than 2024-12-31 13:10:11.755313
+user [INFO] 2025-01-07 13:10:14,640 []
+user [INFO] 2025-01-07 13:10:15,309 []
+user [INFO] 2025-01-07 13:10:15,902 []
+user [INFO] 2025-01-07 13:10:16,465 []
+user [INFO] 2025-01-07 13:10:17,021 []
+scheduler [INFO] 2025-01-07 13:11:16,167 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:11:16,167 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:11:18,044 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:11:18,044 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:11:21,254 []
+user_like [INFO] 2025-01-07 13:11:26,172 Deleting UserLikes older than 2024-12-31 13:11:26.172675
+user_like [INFO] 2025-01-07 13:11:28,054 Deleting UserLikes older than 2024-12-31 13:11:28.054142
+user [INFO] 2025-01-07 13:11:52,507 []
+user [INFO] 2025-01-07 13:11:57,156 []
+user [INFO] 2025-01-07 13:12:06,049 []
+user [INFO] 2025-01-07 13:12:10,552 []
+scheduler [INFO] 2025-01-07 13:12:49,303 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:12:49,303 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:12:50,733 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:12:50,733 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:12:52,468 []
+user_like [INFO] 2025-01-07 13:12:59,316 Deleting UserLikes older than 2024-12-31 13:12:59.316779
+user_like [INFO] 2025-01-07 13:13:00,745 Deleting UserLikes older than 2024-12-31 13:13:00.745422
+user [INFO] 2025-01-07 13:13:04,979 []
+user [INFO] 2025-01-07 13:14:52,645 []
+user [ERROR] 2025-01-07 13:14:54,113 Not enough segments
+user [ERROR] 2025-01-07 13:15:16,303 Not enough segments
+user [INFO] 2025-01-07 13:15:24,327 {'user_id': 3, 'username': 'Alexhh', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 13:15:24,329 {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 13:15:24,332 {'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 13:15:25,579 False
+user [INFO] 2025-01-07 13:15:26,628 False
+user [ERROR] 2025-01-07 13:15:28,589 Not enough segments
+user [INFO] 2025-01-07 13:15:32,535 {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+scheduler [INFO] 2025-01-07 13:15:50,718 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:15:50,718 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:15:51,088 {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user [INFO] 2025-01-07 13:15:52,032 {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+scheduler [INFO] 2025-01-07 13:15:56,106 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:15:56,106 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:15:57,483 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:15:57,483 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:16:01,820 {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'profile_image_id': 0, 'images': [], 'distance': 0.0, 'age': 0}
+user_match [INFO] 2025-01-07 13:16:03,106 Matched admin with hello
+user [INFO] 2025-01-07 13:16:03,119 True
+user_like [INFO] 2025-01-07 13:16:06,115 Deleting UserLikes older than 2024-12-31 13:16:06.115325
+user_like [INFO] 2025-01-07 13:16:07,489 Deleting UserLikes older than 2024-12-31 13:16:07.489066
+user [INFO] 2025-01-07 13:16:20,038 []
+user [INFO] 2025-01-07 13:16:21,278 []
+scheduler [INFO] 2025-01-07 13:17:01,937 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:17:01,937 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:17:03,262 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:17:03,262 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:17:04,902 []
+user_like [INFO] 2025-01-07 13:17:11,949 Deleting UserLikes older than 2024-12-31 13:17:11.949816
+user_like [INFO] 2025-01-07 13:17:13,279 Deleting UserLikes older than 2024-12-31 13:17:13.279190
+scheduler [INFO] 2025-01-07 13:17:55,404 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:17:55,404 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:17:56,759 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:17:56,759 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:17:58,901 []
+user [INFO] 2025-01-07 13:18:04,185 []
+user_like [INFO] 2025-01-07 13:18:05,436 Deleting UserLikes older than 2024-12-31 13:18:05.436282
+user_like [INFO] 2025-01-07 13:18:06,764 Deleting UserLikes older than 2024-12-31 13:18:06.764844
+scheduler [INFO] 2025-01-07 13:18:28,542 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:18:28,542 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:18:29,869 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:18:29,869 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:18:32,523 []
+user [INFO] 2025-01-07 13:18:35,945 []
+user_like [INFO] 2025-01-07 13:18:38,552 Deleting UserLikes older than 2024-12-31 13:18:38.552207
+user_like [INFO] 2025-01-07 13:18:39,886 Deleting UserLikes older than 2024-12-31 13:18:39.886017
+scheduler [INFO] 2025-01-07 13:19:27,482 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:19:27,482 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:19:28,847 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:19:28,848 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:19:32,482 []
+user [INFO] 2025-01-07 13:19:35,888 []
+user_like [INFO] 2025-01-07 13:19:37,491 Deleting UserLikes older than 2024-12-31 13:19:37.491553
+user_like [INFO] 2025-01-07 13:19:38,862 Deleting UserLikes older than 2024-12-31 13:19:38.862901
+scheduler [INFO] 2025-01-07 13:19:55,662 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:19:55,663 Starting job - name : Clean Old Likes
+user_like [INFO] 2025-01-07 13:20:05,667 Deleting UserLikes older than 2024-12-31 13:20:05.667046
+scheduler [INFO] 2025-01-07 13:20:14,814 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:20:14,814 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:20:16,310 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:20:16,310 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:20:16,511 []
+user [INFO] 2025-01-07 13:20:19,057 []
+user_like [INFO] 2025-01-07 13:20:24,829 Deleting UserLikes older than 2024-12-31 13:20:24.829586
+user_like [INFO] 2025-01-07 13:20:26,325 Deleting UserLikes older than 2024-12-31 13:20:26.325856
+scheduler [INFO] 2025-01-07 13:20:56,441 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:20:56,441 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:20:57,973 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:20:57,973 Starting job - name : Clean Old Likes
+user_like [INFO] 2025-01-07 13:21:06,457 Deleting UserLikes older than 2024-12-31 13:21:06.457798
+user_like [INFO] 2025-01-07 13:21:07,981 Deleting UserLikes older than 2024-12-31 13:21:07.981212
+user [INFO] 2025-01-07 13:21:13,533 []
+scheduler [INFO] 2025-01-07 13:21:47,857 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:21:47,857 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:21:49,181 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:21:49,182 Starting job - name : Clean Old Likes
+user_like [INFO] 2025-01-07 13:21:57,870 Deleting UserLikes older than 2024-12-31 13:21:57.869950
+user_like [INFO] 2025-01-07 13:21:59,186 Deleting UserLikes older than 2024-12-31 13:21:59.186116
+scheduler [INFO] 2025-01-07 13:22:12,409 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:22:12,409 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:22:13,845 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:22:13,845 Starting job - name : Clean Old Likes
+user [ERROR] 2025-01-07 13:22:16,321 can only concatenate str (not "Manager") to str
+user [ERROR] 2025-01-07 13:22:22,296 can only concatenate str (not "Manager") to str
+user_like [INFO] 2025-01-07 13:22:22,421 Deleting UserLikes older than 2024-12-31 13:22:22.421858
+user_like [INFO] 2025-01-07 13:22:23,857 Deleting UserLikes older than 2024-12-31 13:22:23.856942
+scheduler [INFO] 2025-01-07 13:22:42,985 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:22:42,985 Starting job - name : Clean Old Likes
+user [ERROR] 2025-01-07 13:22:43,334 can only concatenate str (not "User") to str
+user [ERROR] 2025-01-07 13:22:44,306 can only concatenate str (not "User") to str
+scheduler [INFO] 2025-01-07 13:22:47,783 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:22:47,783 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:22:49,157 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:22:49,158 Starting job - name : Clean Old Likes
+user [ERROR] 2025-01-07 13:22:50,306 can only concatenate str (not "User") to str
+user [ERROR] 2025-01-07 13:22:53,618 can only concatenate str (not "User") to str
+user_like [INFO] 2025-01-07 13:22:57,810 Deleting UserLikes older than 2024-12-31 13:22:57.810744
+user_like [INFO] 2025-01-07 13:22:59,175 Deleting UserLikes older than 2024-12-31 13:22:59.175703
+scheduler [INFO] 2025-01-07 13:23:09,593 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:23:09,593 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:23:10,568 []
+user [INFO] 2025-01-07 13:23:11,571 []
+user_like [INFO] 2025-01-07 13:23:19,608 Deleting UserLikes older than 2024-12-31 13:23:19.608321
+scheduler [INFO] 2025-01-07 13:23:50,660 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:23:50,660 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:23:52,160 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:23:52,160 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:23:52,552 []
+user [ERROR] 2025-01-07 13:23:52,552 'QuerySet' object can't be concatenated
+user_like [INFO] 2025-01-07 13:24:00,667 Deleting UserLikes older than 2024-12-31 13:24:00.667279
+scheduler [INFO] 2025-01-07 13:24:01,388 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:24:01,389 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:24:01,810 []
+user [ERROR] 2025-01-07 13:24:01,810 'QuerySet' object can't be concatenated
+user_like [INFO] 2025-01-07 13:24:11,403 Deleting UserLikes older than 2024-12-31 13:24:11.403338
+scheduler [INFO] 2025-01-07 13:24:17,248 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:24:17,248 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:24:18,677 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:24:18,677 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:24:21,060 []
+user [INFO] 2025-01-07 13:24:21,060 User object (4)
+user [INFO] 2025-01-07 13:24:21,782 []
+user [INFO] 2025-01-07 13:24:21,782 User object (4)
+user_like [INFO] 2025-01-07 13:24:27,260 Deleting UserLikes older than 2024-12-31 13:24:27.260350
+user_like [INFO] 2025-01-07 13:24:28,687 Deleting UserLikes older than 2024-12-31 13:24:28.687306
+scheduler [INFO] 2025-01-07 13:24:35,240 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:24:35,240 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:24:36,608 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:24:36,608 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:24:36,994 []
+user [INFO] 2025-01-07 13:24:36,994 admin
+user_like [INFO] 2025-01-07 13:24:45,259 Deleting UserLikes older than 2024-12-31 13:24:45.259023
+user_like [INFO] 2025-01-07 13:24:46,621 Deleting UserLikes older than 2024-12-31 13:24:46.621825
+scheduler [INFO] 2025-01-07 13:25:03,186 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:25:03,187 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:25:04,766 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:25:04,766 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:25:10,084 []
+user_match [INFO] 2025-01-07 13:25:10,085 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:25:10,089 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:25:10,996 []
+user_match [INFO] 2025-01-07 13:25:10,997 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:25:11,003 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user_like [INFO] 2025-01-07 13:25:13,200 Deleting UserLikes older than 2024-12-31 13:25:13.200877
+user_like [INFO] 2025-01-07 13:25:14,778 Deleting UserLikes older than 2024-12-31 13:25:14.778126
+scheduler [INFO] 2025-01-07 13:25:30,303 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:25:30,303 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:25:30,528 []
+user_match [INFO] 2025-01-07 13:25:30,528 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:25:30,536 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:25:32,033 []
+user_match [INFO] 2025-01-07 13:25:32,034 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:25:32,039 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user_like [INFO] 2025-01-07 13:25:40,318 Deleting UserLikes older than 2024-12-31 13:25:40.318198
+user [INFO] 2025-01-07 13:26:03,297 []
+user_match [INFO] 2025-01-07 13:26:03,298 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:26:03,303 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+scheduler [INFO] 2025-01-07 13:26:05,003 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:26:05,003 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:26:05,358 []
+user [ERROR] 2025-01-07 13:26:05,358 name 'user_second_id' is not defined
+scheduler [INFO] 2025-01-07 13:26:09,550 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:26:09,550 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:26:10,913 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:26:10,913 Starting job - name : Clean Old Likes
+user_like [INFO] 2025-01-07 13:26:19,604 Deleting UserLikes older than 2024-12-31 13:26:19.603984
+user_like [INFO] 2025-01-07 13:26:20,931 Deleting UserLikes older than 2024-12-31 13:26:20.931360
+scheduler [INFO] 2025-01-07 13:26:35,658 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:26:35,658 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:26:35,887 []
+user_match [INFO] 2025-01-07 13:26:35,888 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:26:35,892 [{'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:26:37,854 []
+user_match [INFO] 2025-01-07 13:26:37,855 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:26:37,858 [{'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [ERROR] 2025-01-07 13:26:39,154 Not enough segments
+user [INFO] 2025-01-07 13:26:42,925 []
+user_match [INFO] 2025-01-07 13:26:42,926 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:26:42,932 [{'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:26:44,961 []
+user_match [INFO] 2025-01-07 13:26:44,961 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:26:44,965 [{'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user_like [INFO] 2025-01-07 13:26:45,670 Deleting UserLikes older than 2024-12-31 13:26:45.670059
+scheduler [INFO] 2025-01-07 13:26:57,837 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:26:57,837 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:26:58,187 []
+user_match [INFO] 2025-01-07 13:26:58,188 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:26:58,193 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:26:59,403 []
+user_match [INFO] 2025-01-07 13:26:59,404 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:26:59,411 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:27:00,699 []
+user_match [INFO] 2025-01-07 13:27:00,700 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:27:00,704 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:27:01,493 []
+user_match [INFO] 2025-01-07 13:27:01,493 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:27:01,498 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user_like [INFO] 2025-01-07 13:27:07,846 Deleting UserLikes older than 2024-12-31 13:27:07.846626
+scheduler [INFO] 2025-01-07 13:27:12,434 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:27:12,434 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:27:12,668 []
+user_match [INFO] 2025-01-07 13:27:12,669 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:27:12,674 [{'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user_like [INFO] 2025-01-07 13:27:22,439 Deleting UserLikes older than 2024-12-31 13:27:22.439883
+scheduler [INFO] 2025-01-07 13:27:36,125 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:27:36,126 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:27:36,441 []
+user_match [INFO] 2025-01-07 13:27:36,442 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:27:36,447 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:27:37,672 []
+user_match [INFO] 2025-01-07 13:27:37,673 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:27:37,679 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:27:39,343 []
+user_match [INFO] 2025-01-07 13:27:39,344 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:27:39,349 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:27:40,194 []
+user_match [INFO] 2025-01-07 13:27:40,194 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:27:40,199 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user_like [INFO] 2025-01-07 13:27:46,136 Deleting UserLikes older than 2024-12-31 13:27:46.136326
+user [INFO] 2025-01-07 13:28:49,982 []
+user_match [INFO] 2025-01-07 13:28:49,982 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:28:49,989 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:28:57,891 []
+user_match [INFO] 2025-01-07 13:28:57,892 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:28:57,898 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:29:22,695 []
+user_match [INFO] 2025-01-07 13:29:22,695 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:29:22,700 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:29:25,859 []
+user_match [INFO] 2025-01-07 13:29:25,860 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:29:25,865 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+scheduler [INFO] 2025-01-07 13:29:48,517 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:29:48,518 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:29:49,986 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:29:49,986 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:29:50,168 []
+user_match [INFO] 2025-01-07 13:29:50,169 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:29:50,176 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:29:51,577 []
+user_match [INFO] 2025-01-07 13:29:51,578 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:29:51,584 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:29:58,085 []
+user_match [INFO] 2025-01-07 13:29:58,086 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:29:58,091 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user_like [INFO] 2025-01-07 13:29:58,524 Deleting UserLikes older than 2024-12-31 13:29:58.524548
+user_like [INFO] 2025-01-07 13:29:59,999 Deleting UserLikes older than 2024-12-31 13:29:59.999357
+user [INFO] 2025-01-07 13:30:08,587 []
+user_match [INFO] 2025-01-07 13:30:08,588 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:30:08,593 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:30:09,419 []
+user_match [INFO] 2025-01-07 13:30:09,420 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:30:09,425 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:30:09,995 []
+user_match [INFO] 2025-01-07 13:30:09,996 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:30:10,001 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:30:39,016 []
+user_match [INFO] 2025-01-07 13:30:39,017 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:30:39,022 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:31:20,140 []
+user_match [INFO] 2025-01-07 13:31:20,141 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:31:20,147 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:31:20,838 []
+user_match [INFO] 2025-01-07 13:31:20,839 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:31:20,844 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:31:21,412 []
+user_match [INFO] 2025-01-07 13:31:21,412 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:31:21,417 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:31:21,936 []
+user_match [INFO] 2025-01-07 13:31:21,937 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:31:21,941 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:31:45,270 []
+user_match [INFO] 2025-01-07 13:31:45,271 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:31:45,276 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:32:25,737 []
+user_match [INFO] 2025-01-07 13:32:25,738 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:32:25,743 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:32:39,013 []
+user_match [INFO] 2025-01-07 13:32:39,014 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:32:39,018 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:32:39,819 []
+user_match [INFO] 2025-01-07 13:32:39,820 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:32:39,825 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:32:44,604 []
+user_match [INFO] 2025-01-07 13:32:44,604 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:32:44,611 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:32:45,306 []
+user_match [INFO] 2025-01-07 13:32:45,307 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:32:45,312 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:32:48,433 []
+user_match [INFO] 2025-01-07 13:32:48,434 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:32:48,439 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:33:01,854 []
+user_match [INFO] 2025-01-07 13:33:01,855 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:33:01,860 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:33:07,698 []
+user_match [INFO] 2025-01-07 13:33:07,698 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:33:07,706 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:33:13,724 []
+user_match [INFO] 2025-01-07 13:33:13,724 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:33:13,729 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:33:19,254 []
+user_match [INFO] 2025-01-07 13:33:19,255 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:33:19,259 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:33:23,126 []
+user_match [INFO] 2025-01-07 13:33:23,127 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:33:23,131 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:34:01,190 []
+user_match [INFO] 2025-01-07 13:34:01,191 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:34:01,197 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:35:19,765 []
+user_match [INFO] 2025-01-07 13:35:19,766 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:35:19,770 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+scheduler [INFO] 2025-01-07 13:38:27,845 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:38:27,845 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:38:29,215 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:38:29,216 Starting job - name : Clean Old Likes
+user [ERROR] 2025-01-07 13:38:33,748 Invalid block tag on line 16: 'static', expected 'endblock'. Did you forget to register or load this tag?
+user [INFO] 2025-01-07 13:38:35,628 []
+user_match [INFO] 2025-01-07 13:38:35,629 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:38:35,636 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [ERROR] 2025-01-07 13:38:36,666 Invalid block tag on line 16: 'static', expected 'endblock'. Did you forget to register or load this tag?
+user_like [INFO] 2025-01-07 13:38:37,859 Deleting UserLikes older than 2024-12-31 13:38:37.859855
+user_like [INFO] 2025-01-07 13:38:39,232 Deleting UserLikes older than 2024-12-31 13:38:39.232415
+user [INFO] 2025-01-07 13:39:01,733 []
+user_match [INFO] 2025-01-07 13:39:01,734 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:39:01,738 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:39:09,030 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:39:09,031 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:39:09,036 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:39:11,316 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:39:11,317 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:39:11,323 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:39:12,023 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:39:12,024 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:39:12,030 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:39:35,710 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:39:35,711 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:39:35,715 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+scheduler [INFO] 2025-01-07 13:40:27,701 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:40:27,701 Starting job - name : Clean Old Likes
+user_like [INFO] 2025-01-07 13:40:37,711 Deleting UserLikes older than 2024-12-31 13:40:37.710993
+scheduler [INFO] 2025-01-07 13:40:45,446 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:40:45,446 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:40:45,879 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:40:45,880 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:40:45,885 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user_like [INFO] 2025-01-07 13:40:55,471 Deleting UserLikes older than 2024-12-31 13:40:55.471014
+user [INFO] 2025-01-07 13:41:00,638 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:41:00,638 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:41:00,643 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+scheduler [INFO] 2025-01-07 13:42:07,324 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:42:07,324 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:42:07,715 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:42:07,715 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:42:07,720 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [ERROR] 2025-01-07 13:42:07,722 'dict' object has no attribute 'user_id'
+user_like [INFO] 2025-01-07 13:42:17,332 Deleting UserLikes older than 2024-12-31 13:42:17.332389
+scheduler [INFO] 2025-01-07 13:42:24,202 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:42:24,202 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:42:26,396 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:42:26,397 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:42:26,401 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [ERROR] 2025-01-07 13:42:26,403 'dict' object has no attribute 'user_id'
+scheduler [INFO] 2025-01-07 13:42:32,235 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:42:32,235 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:42:34,574 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:42:34,575 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:42:34,579 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user_like [INFO] 2025-01-07 13:42:42,252 Deleting UserLikes older than 2024-12-31 13:42:42.252571
+scheduler [INFO] 2025-01-07 13:44:07,196 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:44:07,196 Starting job - name : Clean Old Likes
+user_like [INFO] 2025-01-07 13:44:17,213 Deleting UserLikes older than 2024-12-31 13:44:17.213263
+scheduler [INFO] 2025-01-07 13:44:36,295 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:44:36,295 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:44:36,817 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:44:36,818 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:44:36,823 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:44:38,294 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:44:38,295 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:44:38,300 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user_like [INFO] 2025-01-07 13:44:46,408 Deleting UserLikes older than 2024-12-31 13:44:46.408370
+scheduler [INFO] 2025-01-07 13:44:50,834 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:44:50,834 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:44:51,163 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:44:51,164 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:44:51,169 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:44:52,891 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:44:52,892 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:44:52,897 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user_like [INFO] 2025-01-07 13:45:00,840 Deleting UserLikes older than 2024-12-31 13:45:00.840337
+user [INFO] 2025-01-07 13:46:09,777 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:46:09,778 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:46:09,783 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:46:53,427 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:46:53,428 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:46:53,432 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:47:03,222 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:47:03,223 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:47:03,230 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:47:09,874 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:47:09,875 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:47:09,883 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:47:10,596 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:47:10,597 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:47:10,603 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+scheduler [INFO] 2025-01-07 13:52:41,828 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:52:41,829 Starting job - name : Clean Old Likes
+scheduler [INFO] 2025-01-07 13:52:43,356 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:52:43,356 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:52:46,587 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:52:46,588 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:52:46,594 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user_like [INFO] 2025-01-07 13:52:51,871 Deleting UserLikes older than 2024-12-31 13:52:51.870959
+user_like [INFO] 2025-01-07 13:52:53,368 Deleting UserLikes older than 2024-12-31 13:52:53.368877
+user [INFO] 2025-01-07 13:53:28,819 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (6)>}]
+user_match [INFO] 2025-01-07 13:53:28,819 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:53:28,823 [{'user_id': 5, 'username': 'mata', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [ERROR] 2025-01-07 13:53:31,106 Not enough segments
+user [INFO] 2025-01-07 13:53:35,484 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (4)>}]
+user_match [INFO] 2025-01-07 13:53:35,485 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:53:35,492 [{'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+scheduler [INFO] 2025-01-07 13:54:54,030 Starting scheduled jobs
+user_like [INFO] 2025-01-07 13:54:54,030 Starting job - name : Clean Old Likes
+user [INFO] 2025-01-07 13:54:54,217 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (4)>}]
+user_match [INFO] 2025-01-07 13:54:54,217 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:54:54,223 [{'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user [INFO] 2025-01-07 13:54:55,251 [{'chat_room_id': 5, 'name': '342436', 'last_message': <ChatMessage: ChatMessage object (23)>, 'user': <User: User object (4)>}]
+user_match [INFO] 2025-01-07 13:54:55,251 Matches: <QuerySet [<UserMatch: UserMatch object (7)>, <UserMatch: UserMatch object (8)>]>
+user [INFO] 2025-01-07 13:54:55,256 [{'user_id': 4, 'username': 'admin', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}, {'user_id': 6, 'username': 'hello', 'description_encoded_64': '', 'images': [], 'distance': 0.0, 'age': 0}]
+user_like [INFO] 2025-01-07 13:55:04,050 Deleting UserLikes older than 2024-12-31 13:55:04.050545
