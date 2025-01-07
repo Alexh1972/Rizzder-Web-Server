@@ -42,6 +42,7 @@
 * Occasionally, for small fixes we used the Github integrated editor.
 * For the frontend, we decided to use HTML, CSS and Javascript.
 * The database management system we used is SQLite.
+* In the database, we also keep track of the user's location, in case of punishments (fees not anything else).
 * For the meet feature, we used various filtering algorithms involving SQL subqueries and joins.
 * The authentication system for our application is based on simple-jwt.
 * The token will be stored in the cookie.
