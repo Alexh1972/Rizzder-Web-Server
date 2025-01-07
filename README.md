@@ -38,8 +38,11 @@
 
 * The backend part of the application was written in Python, using the Django framework.
 * The python version required to run the application is Python 3.13.1.
+* As for the main IDE, we used PyCharm.
+* Occasionally, for small fixes we used the Github integrated editor.
 * For the frontend, we decided to use HTML, CSS and Javascript.
 * The database management system we used is SQLite.
+* For the meet feature, we used various filtering algorithms involving SQL subqueries and joins.
 * The authentication system for our application is based on simple-jwt.
 * The token will be stored in the cookie.
 * Since we want our users to feel safe, we are using HTTPS and not HTTP.
@@ -69,3 +72,6 @@
 * Frontend frustrating problems:
   * Scroll-bar problems: Sometimes, on the HTML pages the scroll-bar wouldn't work. To fix this we had to introduce a new field for the css elements `overflow:auto`
 
+* PyCharm frustrations:
+   * In some moments, on one of our colleagues computer, PyCharm just didn't want to start and when it started it took aproximately 10 minutes.
+   * We couldn't fix this problem, so the result of this issue can be seen in some commit messages (<b>I hate PyCharm</b>).
