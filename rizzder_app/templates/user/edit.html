@@ -20,9 +20,9 @@
             <div class="col-lg-4 text-center">
                 <h3 class="mb-4" style="color: #e43c3c;">Update Profile</h3>
                 {% if user.getProfileImage %}
-                    <img src="data:image/png;base64,{{ user.getProfileImage.image_base_64_encoded }}" alt="Pfp" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 150px; height: 150px; object-fit: cover;">
+                    <img src="data:image/png;base64,{{ user.getProfileImage.image_base_64_encoded }}" alt="Pfp" class="rounded-circle mb-3 shadow" style="width: 150px; height: 150px; object-fit: cover;">
                 {% else %}
-                    <img src="https://www.shutterstock.com/image-vector/avatar-gender-neutral-silhouette-vector-600nw-2470054311.jpg" alt="No image provided" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 150px; height: 150px; object-fit: cover;">
+                    <img src="https://www.shutterstock.com/image-vector/avatar-gender-neutral-silhouette-vector-600nw-2470054311.jpg" alt="No image provided" class="rounded-circle mb-3 shadow" style="width: 150px; height: 150px; object-fit: cover;">
                 {% endif %}
                 <input id="photoFile" type="file" accept="image/png, image/jpeg" class="form-control mb-3">
                 <button id="editPhotoSubmit" class="btn btn-danger w-100" style="background-color: #cc3636;">Add Photo</button>
