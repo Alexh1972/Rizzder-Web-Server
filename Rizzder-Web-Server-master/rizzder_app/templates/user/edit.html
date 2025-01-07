@@ -1,0 +1,143 @@
+{% extends "_base.html" %}
+
+{% load static %}
+
+{% block title %}Rizzder - Account{% endblock %}
+
+{% block extra_head %}
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script src="{% static 'js/user/edit.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-5">
+        <div class="row">
+            <!-- Profile Section -->
+            <div class="col-lg-4 text-center">
+                <h3 class="mb-4" style="color: #e43c3c;">Update Profile</h3>
+                {% if user.getProfileImage %}
+                    <img src="data:image/png;base64,{{ user.getProfileImage.image_base_64_encoded }}" alt="Pfp" class="rounded-circle mb-3 shadow" style="width: 150px; height: 150px; object-fit: cover;">
+                {% else %}
+                    <img src="https://www.shutterstock.com/image-vector/avatar-gender-neutral-silhouette-vector-600nw-2470054311.jpg" alt="No image provided" class="rounded-circle mb-3 shadow" style="width: 150px; height: 150px; object-fit: cover;">
+                {% endif %}
+                <input id="photoFile" type="file" accept="image/png, image/jpeg" class="form-control mb-3">
+                <button id="editPhotoSubmit" class="btn btn-danger w-100" style="background-color: #cc3636;">Add Photo</button>
+            </div>
+
+            <!-- Form Section -->
+            <div class="col-lg-8">
+                <h3 class="mb-4" style="color: #af3434;">Personal Information</h3>
+                <form id="userSettingsForm" class="needs-validation" novalidate>
+                    <!-- Username -->
+                    <div class="mb-4">
+                        <label class="form-label" style="color: #e43c3c;">Username</label>
+                        <h5 class="text-muted">{{ user.username }}</h5>
+                    </div>
+
+                    <!-- Age -->
+                    <div class="mb-4">
+                        <label class="form-label" style="color: #e43c3c;">Age</label>
+                        <p class="form-text fs-5">{{ age }}</p>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-4">
+                        <label for="description" class="form-label" style="color: #e43c3c;">Description</label>
+                        <textarea id="description" class="form-control" rows="4" placeholder="Tell us something about yourself..."></textarea>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="mb-4">
+                        <label for="userGenderSelect" class="form-label" style="color: #e43c3c;">I am</label>
+                        <select id="userGenderSelect" class="form-select">
+                        </select>
+                    </div>
+
+                    <!-- Gender Preference -->
+                    <div class="mb-4">
+                        <label for="userGenderPreferenceSelect" class="form-label" style="color: #e43c3c;">I want to meet</label>
+                        <select id="userGenderPreferenceSelect" class="form-select">
+                        </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button id="editUserSubmit" type="submit" class="btn btn-danger w-100" style="background-color: #cc3636;">Save Changes</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Uploaded Photos Section -->
+        <div class="row mt-5">
+            <h3 style="color: #af3434;">Uploaded Photos</h3>
+            {% for image in images %}
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm position-relative">
+                        <!-- New Button for Making the Photo First -->
+                        <button data-id="{{ image.id }}" class="btn btn-primary makeFirstButton position-absolute"
+                                style="top: 10px; right: 10px; z-index: 10; padding: 5px 10px; font-size: 0.8rem;">
+                            Set Pfp
+                        </button>
+                        <img src="data:image/png;base64,{{ image.image_base_64_encoded }}" class="card-img-top" alt="Uploaded Photo" style="object-fit: cover; height: 200px;">
+                        <div class="card-body text-center">
+                            <button data-id="{{ image.id }}" class="btn btn-danger deleteButton w-100">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.makeFirstButton').forEach(button => {
+            button.addEventListener('click', async (event) => {
+                const imageId = event.target.getAttribute('data-id');
+
+                try {
+                    const token = getCookie('token'); // Ensure this function is defined
+                    const response = await fetch(`${window.location.origin}/api/user/edit/photo/changeProfileImage/?token=${encodeURIComponent(token)}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams({ image_id: imageId }).toString(),
+                    });
+
+                    // Debugging output
+                    console.log(`Request URL: ${window.location.origin}/api/user/edit/photo/changeProfileImage/?token=${encodeURIComponent(token)}`);
+                    console.log(`Request Payload: image_id=${imageId}`);
+                    console.log(`Response Status: ${response.status}`);
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+
+                    const contentType = response.headers.get('Content-Type') || '';
+                    const result = contentType.includes('application/json') ? await response.json() : await response.text();
+
+                    if (result.status === 'success') {
+                        location.reload(); // Or dynamically update the UI
+                    } else {
+                        alert(result.error || 'Failed to update profile image');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An unexpected error occurred. Please try again.');
+                }
+            });
+        });
+    });
+</script>
+
+
+    <script>
+        // Prefill description and selections dynamically
+        document.getElementById("description").value = atob("{{ user.description_encoded_64 }}");
+        gender = "{{ user.gender }}"
+        gender_preference = "{{ user.gender_preference }}"
+    </script>
+{% endblock %}
