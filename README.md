@@ -41,6 +41,7 @@
 * For the frontend, we decided to use HTML, CSS and Javascript.
 * The database management system we used is SQLite.
 * The authentication system for our application is based on simple-jwt.
+* The token will be stored in the cookie.
 * Since we want our users to feel safe, we are using HTTPS and not HTTP.
 * For the deployment and hosting part of the website, we used the platform Render, since it has a lot of free benefits and <b>doesn't require a credit card</b>
 
