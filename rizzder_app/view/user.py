@@ -435,10 +435,28 @@ def getChatRoomsView(request):
 
         if user is None:
             return redirect("login")
+
         logger.info(getChatRooms(user))
+
+        matches = getMatchesForUser(user)
+        logger.info(matches)
+
+
+        chats = getChatRooms(user)
+
+        remove_matches = []
+        for match in matches:
+            for CHAT in chats:
+                if match['user_id'] == CHAT['user'].user_id:
+                    remove_matches.append(match)
+
+        for match in remove_matches:
+            matches.remove(match)
+
         return render(request, "user/chatRooms.html",
                       context={'user': user,
-                               'array': zip(getChatRooms(user), last_time_array),})
+                               'matches': matches,
+                               'array': zip(chats, last_time_array),})
     except Exception as e:
         logger.error(e)
         return redirect("login")

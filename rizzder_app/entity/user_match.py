@@ -35,6 +35,7 @@ def getMatch(first, second):
 def matchUser(first, second):
     if not first.blockedUser(second):
         UserMatch.objects.create(user_first=second, user_second=first, date=currentTimeMillis())
+        logger.info("Matched " + first.username + " with " + second.username)
         second.changeScore(50)
         first.changeScore(50)
 
@@ -52,7 +53,11 @@ def unmatchUser(user, receiver, block=False):
             user.blockUser(receiver)
 
 def getMatchesForUser(user):
-    matches = UserMatch.objects.filter(user_first_id=user.user_id)
+    matches1 = UserMatch.objects.filter(user_first_id=user.user_id)
+    matches2 = UserMatch.objects.filter(user_second_id=user.user_id)
+    matches = matches1 | matches2
+
+    logger.info("Matches: " + str(UserMatch.objects.all()))
 
     users = []
     for match in matches.filter():

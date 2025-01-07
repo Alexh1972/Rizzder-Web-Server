@@ -64,7 +64,7 @@
             opacity: 0.2;
         }
 
-        .sidebar-chat h4 {
+        .chat-info h4 {
             margin-top: 10px;
             margin-bottom: -20px;
             padding-top: 10px;
@@ -107,6 +107,21 @@
 
 {% block content %}
     <div class="sidebar-chats">
+        {% for match in matches %}
+            <a class="sidebar-chat add-token" href="{{ url }}/user/chatRoom/?receiver_user_id={{ match.user_id }}">
+                <div class="chat-avatar">
+                        {% if chat.user.getProfileImage %}
+                            <img src="data:image/png;base64,{{ chat.user.getProfileImage.image_base_64_encoded }}" alt="Pfp" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 40px; height: 40px; object-fit: cover;">
+                        {% else %}
+                            <img src="https://www.shutterstock.com/image-vector/avatar-gender-neutral-silhouette-vector-600nw-2470054311.jpg" alt="No image provided" class="rounded-circle mb-3 shadow" id="profilePhoto" style="width: 40px; height: 40px; object-fit: cover;">
+                        {% endif %}
+                    </div>
+                <div class="chat-info">
+                    <h4>{{ match.username }}</h4>
+                    <p><p>Be the one to break the ice!</p></p>
+                </div>
+            </a>
+        {% endfor %}
         {% for chat, time in array %}
             {% if chat.user %}
                 <a class="sidebar-chat add-token" href="{{ url }}/user/chatRoom/?receiver_user_id={{ chat.user.user_id }}">
