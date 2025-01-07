@@ -28,7 +28,7 @@ def getChatRooms(user):
     retChatRooms = []
     for chatRoom in chatRooms:
         retChatRoom = chatRoom
-        if len(chatRoom['messages']) is not 0:
+        if len(chatRoom['messages']) != 0:
             retChatRoom['last_message'] = chatRoom['messages'][-1]
         else:
             retChatRoom['last_message'] = None
