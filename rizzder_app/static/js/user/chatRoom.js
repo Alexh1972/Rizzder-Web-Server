@@ -4,6 +4,7 @@ $(document).ready(function() {
             console.log("The connection was set up successfully!");
         };
         chatSocket.onclose = function (e) {
+            console.log(e);
             console.log("Something unexpected happened!");
         };
         document.querySelector("#sendMessage").onclick = function (e) {
