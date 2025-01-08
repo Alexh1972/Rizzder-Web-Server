@@ -10,7 +10,7 @@
   * <https://github.com/Alexh1972/Rizzder-Web-Server>
 
 * Website link:
-  * <https://rizzder-web-server.onrender.com/>
+  * <https://web-production-8696e.up.railway.app/>
 
 ## Application description ##
 
@@ -46,8 +46,7 @@
 * For the meet feature, we used various filtering algorithms involving SQL subqueries and joins.
 * The authentication system for our application is based on simple-jwt.
 * The token will be stored in the cookie.
-* Since we want our users to feel safe, we are using HTTPS and not HTTP.
-* For the deployment and hosting part of the website, we used the platform Render, since it has a lot of free benefits and <b>doesn't require a credit card</b>
+* For the deployment and hosting part of the website, we used the platform Railway, since it has a lot of free benefits and <b>doesn't require a credit card</b>
 
 ## Individual contributions ##
 
