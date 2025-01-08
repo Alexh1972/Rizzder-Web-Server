@@ -9,14 +9,11 @@ https://docs.djangoproject.com/en/5.1/howto/deployment/asgi/
 
 import os
 
-from django.core.asgi import get_asgi_application
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rizzder.settings')
 
 from channels.routing import ProtocolTypeRouter, URLRouter
 from rizzder_app import websocket_urlpatterns
 from channels.auth import AuthMiddlewareStack
-import os
 from django.core.asgi import get_asgi_application
 
 application = ProtocolTypeRouter(
@@ -24,7 +21,7 @@ application = ProtocolTypeRouter(
         "http": get_asgi_application(),
         "websocket": AuthMiddlewareStack(
             URLRouter(
-                rizzder_app.rounting.websocket_urlpatterns
+                websocket_urlpatterns
             )
         )
     }
