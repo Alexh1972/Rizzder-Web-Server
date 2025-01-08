@@ -57,32 +57,34 @@ def getMatchesForUser(user):
     matches1 = UserMatch.objects.filter(user_first_id=user.user_id)
     matches2 = UserMatch.objects.filter(user_second_id=user.user_id)
     matches = matches1 | matches2
-
+ 
     logger.info("Matches: " + str(UserMatch.objects.all()))
-
+ 
     users = []
     for match in matches.filter():
         match = model_to_dict(match)
         user_first = User.objects.get(user_id=match['user_first'])
         user_second = User.objects.get(user_id=match['user_second'])
         if user.user_id == user_first.user_id:
-            user = user_second
+            user_matched = user_second
         else:
-            user = user_first
-
-        users.append(user.serializeUser())
-
+            user_matched = user_first
+ 
+        if not user.blocked_users.filter(user_id=user_matched.user_id).exists():
+            users.append(user.serializeUser())
+ 
     matches = UserMatch.objects.filter(user_second_id=user.user_id)
-
+ 
     for match in matches.filter():
         match = model_to_dict(match)
         user_first = User.objects.get(user_id=match['user_first'])
         user_second = User.objects.get(user_id=match['user_second'])
         if user.user_id == user_first.user_id:
-            user = user_second
+            user_matched = user_second
         else:
-            user = user_first
-
-        users.append(user.serializeUser())
-
+            user_matched = user_first
+ 
+        if not user.blocked_users.filter(user_id=user_matched.user_id).exists():
+            users.append(user.serializeUser())
+ 
     return users
