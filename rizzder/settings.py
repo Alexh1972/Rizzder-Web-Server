@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'django_apscheduler',
     'rest_framework',
     'rest_framework_simplejwt',
-    'channels',
     'rizzder_app.scheduler.scheduler.JobsConfig',
     'rizzder_app'
 ]
