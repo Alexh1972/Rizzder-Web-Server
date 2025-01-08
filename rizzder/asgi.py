@@ -24,7 +24,7 @@ application = ProtocolTypeRouter(
         "http": get_asgi_application(),
         "websocket": AuthMiddlewareStack(
             URLRouter(
-                websocket_urlpatterns
+                rizzder_app.rounting.websocket_urlpatterns
             )
         )
     }
