@@ -70,7 +70,7 @@ def getMatchesForUser(user):
         else:
             user_matched = user_first
  
-        if not user.blocked_users.filter(user_id=user_matched.user_id).exists():
+        if not user.blockedUser(user_matched) and user_matched.serializeUser():
             users.append(user_matched.serializeUser())
  
     matches = UserMatch.objects.filter(user_second_id=user.user_id)
@@ -84,7 +84,7 @@ def getMatchesForUser(user):
         else:
             user_matched = user_first
  
-        if not user.blocked_users.filter(user_id=user_matched.user_id).exists():
+        if not user.blockedUser(user_matched) and user_matched.serializeUser():
             users.append(user_matched.serializeUser())
  
     return users
