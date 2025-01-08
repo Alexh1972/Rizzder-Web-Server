@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    const chatSocket = new WebSocket("wss://" + window.location.host + "/ws/" + roomName + "/");
+    const chatSocket = new WebSocket("ws://" + window.location.host + "/ws/" + roomName + "/");
         chatSocket.onopen = function (e) {
             console.log("The connection was set up successfully!");
         };
