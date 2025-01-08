@@ -18,18 +18,18 @@ class UserMatch(models.Model):
 
 
 def getMatch(first, second):
-    match = UserMatch.objects.filter(user_first_id=first.user_id,
-                                     user_second_id=second.user_id)
-
+    match = UserMatch.objects.filter(user_first__user_id=first.user_id,
+                                     user_second__user_id=second.user_id)
+ 
     if match.exists():
         return match.get()
-
-    match = UserMatch.objects.filter(user_first_id=second.user_id,
-                                     user_second_id=first.user_id)
-
+ 
+    match = UserMatch.objects.filter(user_first__user_id=second.user_id,
+                                     user_second__user_id=first.user_id)
+ 
     if match.exists():
         return match.get()
-
+ 
     return None
 
 
