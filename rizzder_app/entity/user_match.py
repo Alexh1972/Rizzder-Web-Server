@@ -70,10 +70,12 @@ def getMatchesForUser(user):
         else:
             user_matched = user_first
  
-        if not user.blockedUser(user_matched) and user_matched.serializeUser():
+        if not user.blockedUser(user_matched) and user_matched.serializeUser() not in users:
             users.append(user_matched.serializeUser())
  
     matches = UserMatch.objects.filter(user_second_id=user.user_id)
+ 
+    logger.info("Matches1: " + matches)
  
     for match in matches.filter():
         match = model_to_dict(match)
@@ -84,7 +86,7 @@ def getMatchesForUser(user):
         else:
             user_matched = user_first
  
-        if not user.blockedUser(user_matched) and user_matched.serializeUser():
+        if not user.blockedUser(user_matched) and user_matched.serializeUser() not in users:
             users.append(user_matched.serializeUser())
- 
+    logger.info("Matches2: " + matches)
     return users
