@@ -15,14 +15,16 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         from ..models import ChatRoom, User
         self.roomGroupName = self.scope['url_route']['kwargs']['room_name']
+        logger.info(self.roomGroupName)
         users = usersFromChatName(self.roomGroupName)
         if len(users) == 2:
             firstUser = User.objects.get(user_id=users[0])
             secondUser = User.objects.get(user_id=users[1])
-
+            logger.info(users)
+            logger.info(firstUser.canChat(secondUser))
             if not firstUser.canChat(secondUser):
                 await self.close()
-
+ 
         await self.channel_layer.group_add(
             self.roomGroupName,
             self.channel_name
