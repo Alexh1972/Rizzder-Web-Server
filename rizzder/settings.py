@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_apscheduler',
+    'channels',
     'rest_framework',
     'rest_framework_simplejwt',
     'rizzder_app.scheduler.scheduler.JobsConfig',
